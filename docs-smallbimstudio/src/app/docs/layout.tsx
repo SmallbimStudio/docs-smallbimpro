@@ -1,39 +1,51 @@
 // src/app/docs/layout.tsx
-import { Navigation } from "@/components/navigation";
-import { DocsSidebar } from "@/components/docs-sidebar";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+import { Separator } from "@/components/ui/separator"
+import { SidebarTrigger } from "@/components/ui/sidebar"
 
 export default function DocsLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <>
-      <Navigation />
-      <div className="container mx-auto px-4 py-6">
-        <div className="flex gap-8">
-          {/* Sidebar */}
-          <aside className="hidden md:block w-64 shrink-0">
-            <div className="sticky top-6">
-              <DocsSidebar />
-            </div>
-          </aside>
+      {/* Header (สไตล์เดียวกับ Home + จัดชิดซ้าย) */}
+      <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+        <SidebarTrigger className="-ml-1" />
+        <Separator
+          orientation="vertical"
+          className="mr-2 data-[orientation=vertical]:h-4"
+        />
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem className="hidden md:block">
+              <BreadcrumbLink href="/docs">
+                Small BIM PRO (Version 1.0)
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator className="hidden md:block" />
+            {/* เปลี่ยนเป็นชื่อเพจย่อยตามต้องการ: Docs / Getting Started / ฯลฯ */}
+            <BreadcrumbItem>
+              <BreadcrumbPage>Docs</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </header>
 
-          {/* Main Content */}
-          <main className="flex-1 max-w-3xl">
-            {children}
-          </main>
-        </div>
-      </div>
+      {/* Main content (ชิดซ้าย) */}
+      {/* ถ้าอยากจำกัดความกว้างให้ดูเรียบร้อยขึ้น ให้เพิ่ม max-w-3xl ได้ แต่ห้ามใส่ mx-auto */}
+      <main className="p-4">
+        {children}
+      </main>
 
-      {/* Footer */}
-      <footer className="border-t bg-gray-50 mt-12">
-        <div className="container mx-auto px-4 py-8">
-          <div className="text-center text-sm text-gray-600">
-            © 2025 SmallBIM Studio. สงวนสิทธิ์ทุกประการ.
-          </div>
-        </div>
-      </footer>
-    </>
-  );
+      </>
+  )
 }

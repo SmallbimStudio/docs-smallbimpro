@@ -1,0 +1,81 @@
+"use client"
+
+import * as React from "react"
+import { Check, ChevronsUpDown, GalleryVerticalEnd } from "lucide-react"
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import {
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar"
+
+type VersionSwitcherProps = {
+  versions: string[]
+  defaultVersion?: string
+}
+
+export function VersionSwitcher({
+  versions,
+  defaultVersion,
+}: VersionSwitcherProps) {
+  // เลือกค่าเริ่มต้น: defaultVersion > versions[0] > ""
+  const initial =
+    defaultVersion && versions.includes(defaultVersion)
+      ? defaultVersion
+      : versions[0] ?? ""
+
+  const [selectedVersion, setSelectedVersion] = React.useState(initial)
+
+  // helper: แสดงนำหน้าด้วย "v" แค่ครั้งเดียว
+  const withV = (v: string) => (v?.startsWith("v") ? v : `v${v}`)
+
+  return (
+    <SidebarMenu>
+      <SidebarMenuItem>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <SidebarMenuButton
+              size="lg"
+              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+            >
+              <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
+                <span className="material-symbols-outlined text-lg">article</span>
+              </div>
+
+              <div className="flex flex-col gap-0.5 leading-none">
+                <span className="font-medium">Small BIM PRO</span>
+                <span>{withV(selectedVersion)}</span>
+              </div>
+              <ChevronsUpDown className="ml-auto size-4" />
+            </SidebarMenuButton>
+          </DropdownMenuTrigger>
+
+          <DropdownMenuContent
+            className="w-(--radix-dropdown-menu-trigger-width)"
+            align="start"
+          >
+            {versions.map((version) => (
+              <DropdownMenuItem
+                key={version}
+                // onSelect ให้ return void และกัน focus-capture ถ้าจำเป็น
+                onSelect={(e) => {
+                  e.preventDefault()
+                  setSelectedVersion(version)
+                }}
+              >
+                {withV(version)}
+                {version === selectedVersion && <Check className="ml-auto size-4" />}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </SidebarMenuItem>
+    </SidebarMenu>
+  )
+}
