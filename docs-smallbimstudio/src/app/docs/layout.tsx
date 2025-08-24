@@ -28,7 +28,7 @@ export default function DocsLayout({
           <BreadcrumbList>
             <BreadcrumbItem className="hidden md:block">
               <BreadcrumbLink href="/docs">
-                Small BIM PRO (Version 1.0)
+                Small BIM PRO (Beta Version)
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator className="hidden md:block" />
