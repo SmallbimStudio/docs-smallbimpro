@@ -6,7 +6,7 @@ import AppShell from "@/components/app-shell"
 //  โหลด Anuphan (Regular และ Bold เช่น 400/700)
 const anuphan = Anuphan({
   subsets: ["latin", "thai"],
-  weight: ["300", "700"],  // เลือกน้ำหนักที่ต้องการ
+  weight: ["400", "700"],  // เลือกน้ำหนักที่ต้องการ
   display: "swap",
 })
 
@@ -31,8 +31,10 @@ export default function RootLayout({
         />
       </head>
       <body className={`${anuphan.className} antialiased min-h-dvh`}>
-        <AppShell>{children}</AppShell>
-      </body>
+  <div className="max-w-screen-2xl mx-auto px-6">
+    <AppShell>{children}</AppShell>
+  </div>
+</body>
     </html>
   )
 }

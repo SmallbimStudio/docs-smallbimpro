@@ -40,7 +40,7 @@ const NAV = [
     title: "Overview",
     url: "#",
     items: [
-      { title: "Dashboard", href: "/" },
+      { title: "Welcome Drink!", href: "/" },
     ],
   },
   {
