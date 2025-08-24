@@ -1,9 +1,8 @@
-// src/app/search/page.tsx
-import Link from "next/link"
+'use client'
 
-type SearchPageProps = {
-  searchParams?: { q?: string }
-}
+import { Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
+import Link from "next/link"
 
 // 🔧 ดัชนีหน้าเอกสารแบบง่าย (เริ่มต้นก่อน)
 // - แนะนำให้ย้ายค่าชุดนี้ไปไฟล์เดียว เช่น `lib/nav-data.ts`
@@ -14,8 +13,9 @@ const DOCS_INDEX = [
   // { title: "Docs – BOQ", href: "/docs/boq", keywords: ["boq", "estimation"] },
 ]
 
-export default function SearchPage({ searchParams }: SearchPageProps) {
-  const q = (searchParams?.q ?? "").trim().toLowerCase()
+function SearchContent() {
+  const searchParams = useSearchParams()
+  const q = (searchParams.get('q') ?? "").trim().toLowerCase()
 
   const results = q
     ? DOCS_INDEX.filter(
@@ -63,5 +63,13 @@ export default function SearchPage({ searchParams }: SearchPageProps) {
         </div>
       )}
     </div>
+  )
+}
+
+export default function SearchPage() {
+  return (
+    <Suspense fallback={<div className="p-4">กำลังโหลด...</div>}>
+      <SearchContent />
+    </Suspense>
   )
 }

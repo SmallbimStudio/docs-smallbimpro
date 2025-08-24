@@ -25,7 +25,7 @@ export default function Page() {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem className="hidden md:block">
-              <BreadcrumbLink href="/docs">Small BIM PRO (Version 1.0)</BreadcrumbLink>
+              <BreadcrumbLink href="/docs">Small BIM PRO (Version 0.0 (Beta))</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator className="hidden md:block" />
             <BreadcrumbItem>
