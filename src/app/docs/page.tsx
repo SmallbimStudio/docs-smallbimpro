@@ -32,7 +32,7 @@ export default function DocsOverview() {
 
         <div className="flex items-center justify-center gap-3 pt-2">
           <Button asChild>
-            <Link href="/docs/getting-started/introduction">
+            <Link href="/docs/download-installation">
               <BookOpen className="mr-2 h-4 w-4" />
               Getting Started
             </Link>
@@ -47,7 +47,7 @@ export default function DocsOverview() {
       </header>
       
       {/* ===== HERO IMAGE ===== */}
-      <div className="relative w-full h-[600px] md:h-[800px] rounded-2xl overflow-hidden border border-gray-300">
+      <div className="relative w-full h-[600px] md:h-[700px] rounded-2xl overflow-hidden border border-gray-300">
         <Image
           src="/images/docs//getting-started/title.jpg" // เปลี่ยน path เป็นไฟล์รูปของคุณ
           alt="Small BIM PRO Cover"
@@ -120,7 +120,7 @@ export default function DocsOverview() {
                   <Circle className="absolute -left-[22px] top-1 h-4 w-4 text-muted-foreground" />
                   <div className="flex items-start justify-between gap-4 rounded-md border p-3">
                     <div>
-                      <div className="font-medium">Development (Version 0.0.0) • Beta</div>
+                      <div className="font-medium">Development (Version 1.0.0)</div>
                       <p className="text-sm text-muted-foreground">
                         พัฒนาต้นแบบเครื่องมือประมาณราคา สำหรับ Revit 2024 (รองรับ 2025–2026 ในเฟสถัดไป)
                       </p>

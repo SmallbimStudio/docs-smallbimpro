@@ -74,18 +74,18 @@ function rowClassByKeynote(k: string) {
   return "bg-white"                                       // 6+ → ขาว
 }
 
-export default function DatabaseCard() {
+export default function DatabaseCard({ defaultKey = "" }: { defaultKey?: string }) {
   const [rows, setRows] = useState<Row[]>([])
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 
   // filter/view
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState(defaultKey)
   const [group, setGroup] = useState<Group>("ALL")
 
   // pagination
   const [page, setPage] = useState(1)
-  const [rowsPerPage, setRowsPerPage] = useState(25) // <— เปลี่ยนได้จาก selector
+  const [rowsPerPage, setRowsPerPage] = useState(25)
 
   useEffect(() => {
     let cancelled = false

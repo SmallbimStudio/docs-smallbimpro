@@ -1,0 +1,35 @@
+"use client"
+import * as React from "react"
+import { SidebarInset } from "@/components/ui/sidebar"
+import { Separator } from "@/components/ui/separator"
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
+
+function ImageBlock({ label }: { label: string }) { return (<figure className="rounded-2xl border bg-muted/30 overflow-hidden"><div className="aspect-video grid place-items-center text-sm text-muted-foreground">[ Image — {label} ]</div></figure>) }
+
+export default function Page() {
+  return (
+    <SidebarInset>
+      <div className="mx-auto max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-8">
+        <header className="space-y-2">
+          <h1 className="text-3xl md:text-4xl font-bold">Grid Dimension (Plan)</h1>
+          <p className="text-sm md:text-base text-muted-foreground">ใส่เส้นบอกระยะกริดในแปลนแบบรวดเร็ว</p>
+        </header>
+        <Separator />
+        <div className="grid lg:grid-cols-2 gap-6">
+          <section className="space-y-6">
+            <Card><CardHeader className="pb-2"><CardTitle className="text-base">คำอธิบาย</CardTitle></CardHeader><CardContent className="text-sm text-muted-foreground">เลือกกริดจากมุมมองปัจจุบันแล้วสร้างมิติอัตโนมัติ</CardContent></Card>
+            <Card><CardHeader className="pb-2"><CardTitle className="text-base">ทำอะไรได้บ้าง</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1"><li>ตั้งหัวมิติ/ค่าความละเอียด</li><li>จัดตำแหน่งหัว–ท้ายเป็นระเบียบ</li></ul></CardContent></Card>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <Card><CardHeader className="pb-2"><CardTitle className="text-base">Input</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1"><li>Plan View</li><li>Grids</li></ul></CardContent></Card>
+              <Card><CardHeader className="pb-2"><CardTitle className="text-base">Output</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1"><li>มิติกริดลองแกน X/Y</li><li>ระยะ/หัวลูกศรตามมาตรฐาน</li></ul></CardContent></Card>
+            </div>
+          </section>
+          <section className="space-y-4">
+            <ImageBlock label="Grid Dim Plan — Place" />
+            <ImageBlock label="Grid Dim Plan — Result" />
+          </section>
+        </div>
+      </div>
+    </SidebarInset>
+  )
+}

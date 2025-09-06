@@ -41,7 +41,7 @@ const NAV = [
     url: "#",
     items: [
       { title: "Welcome to Small BIM PRO", href: "/docs" },
-      { title: "Introduction", href: "/docs/getting-started/introduction" },
+      
     ],
   },
 
@@ -55,72 +55,92 @@ const NAV = [
       { title: "Uninstall", href: "/docs/uninstall" },
     ],
   },
-
+  {
+    title: "Data Preparation",
+    url: "#",
+    items: [
+      { title: "About Data Preparation", href: "/docs/data-preparation/about" },
+      { title: "Revit Template", href: "/docs/data-preparation/revit-template" },
+      { title: "Revit Parameters", href: "/docs/data-preparation/revit-parameters" },
+      { title: "Revit Shared Parameters", href: "/docs/data-preparation/shared-parameters" },
+      { title: "Revit Keynote", href: "/docs/data-preparation/revit-keynote" },
+      { title: "Database", href: "/docs/data-preparation/database" },
+    ],
+  },
   {
     title: "BOQ Tools",
     url: "#",
     items: [
-      { title: "BOQ (Main Tool)", href: "" },
-      { title: "Model Data Management", href: "" },
-      { title: "Database", href: "" },
+      { title: "BOQ", href: "/docs/boq-tools/boq" },
+      { title: "Model Data Management", href: "/docs/boq-tools/model-data-management" },
     ],
   },
 
   {
-    title: "Grid Creator",
-    url: "#",
-    items: [
-      { title: "Grid Layout", href: "" },
-      { title: "Grid Dimension", href: "" },
-    ],
-  },
-  {
     title: "Modeling Tools",
     url: "#",
     items: [
-      { title: "Foundation Support", href: "" },
-      { title: "Columns on Grids", href: "" },
-      { title: "Tag All Columns", href: "" },
-      { title: "Column Dim – Selected", href: "" },
-      { title: "Column Dim – All in View", href: "" },
-      { title: "Foundation Rebar", href: "" },
-      { title: "Column Rebar", href: "" },
-      { title: "Toggle Rebar Visibility", href: "" },
-      { title: "Brick Wall", href: "" },
-      { title: "Column/Lintel", href: "" },
+      { title: "Grid Layout", href: "/docs/modeling-tools/grid-layout" },
+      { title: "Foundation Support", href: "/docs/modeling-tools/foundation-support" },
+      { title: "Columns on Grids", href: "/docs/modeling-tools/columns-on-grids" },
+      { title: "Tag All Columns", href: "/docs/modeling-tools/tag-all-columns" },
+      { title: "Column Dim – Selected", href: "/docs/modeling-tools/column-dim-selected" },
+      { title: "Column Dim – All in View", href: "/docs/modeling-tools/column-dim-all-in-view" },
+      { title: "Toggle Rebar Visibility", href: "/docs/modeling-tools/toggle-rebar-visibility" },
+      { title: "Foundation Rebar", href: "/docs/modeling-tools/foundation-rebar" },
+      
+
     ],
   },
   {
     title: "Drawing Tools",
     url: "#",
     items: [
-      { title: "Fast Plan", href: "" },
-      { title: "Super Tag – All", href: "" },
-      { title: "Super Tag – Wall", href: "" },
-      { title: "Super Tag – Door", href: "" },
-      { title: "Super Tag – Window", href: "" },
-      { title: "Super Tag – Floor", href: "" },
-      { title: "Super Tag – Ceiling", href: "" },
-      { title: "Super Tag – Roof", href: "" },
-      { title: "Super Tag – Room", href: "" },
+      { title: "Fast Plan", href: "/docs/drawing-tools/fast-plan" },
+      { title: "Grid Dimension (Plan)", href: "/docs/drawing-tools/grid-dimension-plan" },
+      { title: "Grid Dimension (Elevation/Section)", href: "/docs/drawing-tools/grid-dimension-elevation-section" },
+      { title: "Level Dimension (Elevation/Section)", href: "/docs/drawing-tools/level-dimension-elevation-section" },
+      { title: "Super Tag (Plan)", href: "/docs/drawing-tools/super-tag-plan" },
+      { title: "Wall Tag (Plan)", href: "/docs/drawing-tools/wall-tag-plan" },
+      { title: "Door Tag (Plan)", href: "/docs/drawing-tools/door-tag-plan" },
+      { title: "Window Tag (Plan)", href: "/docs/drawing-tools/window-tag-plan" },
+      { title: "Floor Tag (Plan)", href: "/docs/drawing-tools/floor-tag-plan" },
+      { title: "Ceiling Tag (Plan)", href: "/docs/drawing-tools/ceiling-tag-plan" },
+      { title: "Roof Tag (Plan)", href: "/docs/drawing-tools/roof-tag-plan" },
+      { title: "Room Tag (Plan)", href: "/docs/drawing-tools/room-tag-plan" },
+      { title: "Wall Tag (Elevation/Section)", href: "/docs/drawing-tools/wall-tag-elevation-section" },
+      { title: "Door Tag (Elevation/Section)", href: "/docs/drawing-tools/door-tag-elevation-section" },
+      { title: "Window Tag (Elevation/Section)", href: "/docs/drawing-tools/window-tag-elevation-section" },
+      { title: "Floor Tag (Elevation/Section)", href: "/docs/drawing-tools/floor-tag-elevation-section" },
+      { title: "Ceiling Tag (Elevation/Section)", href: "/docs/drawing-tools/ceiling-tag-elevation-section" },
+      { title: "Roof Tag (Elevation/Section)", href: "/docs/drawing-tools/roof-tag-elevation-section" },
+      { title: "Room Tag (Elevation/Section)", href: "/docs/drawing-tools/room-tag-elevation-section" },
+      { title: "Legend 3D View", href: "/docs/drawing-tools/legend-3d-view" },
+      { title: "Legend Plan View", href: "/docs/drawing-tools/legend-plan-view" },
+      { title: "Legend Section", href: "/docs/drawing-tools/legend-section" },
+      { title: "Legend Elevation", href: "/docs/drawing-tools/legend-elevation" },
+      { title: "Legend Front View", href: "/docs/drawing-tools/legend-front-view" },
+      { title: "Legend Back View", href: "/docs/drawing-tools/legend-back-view" },
+      { title: "Legend Left View", href: "/docs/drawing-tools/legend-left-view" },
+      { title: "Legend Right View", href: "/docs/drawing-tools/legend-right-view" },
+      { title: "Legend Top View", href: "/docs/drawing-tools/legend-top-view" },
+      { title: "Legend Down View", href: "/docs/drawing-tools/legend-down-view" },
     ],
   },
+
   {
-    title: "Legend View",
+    title: "Cost Code Guide",
     url: "#",
     items: [
-      { title: "Legend 3D View", href: "" },
-      { title: "Legend Plan View", href: "" },
-      { title: "Legend Section", href: "" },
-      { title: "Legend Elevation", href: "" },
-      { title: "Legend Front", href: "" },
-      { title: "Legend Back", href: "" },
-      { title: "Legend Left", href: "" },
-      { title: "Legend Right", href: "" },
-      { title: "Legend Top", href: "" },
-      { title: "Legend Down", href: "" },
+      { title: "A-Structural", href: "/docs/cost-code-guide/a-structural" },
+      { title: "B-Architectural", href: "/docs/cost-code-guide/b-architectural" },
+      { title: "C-Electrical", href: "" },
+      { title: "D-Sanitary", href: "" },
+      { title: "E-Air Conditioning System", href: "" },
+      { title: "F-General", href: "" },
     ],
   },
+
   {
     title: "Small BIM PRO - Service",
     url: "#",
@@ -128,6 +148,34 @@ const NAV = [
       { title: "Online BOQ Transfer", href: "/docs/online-boq" },
     ],
   },
+  
+  {
+    title: "Troubleshooting & FAQ",
+    url: "#",
+    items: [
+      { title: "FAQ", href: "/docs/troubleshooting-faq/faq" },
+    ],
+  },
+
+  {
+    title: "Background & Research",
+    url: "#",
+    items: [
+      { title: "Overview & Table of Contents", href: "/docs/background-research" },
+      { title: "Why It Matters", href: "/docs/background-research/why-it-matters" },
+      { title: "Problems in Estimation", href: "/docs/background-research/estimation-problems" },
+      { title: "Challenges and Opportunities", href: "/docs/background-research/challenges-opportunities" },
+      { title: "Revit QTO Limitations", href: "/docs/background-research/revit-qto-limitations" },
+      { title: "Traditional vs Automated", href: "/docs/background-research/traditional-vs-automated" },
+      { title: "Our Solution: Revit Add-in", href: "/docs/background-research/our-solution" },
+      { title: "Empirical Comparison", href: "/docs/background-research/empirical-comparison" },
+      { title: "Beyond BOQ: Data & Future", href: "/docs/background-research/beyond-boq" },
+      { title: "Research Summary", href: "/docs/background-research/research-summary" },
+      { title: "Appendix & References", href: "/docs/background-research/appendix" },
+    ],
+  },
+
+  
   
   
 ] as const
@@ -154,7 +202,7 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <VersionSwitcher versions={["0.0.0 (Beta)"]} defaultVersion={"0.0.0 (Beta)"} />
+        <VersionSwitcher versions={["1.0.0"]} defaultVersion={"1.0.0"} />
         <SearchForm className="mt-1" />
       </SidebarHeader>
 
