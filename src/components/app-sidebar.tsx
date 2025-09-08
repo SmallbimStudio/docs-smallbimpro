@@ -52,7 +52,7 @@ const NAV = [
       { title: "Download and Installation", href: "/docs/download-installation" },
       { title: "Activate License", href: "/docs/activate-license" },
       { title: "License Status", href: "/docs/license-status" },
-      { title: "Uninstall", href: "/docs/uninstall" },
+      { title: "Update and Uninstall", href: "/docs/uninstall" },
     ],
   },
   {

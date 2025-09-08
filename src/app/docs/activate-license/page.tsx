@@ -1,5 +1,7 @@
 // src/app/docs/getting-started/page.tsx
 import Image from "next/image"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
+import { Card, CardContent } from "@/components/ui/card"
 
 function StepBlock({
   step,
@@ -57,6 +59,20 @@ export default function installation() {
         <h1 className="text-2xl font-semibold">Activate License</h1>
         <p>วิธีการเปิดใช้งาน Small BIM PRO</p>
       </header>
+
+      <Card className="overflow-hidden rounded-2xl border bg-card">
+        <CardContent>
+          <AspectRatio ratio={16 / 9}>
+            <iframe
+              src="https://www.youtube.com/embed/e1df1ntb8NQ"
+              title="Small BIM PRO Activate License Video"
+              className="w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </AspectRatio>
+        </CardContent>
+      </Card>
 
       <section className="space-y-6">
         
