@@ -1,0 +1,11 @@
+name = "smallbimpro-functions"   # ชื่อโปรเจกต์ (ต้องไม่ซ้ำใน account Cloudflare)
+main = "src/index.ts"            # entry point (ไฟล์ที่เราเขียน API รวมไว้)
+compatibility_date = "2025-09-10"  # วันที่ lock runtime (ใส่วันที่วันนี้)
+
+# optional: เปิด workers.dev ให้เข้าผ่าน <name>.workers.dev
+workers_dev = true
+
+[vars]
+PROMPTPAY_ID = "0622644878"
+GAS_REGISTER_URL = "https://script.google.com/macros/s/AKfycbwG7CxXFmc4uResunVOeNbUsfVS8i_63HUmsGttyOSmEY6U1EbKJ84KLIob-K_OkijW_w/exec"
+GAS_CONFIRM_URL = "https://script.google.com/macros/s/AKfycbzEJS7Gn6FUED3ZMNEFYlS8OeZFC7gI6-cLs8_r152fjtdAfJXHwTALxdjUlCOVdRECyQ/exec"
