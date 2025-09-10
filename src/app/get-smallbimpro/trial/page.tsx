@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea"
 import Link from "next/link"
 
 export default function RegisterPage() {
-  const formRef = useRef<HTMLFormElement>(null) // ✅ ใช้ ref
+  const formRef = useRef<HTMLFormElement>(null)
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<string | null>(null)
   const [success, setSuccess] = useState<boolean | null>(null)
@@ -24,18 +24,21 @@ export default function RegisterPage() {
     const payload = Object.fromEntries(formData.entries())
 
     try {
-      const res = await fetch("/api/register", {
+      const res = await fetch("https://smallbimpro-functions.youiscode14.workers.dev/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
-      })
+      });
 
-      const data = await res.json()
+      interface TrialResponse {
+        ok: boolean;
+        error?: string;
+      }
+
+      const data = (await res.json()) as TrialResponse;
       if (data.ok) {
         setSuccess(true)
         setMessage("✅ ลงทะเบียนสำเร็จ! กรุณาตรวจสอบอีเมลของคุณ")
-
-        // ✅ reset ผ่าน ref
         formRef.current?.reset()
       } else {
         setSuccess(false)

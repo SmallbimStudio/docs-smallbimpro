@@ -80,7 +80,7 @@ export default function BuyPage() {
       const buf = await file.arrayBuffer();
       const base64 = arrayBufferToBase64(buf);
 
-      const res = await fetch("/api/payment", {
+      const res = await fetch("https://smallbimpro-functions.youiscode14.workers.dev/api/payment", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -94,8 +94,15 @@ export default function BuyPage() {
         }),
       });
 
-      const data = await res.json();
-      if (res.ok && data?.ok) {
+
+      type ApiResponse = {
+        ok: boolean;
+        error?: string;
+        [key: string]: unknown;
+      };
+
+      const data: ApiResponse = await res.json();
+      if (data.ok) {
         setMsg("✅ ส่งข้อมูลยืนยันสำเร็จ! ทีมงานจะตรวจสอบและอัปเดตสถานะให้ภายใน 5-20 นาที โปรดตรวจสอบอีเมล์อีกครั้งครับ");
         form.reset();
       } else {
