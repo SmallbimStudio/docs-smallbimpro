@@ -1,7 +1,8 @@
 "use client"
 
 import * as React from "react"
-import { Check, ChevronsUpDown, GalleryVerticalEnd } from "lucide-react"
+import { Check, ChevronsUpDown } from "lucide-react"
+import Image from "next/image"
 
 import {
   DropdownMenu,
@@ -24,7 +25,6 @@ export function VersionSwitcher({
   versions,
   defaultVersion,
 }: VersionSwitcherProps) {
-  // เลือกค่าเริ่มต้น: defaultVersion > versions[0] > ""
   const initial =
     defaultVersion && versions.includes(defaultVersion)
       ? defaultVersion
@@ -32,7 +32,6 @@ export function VersionSwitcher({
 
   const [selectedVersion, setSelectedVersion] = React.useState(initial)
 
-  // helper: แสดงนำหน้าด้วย "v" แค่ครั้งเดียว
   const withV = (v: string) => (v?.startsWith("v") ? v : `v${v}`)
 
   return (
@@ -44,14 +43,21 @@ export function VersionSwitcher({
               size="lg"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
-              <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                <span className="material-symbols-outlined text-lg">article</span>
+              {/* ✅ Logo แทน icon เดิม */}
+              <div className="flex aspect-square size-8 items-center justify-center rounded-lg overflow-hidden">
+                <Image
+                  src="/images/logo/logo-smallbimstudio.png"
+                  alt="Small BIM PRO Logo"
+                  width={32}
+                  height={32}
+                />
               </div>
 
               <div className="flex flex-col gap-0.5 leading-none">
                 <span className="font-medium">Small BIM PRO</span>
                 <span>{withV(selectedVersion)}</span>
               </div>
+
               <ChevronsUpDown className="ml-auto size-4" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
@@ -63,7 +69,6 @@ export function VersionSwitcher({
             {versions.map((version) => (
               <DropdownMenuItem
                 key={version}
-                // onSelect ให้ return void และกัน focus-capture ถ้าจำเป็น
                 onSelect={(e) => {
                   e.preventDefault()
                   setSelectedVersion(version)

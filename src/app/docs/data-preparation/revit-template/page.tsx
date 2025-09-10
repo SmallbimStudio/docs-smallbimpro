@@ -43,21 +43,6 @@ export default function RevitTemplatePage() {
             <Badge>TH Standards</Badge>
             <Badge>BOQ / Cost-Ready</Badge>
           </div>
-
-         {/* ปุ่มดาวน์โหลด */}
-          <div className="pt-4 flex justify-center">
-            <Link 
-              href="https://smallbimstudio.com/downloads" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <Button className="flex items-center gap-2">
-                <Download className="h-4 w-4" />
-                ไปหน้าดาวน์โหลด Template
-              </Button>
-            </Link>
-          </div>
-
           <br/>
 
           <div className="rounded-3xl overflow-hidden border bg-muted/30">
@@ -245,7 +230,7 @@ export default function RevitTemplatePage() {
                   <td className="font-medium">รองรับ Revit</td>
                   <td>2021+</td>
                   <td>2021+</td>
-                  <td>2024+ (รุ่นนี้)</td>
+                  <td>2024+ (รุ่นนี้) และเวอร์ชั่นใหม่ในอนาคต</td>
                 </tr>
               </tbody>
             </table>

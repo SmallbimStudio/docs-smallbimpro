@@ -56,8 +56,8 @@ export default function installation() {
   return (
     <article className="space-y-6 leading-relaxed">
       <header className="space-y-1">
-        <h1 className="text-2xl font-semibold">Uninstall</h1>
-        <p>วิธีการถอนการติดตั้ง Small BIM PRO</p>
+        <h1 className="text-2xl font-semibold">Update and Uninstall</h1>
+        <p>วิธีการถอนการติดตั้ง Small BIM PRO และการอัพเดตเวอร์ชั่น</p>
       </header>
 
       <Card className="overflow-hidden rounded-2xl border bg-card">

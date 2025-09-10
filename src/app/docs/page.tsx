@@ -21,10 +21,10 @@ export default function DocsOverview() {
       {/* ===== HERO ===== */}
       <header className="mx-auto max-w-3xl text-center space-y-4">
         <span className="inline-flex items-center rounded-full border px-3 py-0 text-xs text-muted-foreground">
-          Small BIM Studio • Documentation
+          Small BIM Studio • Small BIM PRO
       </span>
         <h1 className="text-4xl font-bold tracking-tight">
-          ยินดีต้อนรับสู่เอกสาร <span className="whitespace-nowrap">Small BIM PRO</span>
+          ยินดีต้อนรับสู่ <span className="whitespace-nowrap">Small BIM PRO</span>
         </h1>
         <p className="text-sm md:text-base text-muted-foreground">
           เริ่มต้นใช้งาน Add-in และทำความเข้าใจ BOQ workflow เพื่อคุมงบประมาณแม่นยำตั้งแต่ต้นทาง
@@ -220,6 +220,63 @@ export default function DocsOverview() {
           <DatabaseCard />
         </div>
       </section>
+
+      {/* ===== Pricing & Trial Section ===== */}
+<section className="space-y-6">
+  <div className="mx-auto max-w-3xl text-center space-y-2">
+    <h2 className="text-3xl font-semibold tracking-tight">
+      เลือกแพ็กเกจ <span className="whitespace-nowrap">Small BIM PRO</span>
+    </h2>
+    <p className="text-sm md:text-base text-muted-foreground">
+      ทดลองใช้งานฟรี 7 วัน หรือสั่งซื้อทันทีในราคาพิเศษ Early Bird 40%
+    </p>
+  </div>
+
+  <div className="grid gap-6 md:grid-cols-3 items-stretch">
+    {/* Trial */}
+    <Card className="flex flex-col justify-between">
+      <CardHeader>
+        <CardTitle>ทดลองฟรี 7 วัน</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3 text-sm text-muted-foreground">
+        <p>ใช้งานครบทุกฟีเจอร์ของ Small BIM PRO ใน 7 วัน<br/> <span className="text-2xl font-bold">ฟรี 7 วัน</span></p>
+        <Button asChild className="w-full">
+          <Link href="/get-smallbimpro/trial">ลงทะเบียนรับ Trial</Link>
+        </Button>
+      </CardContent>
+    </Card>
+
+    {/* Pricing */}
+    <Card className="flex flex-col justify-between">
+      <CardHeader>
+        <CardTitle>ราคาเต็ม</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3 text-sm text-muted-foreground">
+        <p>License ตลอดชีพ <br/> <span className="text-2xl font-bold">12,500 บาท</span></p>
+        <Button asChild variant="outline" className="w-full">
+          <Link href="/get-smallbimpro/buy">โปรโมชั่น Early Bird ลด 40%</Link>
+        </Button>
+      </CardContent>
+    </Card>
+
+    {/* Early Bird */}
+    <Card className="flex flex-col justify-between border-primary">
+      <CardHeader>
+        <CardTitle>Early Bird -40%</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-3 text-sm text-muted-foreground">
+        <p>
+          พิเศษช่วงเปิดตัว <br/> 
+          <span className="text-2xl font-bold text-primary">7,500 บาท</span>
+        </p>
+        <Button asChild className="w-full">
+          <Link href="/get-smallbimpro/buy">ซื้อเลย</Link>
+        </Button>
+      </CardContent>
+    </Card>
+  </div>
+</section>
+
     </section>
   )
 }

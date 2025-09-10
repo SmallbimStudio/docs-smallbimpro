@@ -29,6 +29,9 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1&display=swap"
           rel="stylesheet"
         />
+
+        {/* Favicon */}
+          <link rel="icon" type="image/png" href="/favicon.png" />
       </head>
       <body className={`${anuphan.className} antialiased min-h-dvh`}>
   <div className="max-w-screen-2xl mx-auto px-6">

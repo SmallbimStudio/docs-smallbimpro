@@ -6,6 +6,9 @@ import { usePathname } from "next/navigation"
 import { SearchForm } from "@/components/search-form"
 import { VersionSwitcher } from "@/components/version-switcher"
 
+import Image from "next/image"
+
+
 // ✅ เพิ่มไอคอน + คอมโพเนนต์ย่อ/ขยาย
 import { Plus, Minus } from "lucide-react"
 import {
@@ -41,6 +44,17 @@ const NAV = [
     url: "#",
     items: [
       { title: "Welcome to Small BIM PRO", href: "/docs" },
+      { title: "Quick Start Guide", href: "/docs/quick-start-guide" },
+      
+    ],
+  },
+
+  {
+    title: "Get Small BIM PRO",
+    url: "#",
+    items: [
+      { title: "Buy Now (Early Bird 40%)", href: "/get-smallbimpro/buy" },
+      { title: "Register for Trial (7 วัน)", href: "/get-smallbimpro/trial" },      
       
     ],
   },
@@ -55,6 +69,7 @@ const NAV = [
       { title: "Update and Uninstall", href: "/docs/uninstall" },
     ],
   },
+  
   {
     title: "Data Preparation",
     url: "#",
