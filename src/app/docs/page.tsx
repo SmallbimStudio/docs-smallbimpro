@@ -522,7 +522,7 @@ function TestimonialCard({
       `}
     >
       <p className="text-muted-foreground italic leading-relaxed line-clamp-4">
-        "{children}"
+       &ldquo;{children}&rdquo;
       </p>
       <div className="mt-auto pt-4 border-t">
         <div className="font-semibold">{name}</div>
