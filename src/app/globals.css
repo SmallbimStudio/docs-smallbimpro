@@ -315,3 +315,23 @@
 .animate-pulse-slow {
   animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - 1.5rem)); /* ปรับให้พอดีกับ gap */
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite; /* เพิ่มเวลาให้ช้าลง */
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+
+

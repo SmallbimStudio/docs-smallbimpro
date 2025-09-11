@@ -311,7 +311,7 @@ export default function FeatureListsPage() {
     <div className="space-y-10">
       {/* Title */}
       <section className="text-center space-y-4">
-        <h1 className="text-4xl font-bold">Feature Lists</h1>
+        <h1 className="text-4xl font-bold">ฟีเจอร์หลักของ Small BIM PRO</h1>
         <p className="text-muted-foreground text-lg">
           คลิกเพื่อดูเครื่องมือการใช้งานทั้งหมดของ Small BIM PRO
         </p>

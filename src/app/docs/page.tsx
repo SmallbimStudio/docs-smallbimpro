@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { CheckCircle2, Zap, Wrench, FileSpreadsheet, PenTool, BookOpen, Users, Scale } from "lucide-react"
+import { useRef, useEffect } from "react"
+import { CheckCircle2, Zap, Wrench, FileSpreadsheet, PenTool, BookOpen, Users, Scale, Database, Settings, Calculator, Table, RefreshCcw } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -9,6 +10,30 @@ import { Separator } from "@/components/ui/separator"
 import CountUp from "react-countup"
 
 export default function SalePage() {
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  // ===== Testimonials Auto Scroll =====
+  useEffect(() => {
+    const scrollContainer = scrollRef.current
+    if (!scrollContainer) return
+
+    let scrollAmount = 0
+    const scrollStep = 1 // ความเร็ว
+    const scrollInterval = setInterval(() => {
+      if (!scrollContainer) return
+      scrollContainer.scrollLeft += scrollStep
+      scrollAmount += scrollStep
+
+      // รีเซ็ตถ้าเลื่อนสุด
+      if (scrollContainer.scrollLeft + scrollContainer.clientWidth >= scrollContainer.scrollWidth) {
+        scrollContainer.scrollLeft = 0
+        scrollAmount = 0
+      }
+    }, 30) // ความถี่
+
+    return () => clearInterval(scrollInterval)
+  }, [])
+
   return (
     <>
       <main className="max-w-screen-xl mx-auto px-4 space-y-32 pb-32">
@@ -26,7 +51,7 @@ export default function SalePage() {
             <h1 className="text-6xl font-bold tracking-tight leading-relaxed animate-title">
               Boost Your BIM Workflow with
               <div className="relative inline-block ml-2">
-                <span className="bg-black text-white px-4 rounded-md inline-block transform hover:scale-105 transition-transform
+                <span className="bg-black text-white px-4 rounded-lg inline-block transform hover:scale-105 transition-transform
                   animate-float relative z-10"
                 >
                   Small BIM PRO
@@ -43,119 +68,269 @@ export default function SalePage() {
             </p>
 
             <div className="flex justify-center gap-6 pt-6 animate-fade-up" style={{ animationDelay: '0.4s' }}>
-              <Button 
-                size="lg" 
-                className="h-14 px-10 text-lg transform hover:scale-105 transition-all hover:shadow-lg"
-              >
+              <Button asChild size="lg" className="px-8">
                 <Link href="/get-smallbimpro/trial">
                   ทดลองใช้ฟรี
                   <span className="ml-2 animate-bounce">→</span>
                 </Link>
               </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="h-14 px-10 text-lg relative overflow-hidden group"
-              >
+              <Button asChild size="lg" variant="outline" className="px-8">
                 <Link href="/get-smallbimpro/buy" className="relative z-10">
-                  ซื้อ Early Bird -40%
+                  สั่งซื้อ Early Bird -40%
                 </Link>
-                <div className="absolute inset-0 bg-primary/10 transform translate-y-full group-hover:translate-y-0 transition-transform"></div>
               </Button>
             </div>
           </div>
         </section>
 
-
-        {/* ===== CORE FEATURES ===== */}
-        <section className="grid grid-cols-3 gap-12 max-w-5xl mx-auto py-20" id="features">
-          <CoreFeature icon={<Zap className="w-8 h-8" />} title="Efficiency" description="ลดเวลาออกแบบ–เขียนแบบ" />
-          <CoreFeature icon={<Users className="w-8 h-8" />} title="Collaboration" description="แชร์ข้อมูลระหว่างทีมได้ง่าย" />
-          <CoreFeature icon={<Scale className="w-8 h-8" />} title="Scalability" description="รองรับโปรเจคทุกขนาด" />
+        {/* ===== PRODUCT PREVIEW ===== */}
+        <section className="relative w-full -mt-20">
+          <img
+            src="/images/promote/Salepage.png"
+            alt="Small BIM PRO Full Preview"
+            className="w-full h-auto object-contain"
+          />
         </section>
 
-        {/* ===== FEATURE GRID ===== */}
-        <section className="space-y-16">
+
+        {/* ===== FEATURE CATEGORIES (Overview Style = Feature Lists) ===== */}
+        <section className="space-y-10" id="features">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold">ฟีเจอร์หลัก</h2>
-            <p className="text-muted-foreground">ครบทุกเครื่องมือที่จำเป็นสำหรับ Revit + BIM</p>
+            <h2 className="text-4xl font-bold">ฟีเจอร์หลักของ Small BIM PRO</h2>
+            <p className="text-lg text-muted-foreground">
+              ครอบคลุมทุกเครื่องมือสำคัญสำหรับงาน BIM ระดับมืออาชีพ
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            <FeatureHighlight
-              icon={<FileSpreadsheet className="w-6 h-6" />}
-              title="BOQ Tools"
-              description="ระบบคำนวณ BOQ อัตโนมัติ"
-              items={["Export CSV/Excel", "Realtime Cost Link", "Loss % Auto", "Custom Template"]}
-            />
-            <FeatureHighlight
-              icon={<Wrench className="w-6 h-6" />}
-              title="Modeling Tools"
-              description="จัดการโมเดลรวดเร็วขึ้น"
-              items={["Batch Family Editor", "Instance Data Manager", "Quick Properties", "Workset Manager"]}
-            />
-            <FeatureHighlight
-              icon={<PenTool className="w-6 h-6" />}
-              title="Drawing Tools"
-              description="เร่งงานเขียนแบบ"
-              items={["Auto Sheet Naming", "Batch View Creation", "Sheet Index Generator", "Revision Tools"]}
-            />
-            <FeatureHighlight
-              icon={<BookOpen className="w-6 h-6" />}
-              title="Cost Code Standards"
-              description="มาตรฐานงานก่อสร้างไทย"
-              items={["Thai Keynote Library", "Material Standards", "Construction Methods", "Import/Export Template"]}
-            />
+          {/* Grid of Feature Categories */}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <Card
+              className="rounded-2xl shadow-md p-6 text-center flex flex-col items-center 
+                        hover:shadow-lg hover:border-primary/50 transition cursor-pointer"
+            >
+              <div className="mb-4">
+                <FileSpreadsheet className="w-10 h-10 text-primary" />
+              </div>
+              <h3 className="font-semibold text-xl">BOQ Tools</h3>
+              <p className="text-sm text-muted-foreground mt-2">
+                เครื่องมือสำหรับคำนวณ BOQ, Export ปริมาณ และ Mapping ราคากลาง
+              </p>
+              <CardContent className="mt-auto pt-4 flex items-center gap-2">
+                <span className="text-primary font-medium">2 Tools</span>
+              </CardContent>
+            </Card>
+
+            <Card
+              className="rounded-2xl shadow-md p-6 text-center flex flex-col items-center 
+                        hover:shadow-lg hover:border-primary/50 transition cursor-pointer"
+            >
+              <div className="mb-4">
+                <Wrench className="w-10 h-10 text-primary" />
+              </div>
+              <h3 className="font-semibold text-xl">Modeling Tools</h3>
+              <p className="text-sm text-muted-foreground mt-2">
+                เครื่องมือสำหรับช่วยในการสร้างและจัดการโมเดลได้เร็วขึ้น
+              </p>
+              <CardContent className="mt-auto pt-4 flex items-center gap-2">
+                <span className="text-primary font-medium">8 Tools</span>
+              </CardContent>
+            </Card>
+
+            <Card
+              className="rounded-2xl shadow-md p-6 text-center flex flex-col items-center 
+                        hover:shadow-lg hover:border-primary/50 transition cursor-pointer"
+            >
+              <div className="mb-4">
+                <PenTool className="w-10 h-10 text-primary" />
+              </div>
+              <h3 className="font-semibold text-xl">Drawing Tools</h3>
+              <p className="text-sm text-muted-foreground mt-2">
+                เครื่องมือสำหรับช่วยในการเขียนแบบให้เร็วและสวยงามมากขึ้น
+              </p>
+              <CardContent className="mt-auto pt-4 flex items-center gap-2">
+                <span className="text-primary font-medium">29 Tools</span>
+              </CardContent>
+            </Card>
+
+            <Card
+              className="rounded-2xl shadow-md p-6 text-center flex flex-col items-center 
+                        hover:shadow-lg hover:border-primary/50 transition cursor-pointer"
+            >
+              <div className="mb-4">
+                <BookOpen className="w-10 h-10 text-primary" />
+              </div>
+              <h3 className="font-semibold text-xl">Database & Standards</h3>
+              <p className="text-sm text-muted-foreground mt-2">
+                บริการเสริมทั้ง Template, ระบบฐานข้อมูลวัสดุ และมาตรฐานต่างๆ
+              </p>
+              <CardContent className="mt-auto pt-4 flex items-center gap-2">
+                <span className="text-primary font-medium">Free Download</span>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center pt-8">
+            <Button asChild size="lg" variant="outline" className="px-8">
+              <Link href="/get-smallbimpro/feature-lists">ดูฟีเจอร์ทั้งหมด →</Link>
+            </Button>
           </div>
         </section>
 
-        <Separator />
+        {/* ===== WHY CHOOSE US ===== */}
+        <section className="relative bg-muted/30 -mx-4 px-4 py-20 mt-32">
+          <div className="max-w-5xl mx-auto space-y-12">
+            {/* Heading */}
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl font-bold">ทำไมต้อง Small BIM PRO?</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                เราพัฒนาซอฟต์แวร์โดยเข้าใจความต้องการของสถาปนิกและวิศวกรไทย ที่ใช้งาน Revit เป็นหลัก
+                <br />
+                เพื่อช่วยให้คุณทำงานได้เร็วขึ้น แม่นยำขึ้น และควบคุมงบประมาณได้ดียิ่งขึ้น 
+              </p>
+            </div>
+
+            {/* Stats */}
+            <div className="grid md:grid-cols-4 gap-8">
+              <StatCard
+                label="ลดเวลาทำ BOQ"
+                number={<CountUp end={80} duration={2} suffix="%" />}
+                description="ประหยัดเวลาในการคำนวณและทำเอกสาร"
+              />
+              <StatCard
+                label="ความแม่นยำ"
+                number={<CountUp end={100} duration={2} suffix="%" />}
+                description="คำนวณปริมาณงานได้ครบถ้วน ไม่ตกหล่น"
+              />
+              <StatCard
+                label="ทำงานได้เร็วขึ้น"
+                number="มากๆ"
+                description="ทั้งการสร้างโมเดลและการเขียนแบบซ้ำๆ"
+              />
+              <StatCard
+                label="ทีมซัพพอร์ต"
+                number="24/7"
+                description="ทีมงานพร้อมช่วยเหลือตลอดการใช้งาน"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ===== PRODUCT PREVIEW ===== */}
+        <section className="relative w-full -mt-20">
+          <img
+            src="/images/promote/boqpage.png"
+            alt="Small BIM PRO Full Preview"
+            className="w-full h-auto object-contain"
+          />
+        </section>
 
         {/* ===== TESTIMONIALS ===== */}
         <section className="space-y-10 text-center">
           <h2 className="text-3xl font-bold">เสียงจากผู้ใช้งานจริง</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Testimonial name="คุณกิตติ" role="วิศวกรโครงการ">
-              ใช้งาน Small BIM PRO แล้วลดเวลาเขียนแบบไปได้ครึ่งนึง!
-            </Testimonial>
-            <Testimonial name="คุณอร" role="สถาปนิกอิสระ">
-              ฟีเจอร์ BOQ Tools คุ้มค่ามาก ดึงราคากลางอัตโนมัติทันใจ
-            </Testimonial>
-            <Testimonial name="คุณปิยะ" role="ผู้รับเหมา">
-              โปรแกรมช่วยให้ตรวจสอบงบประมาณง่ายขึ้น ไม่พลาดต้นทุน
-            </Testimonial>
+
+          <div className="relative overflow-hidden">
+            {/* Gradient Masks */}
+            <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-background to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-background to-transparent z-10"></div>
+
+            <div className="flex gap-6 animate-scroll py-4">
+              {/* First set */}
+              {testimonials.map((t, i) => (
+                <TestimonialCard 
+                  key={i} 
+                  name={t.name} 
+                  role={t.role}
+                  className="min-w-[320px]" // กำหนดความกว้างแน่นอน
+                >
+                  {t.text}
+                </TestimonialCard>
+              ))}
+              {/* Duplicate set for seamless loop */}
+              {testimonials.map((t, i) => (
+                <TestimonialCard 
+                  key={`dup-${i}`} 
+                  name={t.name} 
+                  role={t.role}
+                  className="min-w-[320px]" // กำหนดความกว้างแน่นอน
+                >
+                  {t.text}
+                </TestimonialCard>
+              ))}
+            </div>
           </div>
         </section>
 
         <Separator />
 
         {/* ===== PRICING ===== */}
-        <section id="pricing" className="space-y-6">
-          <div className="mx-auto max-w-3xl text-center space-y-2">
-            <Badge>Early Bird -40%</Badge>
-            <h2 className="text-3xl font-bold">ราคาพิเศษช่วงเปิดตัว</h2>
+        <section id="pricing" className="space-y-12 py-20 bg-muted/20 rounded-2xl">
+          {/* Heading */}
+          <div className="mx-auto max-w-3xl text-center space-y-3">
+            <Badge className="px-3 py-1 text-sm">Early Bird -40%</Badge>
+            <h2 className="text-4xl font-bold tracking-tight">ราคาพิเศษช่วงเปิดตัว</h2>
+            <p className="text-muted-foreground">
+              รีบคว้าโอกาสในช่วง Early Bird ก่อนกลับสู่ราคาเต็ม{" "}
+              <span className="line-through text-red-500">12,500 บาท</span>
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <PriceCardMinimal
-              title="ทดลองใช้"
-              price="ฟรี"
-              duration="7 วัน"
-              features={["ใช้งานได้ครบทุกฟีเจอร์", "วิดีโอสอนใช้งาน", "ตัวอย่างโปรเจค"]}
-              href="/get-smallbimpro/trial"
-              buttonText="เริ่มใช้ฟรี"
-            />
-            <PriceCardMinimal
-              title="License ถาวร"
-              price="7,500"
-              duration="ตลอดชีพ"
-              features={["อัพเดทฟรี", "ฐานข้อมูลราคากลาง", "Premium Support"]}
-              href="/get-smallbimpro/buy"
-              buttonText="ซื้อเลย"
-              highlighted
-            />
+          {/* Pricing Cards */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Free Trial */}
+            <div className="relative p-8 rounded-2xl border bg-card shadow-sm hover:shadow-lg transition-all">
+              <h3 className="text-lg font-semibold">ทดลองใช้ฟรี</h3>
+              <div className="mt-4">
+                <span className="text-4xl font-bold">ฟรี</span>
+                <span className="text-muted-foreground"> / 7 วัน</span>
+              </div>
+              <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" /> ใช้งานได้ครบทุกฟีเจอร์
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" /> วิดีโอสอนใช้งาน
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" /> ตัวอย่างโปรเจค
+                </li>
+              </ul>
+              <Button asChild className="mt-8 w-full" variant="outline">
+                <Link href="/get-smallbimpro/trial">เริ่มใช้ฟรี</Link>
+              </Button>
+            </div>
+
+            {/* Lifetime License */}
+            <div className="relative p-8 rounded-2xl border-2 border-primary bg-card shadow-lg hover:shadow-xl transition-all">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <Badge className="bg-primary text-white">Best Value</Badge>
+              </div>
+              <h3 className="text-lg font-semibold">License ถาวร</h3>
+              <div className="mt-4">
+                <span className="text-4xl font-bold">7,500</span>
+                <span className="text-muted-foreground"> / ตลอดชีพ</span>
+              </div>
+              <p className="text-sm text-muted-foreground mt-1">
+                จากราคาเต็ม <span className="line-through text-red-500">12,500 บาท</span>
+              </p>
+              <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" /> อัพเดทฟรีตลอดชีพ
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" /> ฐานข้อมูลราคากลาง
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" /> Premium Support
+                </li>
+              </ul>
+              <Button asChild className="mt-8 w-full h-12 text-lg">
+                <Link href="/get-smallbimpro/buy">ซื้อเลย</Link>
+              </Button>
+            </div>
           </div>
         </section>
+
 
         <Separator />
 
@@ -163,24 +338,10 @@ export default function SalePage() {
         <section id="faq" className="space-y-8">
           <h2 className="text-3xl font-bold text-center">FAQ</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <FaqItem q="Small BIM PRO ใช้กับ Revit เวอร์ชันไหนได้?" a="รองรับ Revit 2024 ขึ้นไป" />
+            <FaqItem q="Small BIM PRO ใช้กับ Revit เวอร์ชันไหนได้?" a="ในเวอร์ชั่นแรก จะรองรับเพียงแค่ Revit 2024" />
             <FaqItem q="License ใช้งานได้กี่เครื่อง?" a="1 License / 1 เครื่อง (สามารถย้ายได้)" />
             <FaqItem q="อัพเดทฟรีไหม?" a="Early Bird + License ถาวร จะได้รับอัพเดทฟรีตลอดชีพ" />
             <FaqItem q="มีทีม Support ไหม?" a="มีทีมงานตอบคำถามและแก้ปัญหาผ่านอีเมล" />
-          </div>
-        </section>
-
-        {/* ===== FINAL CTA ===== */}
-        <section className="text-center space-y-6 pt-20">
-          <h2 className="text-3xl font-bold">พร้อมเริ่มต้นหรือยัง?</h2>
-          <p className="text-muted-foreground">ทดลองใช้ฟรี 7 วัน หรือซื้อในราคาพิเศษ Early Bird</p>
-          <div className="flex justify-center gap-4">
-            <Button size="lg">
-              <Link href="/get-smallbimpro/trial">ทดลองใช้ฟรี</Link>
-            </Button>
-            <Button size="lg" variant="outline">
-              <Link href="/get-smallbimpro/buy">ซื้อเลย</Link>
-            </Button>
           </div>
         </section>
       </main>
@@ -194,12 +355,22 @@ export default function SalePage() {
 }
 
 /* ---------------- COMPONENTS ---------------- */
-function CoreFeature({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
+function CoreFeature({ icon, title, description }: { 
+  icon: React.ReactNode
+  title: string
+  description: string 
+}) {
   return (
-    <div className="text-center space-y-4">
-      <div className="mx-auto w-16 h-16 rounded-2xl bg-primary/5 flex items-center justify-center">{icon}</div>
-      <h3 className="font-semibold">{title}</h3>
-      <p className="text-sm text-muted-foreground">{description}</p>
+    <div className="relative group text-center p-8 rounded-2xl border bg-card shadow-sm 
+                    hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+      <div className="mx-auto w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center
+                      mb-6 group-hover:bg-primary/20 transition-colors">
+        {icon}
+      </div>
+      <h3 className="text-xl font-semibold mb-3">{title}</h3>
+      <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+      <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-primary 
+                       rounded-full group-hover:w-1/2 transition-all duration-500"></span>
     </div>
   )
 }
@@ -269,3 +440,109 @@ function FaqItem({ q, a }: { q: string, a: string }) {
     </Card>
   )
 }
+
+function FeatureCard({ 
+  icon, 
+  title, 
+  description, 
+  hot 
+}: { 
+  icon: React.ReactNode
+  title: string
+  description: string
+  hot?: boolean
+}) {
+  return (
+    <Card className={`
+      relative overflow-hidden transition-all duration-300
+      hover:shadow-lg hover:scale-105
+      ${hot ? 'border-primary/50' : ''}
+    `}>
+      <CardHeader>
+        <div className="flex items-center gap-4">
+          <div className="p-2 rounded-lg bg-primary/5">
+            {icon}
+          </div>
+          <CardTitle className="text-lg">{title}</CardTitle>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <p className="text-muted-foreground">{description}</p>
+      </CardContent>
+      {hot && (
+        <div className="absolute top-0 right-0">
+          <Badge variant="default" className="rounded-none rounded-bl">Hot</Badge>
+        </div>
+      )}
+    </Card>
+  )
+}
+
+function StatCard({ 
+  label, 
+  number, 
+  description 
+}: { 
+  label: string
+  number: React.ReactNode
+  description: string
+}) {
+  return (
+    <div
+      className="text-center p-6 rounded-xl border bg-card 
+                 hover:shadow-lg hover:scale-105 transition-all duration-300"
+    >
+      <div className="font-medium text-lg mb-2">{label}</div>
+      <div className="text-4xl font-bold bg-gradient-to-r from-primary to-primary/70 text-transparent bg-clip-text mb-3">
+        {number}
+      </div>
+      <p className="text-sm text-muted-foreground">{description}</p>
+    </div>
+  )
+}
+
+function TestimonialCard({
+  name,
+  role,
+  children,
+  className = "",
+}: {
+  name: string
+  role: string
+  children: React.ReactNode
+  className?: string
+}) {
+  return (
+    <div
+      className={`
+        shrink-0 bg-card border rounded-xl shadow-md 
+        p-6 text-left hover:shadow-lg transition-all duration-300
+        w-[320px] h-[200px] flex flex-col justify-between
+        ${className}
+      `}
+    >
+      <p className="text-muted-foreground italic leading-relaxed line-clamp-4">
+        "{children}"
+      </p>
+      <div className="mt-auto pt-4 border-t">
+        <div className="font-semibold">{name}</div>
+        <div className="text-sm text-muted-foreground">{role}</div>
+      </div>
+    </div>
+  )
+}
+
+// Add testimonials data at the top of the file
+const testimonials = [
+  
+  { name: "คุณกิตติ", role: "วิศวกรโครงการ", text: "ใช้งาน Small BIM PRO แล้วลดเวลาเขียนแบบไปได้ครึ่งนึง!" },
+  { name: "คุณอร", role: "สถาปนิกอิสระ", text: "ฟีเจอร์ BOQ Tools คุ้มค่ามาก จากที่เคยจ้างทำ BOQ ตอนนี้ทำเองได้เลย แถมสะดวกสุดๆ" },
+  { name: "PO BIM Group", role: "วิศวกร", text: "เป็นตัวช่วยคู่ผู้ใช้ ในงานออกแบบ กับงานออกแบบในไทยได้ดีมากครับ" },
+  { name: "คุณปิยะ", role: "สถาปนิกอิสระ", text: "Fast Plan เป็นอะไรที่ว้าวมาก แต่ติดที่ต้องสร้างโมเดลให้เก่งก่อน แต่ถ้าทำได้คือชีวิตดีขึ้นเยอะ" },
+  { name: "คุณเมย์", role: "วิศวกรโครงการ", text: "ทีมซัพพอร์ตตอบเร็วมาก มีปัญหาติดต่อได้ตลอด" },
+  { name: "คุณต้น", role: "สถาปนิกอิสระ", text: "Small BIM PRO ทำให้การทำงานใน Revit ราบรื่นขึ้นมาก ฟีเจอร์ครบถ้วน ใช้งานง่าย" },
+  { name: "คุณเบส", role: "สถาปนิกอิสระ", text: "Fast Plan ปุ่มเดียวได้แปลนของจริง ช่วยลดเวลาทำงานไปได้เยอะ" },
+
+  
+]
+
