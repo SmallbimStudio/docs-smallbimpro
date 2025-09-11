@@ -1,7 +1,9 @@
 "use client"
 
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
+import { Search } from "lucide-react" // เพิ่ม import
+import { Input } from "@/components/ui/input" // เพิ่ม import
 
 import { SearchForm } from "@/components/search-form"
 import { VersionSwitcher } from "@/components/version-switcher"
@@ -37,8 +39,20 @@ import {
    - ให้ href ตรงกับเส้นทางจริงใน /app
    - ถ้ายังไม่มีหน้า ใช้ "#" ชั่วคราวได้
 ========================================================= */
-const NAV = [
+// เพิ่ม type definitions
+export type NavItem = {
+  title: string
+  href: string
+}
 
+export type NavCategory = {
+  title: string
+  url: string
+  items: NavItem[]
+}
+
+// export NAV array
+export const NAV: NavCategory[] = [
   {
     title: "Getting Started",
     url: "#",
@@ -196,8 +210,34 @@ const NAV = [
   
 ] as const
 
+function SearchInput() {
+  const router = useRouter()
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget)
+    const searchQuery = formData.get('search')?.toString() ?? ''
+    if (searchQuery.trim()) {
+      router.push(`/search?q=${encodeURIComponent(searchQuery)}`)
+    }
+  }
+
+  return (
+    <form onSubmit={handleSearch} className="relative">
+      <Input
+        type="search"
+        name="search"
+        placeholder="ค้นหาเอกสาร..."
+        className="w-full pl-8"
+      />
+      <Search className="absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+    </form>
+  )
+}
+
 export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   const pathname = usePathname()
+  const router = useRouter()
 
   // เช็ค active ของลิงก์
   const isActive = (href?: string) => {
@@ -219,7 +259,9 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
     <Sidebar {...props}>
       <SidebarHeader>
         <VersionSwitcher versions={["1.0.0"]} defaultVersion={"1.0.0"} />
-        <SearchForm className="mt-1" />
+        <div className="px-4 py-2">
+          <SearchInput />
+        </div>
       </SidebarHeader>
 
       <SidebarContent>

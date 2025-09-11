@@ -3,63 +3,70 @@
 import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from "next/link"
-
-// 🔧 ดัชนีหน้าเอกสารแบบง่าย (เริ่มต้นก่อน)
-// - แนะนำให้ย้ายค่าชุดนี้ไปไฟล์เดียว เช่น `lib/nav-data.ts`
-//   แล้ว import มาใช้ทั้ง Sidebar และ Search เพื่อไม่ให้ข้อมูลซ้ำ
-const DOCS_INDEX = [
-  { title: "Docs – Overview", href: "/docs", keywords: ["overview", "docs"] },
-  { title: "Docs – Getting Started", href: "/docs/getting-started", keywords: ["install", "setup", "start"] },
-  // { title: "Docs – BOQ", href: "/docs/boq", keywords: ["boq", "estimation"] },
-]
+import { SEARCH_INDEX, type SearchItem } from '@/lib/search-data'
+import { Badge } from "@/components/ui/badge"
 
 function SearchContent() {
   const searchParams = useSearchParams()
   const q = (searchParams.get('q') ?? "").trim().toLowerCase()
 
-  const results = q
-    ? DOCS_INDEX.filter(
-        (item) =>
+  const results: SearchItem[] = q
+    ? SEARCH_INDEX.filter(
+        (item: SearchItem) =>
           item.title.toLowerCase().includes(q) ||
-          (item.keywords ?? []).some((k) => k.toLowerCase().includes(q))
+          item.category.toLowerCase().includes(q) ||
+          (item.keywords ?? []).some((k: string) => k.toLowerCase().includes(q))
       )
     : []
 
   return (
-    <div className="p-4">
-      <h1 className="text-xl font-semibold">Search</h1>
+    <div className="container max-w-3xl py-8">
+      <h1 className="text-2xl font-bold mb-2">ค้นหาเอกสาร</h1>
 
       {q ? (
-        <p className="mt-1 mb-4 text-sm text-muted-foreground">
-          Showing {results.length} result{results.length !== 1 ? "s" : ""} for{" "}
-          <span className="font-mono">&quot;{q}&quot;</span>
+        <p className="mb-6 text-muted-foreground">
+          พบ {results.length} รายการ สำหรับคำค้นหา{" "}
+          <span className="font-mono bg-muted px-2 py-1 rounded">{q}</span>
         </p>
       ) : (
-        <p className="mt-1 mb-4 text-sm text-muted-foreground">
-          Type in the search box (left sidebar) and press Enter.
+        <p className="mb-6 text-muted-foreground">
+          พิมพ์คำค้นหาในช่องค้นหาที่ sidebar ด้านซ้าย แล้วกด Enter
         </p>
       )}
 
-      <ul className="space-y-2">
+      <div className="space-y-4">
         {results.map((item) => (
-          <li
+          <div
             key={item.href}
-            className="rounded-lg border p-3 transition-colors hover:bg-muted/50"
+            className="group rounded-lg border p-4 transition-colors hover:bg-muted/50"
           >
-            <Link
-              href={item.href}
-              className="underline-offset-4 hover:underline font-medium"
-            >
-              {item.title}
-            </Link>
-            {/* ถ้ามีคำอธิบายก็ใส่เพิ่มได้ เช่น <p className="text-sm text-muted-foreground">...</p> */}
-          </li>
+            <div className="flex items-start justify-between">
+              <div>
+                <Link
+                  href={item.href}
+                  className="font-medium hover:underline decoration-primary decoration-2 underline-offset-4"
+                >
+                  {item.title}
+                </Link>
+                <Badge variant="secondary" className="ml-2">
+                  {item.category}
+                </Badge>
+              </div>
+              <Link
+                href={item.href}
+                className="hidden group-hover:block text-sm text-muted-foreground hover:text-primary"
+              >
+                เปิดดู →
+              </Link>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
 
       {q && results.length === 0 && (
-        <div className="text-sm text-muted-foreground">
-          No results. Try a different keyword.
+        <div className="text-center py-8 text-muted-foreground">
+          <p className="text-lg mb-2">ไม่พบผลการค้นหา</p>
+          <p className="text-sm">ลองใช้คำค้นหาอื่น หรือตรวจสอบการสะกดคำ</p>
         </div>
       )}
     </div>
@@ -68,7 +75,19 @@ function SearchContent() {
 
 export default function SearchPage() {
   return (
-    <Suspense fallback={<div className="p-4">กำลังโหลด...</div>}>
+    <Suspense fallback={
+      <div className="container max-w-3xl py-8">
+        <div className="animate-pulse space-y-4">
+          <div className="h-8 w-48 bg-muted rounded"></div>
+          <div className="h-4 w-96 bg-muted rounded"></div>
+          <div className="space-y-2">
+            {[1,2,3].map(i => (
+              <div key={i} className="h-20 bg-muted rounded"></div>
+            ))}
+          </div>
+        </div>
+      </div>
+    }>
       <SearchContent />
     </Suspense>
   )
