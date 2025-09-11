@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image" // เพิ่ม import
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
@@ -9,6 +10,7 @@ type GuideItem = {
   title: string
   href: string
   video?: string
+  image?: string // เพิ่ม image property
 }
 
 type GuideCategory = {
@@ -19,53 +21,72 @@ type GuideCategory = {
 // ==== Data ====
 const CATEGORIES: GuideCategory[] = [
   {
-    title: "Download and Installation",
+    title: "Get Small BIM PRO (การสั่งซื้อและฟีเจอร์)",
+    items: [
+      { 
+        title: "Get Small BIM PRO (การสั่งซื้อ)", 
+        href: "/get-smallbimpro/buy",
+        image: "/images/guides/Guide-getsmallbimpro.png"
+      },
+      { 
+        title: "Feature Lists (รายการฟีเจอร์)", 
+        href: "/get-smallbimpro/feature-lists",
+        image: "/images/guides/Guide-featurelists.png"
+      },
+    ],
+  },
+  {
+    title: "Download and Installation (การดาวน์โหลดและติดตั้ง)",
     items: [
       {
-        title: "Download & Installation",
+        title: "Download & Installation (การดาวน์โหลดและติดตั้ง)",
         href: "/docs/download-installation",
         video: "https://www.youtube.com/embed/YidRgoNOh5M",
       },
       {
-        title: "Activate License",
+        title: "Activate License (การเปิดใช้งานลิขสิทธิ์)",
         href: "/docs/activate-license",
         video: "https://www.youtube.com/embed/e1df1ntb8NQ",
       },
       {
-        title: "Update & Uninstall",
+        title: "Update & Uninstall (การอัปเดตและถอนการติดตั้ง)",
         href: "/docs/uninstall",
         video: "https://www.youtube.com/embed/BxcIrjYSKrA",
       },
     ],
   },
   {
-    title: "Data Preparation",
+    title: "Data Preparation (การเตรียมข้อมูล)",
     items: [
-      { title: "Prepare Data", href: "/docs/data-preparation/about" },
-      { title: "Revit Template", href: "/docs/data-preparation/revit-template" },
-      { title: "Revit Parameters", href: "/docs/data-preparation/revit-parameters" },
+      { title: "Revit Template (การใช้งาน Revit Template)", href: "/docs/data-preparation/revit-template" },
+      { title: "Revit Parameters (การใช้งาน Parameters)", href: "/docs/data-preparation/revit-parameters" },
+      { title: "Revit Shared Parameters (การตั้งค่า Shared Parameters)", href: "/docs/data-preparation/shared-parameters" },
+      { title: "Revit Keynote (การตั้งค่า Keynote)", href: "/docs/data-preparation/revit-keynote" },
+      { title: "Database (การเชื่อมต่อฐานข้อมูล)", href: "/docs/data-preparation/database" },
     ],
   },
   {
-    title: "BOQ Tools",
+    title: "Main Features (ฟีเจอร์หลัก)",
     items: [
-      { title: "BOQ Tools", href: "/docs/boq-tools/boq" },
-      { title: "Model Data Management", href: "/docs/boq-tools/model-data-management" },
+      { title: "BOQ Tools (เครื่องมือสำหรับการประมาณราคา)", href: "/docs/boq-tools/boq" },
+      { title: "Modeling Tools (เครื่องมือสำหรับการสร้างโมเดล)", href: "/docs/modeling-tools/grid-layout" },
+      { title: "Drawing Tools (เครื่องมือสำหรับการเขียนแบบ)", href: "/docs/drawing-tools/fast-plan" },
+
     ],
   },
   {
-    title: "Modeling & Drawing",
+    title: "Other Guides (คู่มืออื่น ๆ )",
     items: [
-      { title: "Modeling Tools", href: "/docs/modeling-tools/grid-layout" },
-      { title: "Drawing Tools", href: "/docs/drawing-tools/fast-plan" },
-    ],
-  },
-  {
-    title: "Other Guides",
-    items: [
-      { title: "Cost Code Guide", href: "/docs/cost-code-guide/a-structural" },
-      { title: "Export Results", href: "#" },
-      { title: "Troubleshooting & FAQ", href: "/docs/troubleshooting-faq/faq" },
+      { title: "Cost Code Guide (ตัวอย่างการกำหนดรหัสต้นทุน)", href: "/docs/cost-code-guide/a-structural" },
+      { title: "Online BOQ Transfer (การใช้งาน BOQ ออนไลน์)", href: "/docs/online-boq" },
+      { title: "BOQ Results and Working with AI (ผลลัพธ์และการใช้งานกับ AI)", href: "#" },
+      { 
+        title: "Background and Research (จุดเริ่มต้นของ Small BIM PRO)", 
+        href: "/docs/background-research",
+        image: "/images/guides/Guide-background.png"
+      },
+      { title: "Troubleshooting & FAQ (ปัญหาและคำถามที่พบบ่อย)", href: "/docs/troubleshooting-faq/faq" },
+      
     ],
   },
 ]
@@ -107,16 +128,25 @@ export default function QuickStartGuidePage() {
                         allowFullScreen
                       ></iframe>
                     </div>
+                  ) : g.image ? (
+                    <div className="w-full aspect-video rounded-lg overflow-hidden relative">
+                      <Image
+                        src={g.image}
+                        alt={g.title}
+                        fill
+                        className="object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
                   ) : (
                     <div className="w-full aspect-video bg-muted flex items-center justify-center rounded-lg">
-                      <span className="text-sm text-muted-foreground">[ วิดีโอสาธิต ]</span>
+                      <span className="text-sm text-muted-foreground">[ รูปภาพ/วิดีโอสาธิต ]</span>
                     </div>
                   )}
                 </CardContent>
 
                 <CardFooter>
                   <Button asChild className="w-full">
-                    <Link href={g.href}>ดูรายละเอียดเพิ่มเติม</Link>
+                    <Link href={g.href}>ดูรายละเอียด</Link>
                   </Button>
                 </CardFooter>
               </Card>

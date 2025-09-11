@@ -54,8 +54,9 @@ const NAV = [
     url: "#",
     items: [
       { title: "Buy Now (Early Bird 40%)", href: "/get-smallbimpro/buy" },
-      { title: "Register for Trial (7 วัน)", href: "/get-smallbimpro/trial" },      
-      
+      { title: "Register for Trial (7 วัน)", href: "/get-smallbimpro/trial" },   
+      { title: "Feature Lists", href: "/get-smallbimpro/feature-lists" },   
+
     ],
   },
 

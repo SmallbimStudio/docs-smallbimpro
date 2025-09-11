@@ -137,7 +137,12 @@ export default function BuyPage() {
       <CardHeader className="text-center space-y-4">
         <h1 className="text-3xl font-bold">สั่งซื้อ Small BIM PRO</h1>
         <p className="text-lg text-muted-foreground">
-          เวอร์ชันเต็มพร้อมฟีเจอร์ครบถ้วน{" "}
+          <Link 
+            href="/get-smallbimpro/feature-lists" 
+            className="hover:text-primary hover:underline decoration-dotted transition-colors"
+          >
+            เวอร์ชันเต็มพร้อมฟีเจอร์ครบถ้วน
+          </Link>{" "}
           <span className="text-green-600 font-bold">
             ลด Early Bird 40% เหลือเพียง {AMOUNT.toLocaleString()} บาท
           </span>
@@ -146,55 +151,61 @@ export default function BuyPage() {
 
       {/* Content */}
       <CardContent>
-        <div className="grid gap-6 md:grid-cols-3 items-stretch">
+        <div className="grid gap-6 md:grid-cols-2 items-stretch max-w-3xl mx-auto">
           
-          {/* Trial */}
-          <Card className="flex flex-col justify-between">
+          {/* Trial Card - ลบ transform hover effect ออก */}
+          <Card className="flex flex-col justify-between z-10"> {/* เพิ่ม z-10 */}
             <CardHeader>
               <CardTitle className="text-center">ทดลองฟรี 7 วัน</CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col justify-center items-center text-center flex-1 space-y-4 text-sm text-muted-foreground">
+            <CardContent className="flex flex-col justify-center items-center text-center flex-1 space-y-4 text-sm">
               <p>
                 ใช้งานครบทุกฟีเจอร์ <br />
-                <span className="text-2xl font-bold text-primary">ฟรี 7 วัน</span>
+                <span className="text-3xl font-bold text-primary">
+                  ฟรี 7 วัน
+                </span>
               </p>
-              <Button asChild className="w-full h-10">
+              <p className="text-xs text-muted-foreground">
+                ทดลองการใช้งานได้ฟรี 7 วัน โดยไม่ต้องชำระเงินล่วงหน้า
+              </p>
+              <Button asChild className="w-full h-12">
                 <Link href="/get-smallbimpro/trial">ลงทะเบียนรับ Trial</Link>
               </Button>
             </CardContent>
           </Card>
 
-          {/* Pricing */}
-          <Card className="flex flex-col justify-between">
+          {/* Early Bird Card */}
+          <Card className="flex flex-col justify-between relative transform hover:scale-[1.02] transition-all duration-300 border-2 border-primary shadow-[0_0_15px_rgba(0,0,0,0.1)] hover:shadow-[0_0_30px_rgba(0,120,255,0.2)]">
+            {/* Ribbon */}
+            <div className="absolute -top-4 -right-4 bg-primary text-white px-4 py-2 rounded-full font-bold shadow-lg">
+              -40%
+            </div>
+            
             <CardHeader>
-              <CardTitle className="text-center">ราคาเต็ม</CardTitle>
+              <CardTitle className="text-center">Early Bird</CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-col justify-center items-center text-center flex-1 space-y-4 text-sm text-muted-foreground">
-              <p>
-                License ตลอดชีพ <br />
-                <span className="text-2xl font-bold">12,500 บาท</span>
-              </p>
-              <Button asChild variant="outline" className="w-full h-10">
-                <Link href="/get-smallbimpro/buy">โปรโมชั่น Early Bird ลด 40%</Link>
-              </Button>
-            </CardContent>
-          </Card> 
-
-          {/* Early Bird */}
-           <Card className="flex flex-col justify-between border-primary">
-            <CardHeader>
-              <CardTitle className="text-center">Early Bird -40%</CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-col justify-center items-center text-center flex-1 space-y-4 text-sm text-muted-foreground">
+          
+            <CardContent className="flex flex-col justify-center items-center text-center flex-1 space-y-4 text-sm">
               <p>
                 พิเศษช่วงเปิดตัว <br />
-                <span className="text-2xl font-bold text-primary">7,500 บาท</span>
+                <span className="text-3xl font-bold text-primary animate-pulse">
+                  7,500 บาท
+                </span>
               </p>
-              <Button asChild className="w-full">
+              <p className="text-xs text-muted-foreground">
+                จากราคาปกติ <span className="line-through">12,500 บาท</span>
+              </p>
+              <Button asChild className="w-full relative overflow-hidden group">
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button className="w-full h-10" onClick={generateQR}>
+                    <Button 
+                      className="w-full h-12 bg-primary hover:bg-primary/90 shadow-xl
+                                 hover:shadow-primary/30 transition-all duration-300"
+                      onClick={generateQR}
+                    >
                       🚀 สั่งซื้อเลย
+                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                                     -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                     </Button>
                   </DialogTrigger>
 
@@ -253,8 +264,7 @@ export default function BuyPage() {
       {/* Footer */}
       <div className="px-6 pb-6">
         <p className="text-xs text-gray-500 italic text-center">
-          *สามารถทดลองได้ฟรี 7 วัน และ ได้รับสิทธิ์ Early Bird เฉพาะช่วงเปิดตัวเท่านั้น
-          - รับส่วนลด 40% จากราคาเต็ม 12,500 บาท เหลือ 7,500 บาท เท่านั้น*
+          *สามารถทดลองใช้งานได้ฟรีนานถึง 7 วัน และได้รับสิทธิพิเศษช่วงเปิดตัวกับราคา Early Bird เพียง 7,500 บาทเท่านั้น (ตั้งแต่วันนี้ ถึง 31 ธันวาคม 2568)*
         </p>
       </div>
     </Card>
