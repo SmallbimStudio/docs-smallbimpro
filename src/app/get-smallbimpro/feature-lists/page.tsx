@@ -313,9 +313,11 @@ export default function FeatureListsPage() {
       <section className="text-center space-y-4">
         <h1 className="text-4xl font-bold">ฟีเจอร์หลักของ Small BIM PRO</h1>
         <p className="text-muted-foreground text-lg">
-          คลิกเพื่อดูเครื่องมือการใช้งานทั้งหมดของ Small BIM PRO
+          คลิกเพื่อดูเครื่องมือการใช้งานทั้งหมดของ Small BIM PRO (Version 1.0.0)
         </p>
       </section>
+
+      <img src="/images/promote/feature-lists-pic.png" alt="Feature Lists" className="mx-auto" />
 
       {/* Grid of Feature Categories */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
