@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Head from "next/head"   // ✅ สำหรับ SEO
 import { useRef, useEffect } from "react"
 import { CheckCircle2, Zap, Wrench, FileSpreadsheet, PenTool, BookOpen, Users, Scale, Database, Settings, Calculator, Table, RefreshCcw } from "lucide-react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -8,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import CountUp from "react-countup"
+
 
 export default function SalePage() {
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -36,16 +38,30 @@ export default function SalePage() {
 
   return (
     <>
+      {/* ✅ SEO Head */}
+      <Head>
+        <title>Small BIM PRO - Add-in Revit สำหรับสถาปนิกไทย</title>
+        <meta name="description" content="Small BIM PRO | Add-in Revit ที่ช่วยสถาปนิกและวิศวกรไทยทำงานเร็วขึ้น ควบคุม BOQ และงบประมาณได้แม่นยำ พร้อมฐานข้อมูลราคากลาง" />
+        <meta name="keywords" content="Revit Add-in, BOQ Tools, BIM Workflow, Small BIM Studio, โปรแกรมสถาปนิกไทย, BIM Addin ไทย, BOQ Revit, โปรแกรมประมาณราคา Revit" />
+      </Head>
+
       <main className="max-w-screen-xl mx-auto px-4 space-y-32 pb-32">
 
         {/* ===== HERO ===== */}
         <section className="relative text-center min-h-screen flex flex-col justify-center items-center py-40">
-          <Badge 
-            className="absolute top-8 left-1/2 -translate-x-1/2 px-4 py-1 animate-fade-in" 
-            variant="secondary"
-          >
-            <span className="animate-pulse">New</span> Small BIM PRO v1.0.0 Released
-          </Badge>
+          
+           {/* ✅ โลโก้ + Badge คนละช่อง */}
+            <div className="absolute top-8 left-1/2 -translate-x-1/2 flex items-center gap-4">
+              {/* โลโก้ */}
+              <div className="bg-white">
+                <img src="/favicon.png" alt="Small BIM Studio" className="h-8 w-8" />
+              </div>
+
+              {/* Badge */}
+              <Badge className="px-4 py-1 animate-fade-in" variant="secondary">
+                <span className="animate-pulse">New</span> Small BIM PRO v1.0.0 Released (Early Bird -40%)
+              </Badge>
+            </div>
 
           <div className="max-w-4xl mx-auto space-y-10">
             <h1 className="text-6xl font-bold tracking-tight leading-relaxed animate-title">
@@ -83,6 +99,70 @@ export default function SalePage() {
           </div>
         </section>
 
+        {/* ===== VIDEO DEMO ===== */}
+        <section className="text-center space-y-6">
+          <h2 className="text-3xl font-bold">ชมวิดีโอการใช้งาน Small BIM PRO</h2>
+          <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/c6nv4ObjDRA"
+              title="Small BIM PRO Demo"
+              frameBorder="1"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
+
+
+        {/* ===== PAIN → SOLUTION → BENEFIT ===== */}
+        <section className="relative bg-muted/30 -mx-4 px-4 py-20 mt-32">
+          
+          {/* Heading */}
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl font-bold">เปลี่ยน Pain Point ให้กลายเป็น Productivity</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Small BIM PRO เกิดจากประสบการณ์ตรงของสถาปนิกและวิศวกรไทย  
+              เรานำปัญหาที่ทุกคนเจอ มาพัฒนาเป็นเครื่องมือ ที่สามารถใช้งานได้จริง  
+              เพื่อสร้างผลลัพธ์ที่สะดวก รวดเร็ว และแม่นยำกว่าเดิม
+            </p>
+          </div>
+
+          {/* Content Grid */}
+          <div className="grid md:grid-cols-3 gap-8 mt-12">
+            
+            <Card className="p-8 text-center border rounded-xl shadow-sm hover:shadow-md transition">
+              <h3 className="text-xl font-semibold mb-4 text-black">Pain – ปัญหาที่เจอบ่อย</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                ต้องเสียเวลานับวันกับการถอด BOQ  
+                สลับไปมาหลายโปรแกรม ทำงานซ้ำซ้อน  
+                และยังต้องแก้ไขโมเดลแบบเดิมซ้ำ ๆ
+              </p>
+            </Card>
+
+            <Card className="p-8 text-center border rounded-xl shadow-sm hover:shadow-md transition">
+              <h3 className="text-xl font-semibold mb-4 text-black">Solution – เครื่องมือที่ตอบโจทย์</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                Small BIM PRO ช่วยถอดปริมาณ + ประมาณราคา BOQ  
+                รวมเครื่องมือใหม่ๆ ทั้งการสร้างโมเดล และการเขียนแบบ  
+                เพื่อลดขั้นตอนที่ซ้ำซ้อนลง
+              </p>
+            </Card>
+
+            <Card className="p-8 text-center border rounded-xl shadow-sm hover:shadow-md transition">
+              <h3 className="text-xl font-semibold mb-4 text-black">Benefit – ผลลัพธ์ที่ได้จริง</h3>
+              <p className="text-muted-foreground leading-relaxed">
+                ประหยัดเวลาได้มากขึ้นกว่า 80%  
+                ได้ข้อมูลที่ครบถ้วน แม่นยำ ไม่ตกหล่น  
+                และควบคุมงบประมาณโครงการได้ดียิ่งกว่าเดิม
+              </p>
+            </Card>
+
+          </div>
+        </section>
+
+
+
         {/* ===== PRODUCT PREVIEW ===== */}
         <section className="relative w-full -mt-20">
           <img
@@ -101,6 +181,7 @@ export default function SalePage() {
               ครอบคลุมทุกเครื่องมือสำคัญสำหรับงาน BIM ระดับมืออาชีพ
             </p>
           </div>
+          <img src="/images/promote/feature-lists-pic.png" alt="Feature Lists" className="mx-auto" />
 
           {/* Grid of Feature Categories */}
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -334,17 +415,73 @@ export default function SalePage() {
 
         <Separator />
 
-        {/* ===== FAQ ===== */}
+        {/* ===== FAQ (Preview) ===== */}
         <section id="faq" className="space-y-8">
           <h2 className="text-3xl font-bold text-center">FAQ</h2>
           <div className="grid md:grid-cols-2 gap-6">
-            <FaqItem q="Small BIM PRO ใช้กับ Revit เวอร์ชันไหนได้?" a="ในเวอร์ชั่นแรก จะรองรับเพียงแค่ Revit 2024" />
-            <FaqItem q="License ใช้งานได้กี่เครื่อง?" a="1 License / 1 เครื่อง (สามารถย้ายได้)" />
-            <FaqItem q="อัพเดทฟรีไหม?" a="Early Bird + License ถาวร จะได้รับอัพเดทฟรีตลอดชีพ" />
-            <FaqItem q="มีทีม Support ไหม?" a="มีทีมงานตอบคำถามและแก้ปัญหาผ่านอีเมล" />
+            <FaqItem 
+              q="Small BIM PRO คืออะไร?" 
+              a="Small BIM PRO เป็น Revit Add-in ที่พัฒนาสำหรับงานด้าน BOQ และเพิ่มความเร็วในการทำงาน"
+            />
+            <FaqItem 
+              q="Small BIM PRO ใช้กับ Revit เวอร์ชันไหนได้?" 
+              a="ในเวอร์ชันแรก รองรับ Revit 2024 เท่านั้น"
+            />
+            <FaqItem 
+              q="License ใช้งานได้กี่เครื่อง?" 
+              a="1 License / 1 เครื่อง (สามารถย้ายได้ แต่ไม่สามารถใช้พร้อมกันหลายเครื่อง)"
+            />
+            <FaqItem 
+              q="อัพเดทฟรีไหม?" 
+              a="Early Bird + License ถาวร จะได้รับอัปเดตฟรีตลอดชีพ"
+            />
+          </div>
+
+          {/* CTA Button */}
+          <div className="text-center pt-6">
+            <Link href="/docs/troubleshooting-faq/faq/">
+              <Button variant="outline" size="lg" className="px-8">
+                ดู FAQ เพิ่มเติม →
+              </Button>
+            </Link>
           </div>
         </section>
+
       </main>
+
+      <Separator />
+      
+        {/* ===== ABOUT DEVELOPER ===== */}
+        <section className="bg-muted/20 rounded-xl p-12">
+          <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            
+            {/* ✅ รูปภาพ */}
+            <div className="flex justify-center">
+              <img
+                src="/images/promote/Personal Picture.jpg"
+                alt="ทีมผู้พัฒนา Small BIM Studio"
+                className="h-60 w-60 object-cover rounded-full shadow-md"
+              />
+            </div>
+
+            {/* ✅ ข้อความ */}
+            <div className="space-y-6 text-center md:text-left">
+              <h2 className="text-3xl font-bold">เกี่ยวกับผู้พัฒนา</h2>
+              <p className="text-muted-foreground leading-relaxed">
+                Small BIM Studio คือทีมสถาปนิกและผู้ที่สนใจในการออกแบบกระบวนการทำงานสถาปัตยกรรม  
+                ด้าน Revit และ BIM เราพัฒนา <span className="font-semibold">Small BIM PRO</span> เพื่อแก้ปัญหาที่สถาปนิกและวิศวกรไทยเจอในขั้นตอนการทำงานจริง  
+                จะช่วยให้ทำงานได้เร็วขึ้น แม่นยำขึ้น และมีความสุขกับการทำงานมากขึ้น
+              </p>
+
+              <br />
+              <br />
+              <p>รหัสศิลป์ นามวงศ์พรหม</p>
+              <p className="text-sm text-muted-foreground pt-0">สถาปนิกผู้ก่อตั้ง Small BIM Studio</p>
+
+              
+            </div>
+          </div>
+        </section>
 
       {/* ===== FOOTER ===== */}
       <footer className="border-t py-6 text-center text-sm text-muted-foreground">
