@@ -47,18 +47,42 @@ function ImageBlock({
 export default function RevitKeynotePage() {
   return (
     <SidebarInset>
-      <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-10">
-        {/* Header */}
-        <header className="space-y-3 text-center">
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
+          <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-10">
+            {/* Headline */}
+            <header className="space-y-3">
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
             Revit Keynote
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base text-muted-foreground">
             การจัดการ Keynote สำหรับโมเดล Revit เพื่อ Mapping ราคาต้นทุนวัสดุได้
           </p>
         </header>
 
         <Separator />
+
+        {/* ===== VIDEO or IMAGE ===== */}
+        <section className="text-center space-y-6">
+          {false ? ( // เปลี่ยนเป็น true ถ้าอยากกลับมาโชว์วิดีโอ
+            <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/BxcIrjYSKrA"
+                title="Download and Installation Small BIM PRO"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
+          ) : (
+            <div className="">
+              <img
+                src="/images/docs/data-preparation/revit-keynote-cover.png"
+                alt="Data Preparation Guide"
+                className="rounded-xl shadow-lg"
+              />
+            </div>
+          )}
+        </section>
 
         {/* Layout: Image Left - Content Right */}
         <div className="grid md:grid-cols-2 gap-8 items-start">

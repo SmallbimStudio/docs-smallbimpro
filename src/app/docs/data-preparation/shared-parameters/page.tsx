@@ -47,18 +47,32 @@ function ImageBlock({
 export default function SharedParametersPage() {
   return (
     <SidebarInset>
-      <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-10">
-        {/* Header */}
-        <header className="space-y-3 text-center">
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight leading-tight">
+          <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-10">
+            {/* Headline */}
+            <header className="space-y-3">
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
             Revit Shared Parameters
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base text-muted-foreground">
             การจัดการ Shared Parameters สำหรับโมเดล Revit เพื่อให้รองรับงานถอดปริมาณและประมาณราคา
           </p>
         </header>
 
         <Separator />
+
+        {/* ===== VIDEO ===== */}
+        <section className="text-center space-y-6">
+          <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/P90X0bjHq04"
+              title="Download and Installation Small BIM PRO"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
 
         {/* Layout: Image Left - Content Right */}
         <div className="grid md:grid-cols-2 gap-8 items-start">

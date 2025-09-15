@@ -51,18 +51,32 @@ const requiredFiles: FileItem[] = [
 export default function AboutDataPreparationPage() {
   return (
     <SidebarInset>
-      <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 md:py-12 space-y-12">
-        {/* HEADER */}
-        <header className="space-y-4 text-center">
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-10">
+        {/* Headline */}
+        <header className="space-y-3">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
             About Data Preparation
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base text-muted-foreground">
             สิ่งที่ต้องเตรียม ก่อนใช้งาน Small BIM PRO: โครงสร้างไฟล์ พารามิเตอร์ และมาตรฐานข้อมูล
           </p>
         </header>
 
         <Separator />
+        {/* ===== VIDEO ===== */}
+        <section className="text-center space-y-6">
+          <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/dL7ADTowG6U"
+              title="Download and Installation Small BIM PRO"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
+
 
         {/* MAIN GRID */}
         <div className="grid md:grid-cols-2 gap-8">
@@ -75,7 +89,7 @@ export default function AboutDataPreparationPage() {
               <CardContent className="text-sm text-muted-foreground">
                 สำหรับการประมาณราคาด้วย Revit การจะทำให้การทำงานครบถ้วนสมบูรณ์ ได้รายการประมาณราคาจาก Small BIM PRO จำเป็นต้องทำการกำหนดข้อมูลให้กับโมเดลทุกชิ้นใน Revit ให้โมเดลมีข้อมูลที่พร้อมต่อการถอดปริมาณ และคำนวณต้นทุน
               </CardContent>
-            </Card>           
+            </Card>
 
             <Card className="rounded-2xl">
               <CardHeader className="pb-2">

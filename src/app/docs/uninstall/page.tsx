@@ -60,19 +60,22 @@ export default function installation() {
         <p>วิธีการถอนการติดตั้ง Small BIM PRO และการอัพเดตเวอร์ชั่น</p>
       </header>
 
-      <Card className="overflow-hidden rounded-2xl border bg-card">
-        <CardContent>
-          <AspectRatio ratio={16 / 9}>
+      {/* ===== VIDEO ===== */}
+        <section className="text-center space-y-6">
+          <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
             <iframe
-              src="https://www.youtube.com/embed/BxcIrjYSKrA"
-              title="Small BIM PRO Installation Video"
               className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              src="https://www.youtube.com/embed/BxcIrjYSKrA"
+              title="Download and Installation Small BIM PRO"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
-            />
-          </AspectRatio>
-        </CardContent>
-      </Card>
+            ></iframe>
+          </div>
+        </section>
+
+
+      
 
       <section className="space-y-6">
 

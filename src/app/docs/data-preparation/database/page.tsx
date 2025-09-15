@@ -18,7 +18,7 @@ export default function DatabasePage() {
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
             Database
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground">
+          <p className="text-base text-muted-foreground">
             Database เป็นระบบฐานข้อมูลของ Small BIM Studio มีหลักการทำงานคือ เมื่อผู้ใช้งานกำหนดรหัสต้นทุน หรือ Keynote ให้กับโมเดลแล้ว Add-in สามารถนำราคาบน Database เหล่านี้ เข้าไป Mapping กับปริมาณวัสดุของ Revit Model พร้อมทำการคำนวณราคาให้อัตโนมัติ เกิดเป็นรายการประมาณราคานั่นเอง แยกการใช้งานเป็น 2 โหมด: <strong>Online</strong> (เชื่อม JSON กลางอัปเดตได้)
             และ <strong>Offline</strong> (ชุดไฟล์ภายในองค์กร) เพื่อรองรับทั้งงานที่ต้องการข้อมูลล่าสุด
             และงานที่ต้องล็อกเวอร์ชันข้อมูล
@@ -26,6 +26,30 @@ export default function DatabasePage() {
         </header>
 
         <Separator />
+
+        {/* ===== VIDEO or IMAGE ===== */}
+        <section className="text-center space-y-6">
+          {false ? ( // เปลี่ยนเป็น true ถ้าอยากกลับมาโชว์วิดีโอ
+            <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/BxcIrjYSKrA"
+                title="Download and Installation Small BIM PRO"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              ></iframe>
+            </div>
+          ) : (
+            <div className="">
+              <img
+                src="/images/docs/data-preparation/revit-database-cover.png"
+                alt="Data Preparation Guide"
+                className="rounded-xl shadow-lg"
+              />
+            </div>
+          )}
+        </section>
 
         {/* ========================== ONLINE ========================== */}
         <section className="space-y-4" aria-label="Online Database">
@@ -46,9 +70,9 @@ export default function DatabasePage() {
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground space-y-2">
               <ul className="list-disc pl-5 space-y-1">
-                <li>การโหลดข้อมูลตั้งค่าเป็น <code>cache: no-store</code> เพื่อหลีกเลี่ยงค่าเก่า</li>
+                <li>การใช้งาน Online Database จะได้ราคาที่อัปเดตล่าสุด จากแหล่งเดียวที่น่าเชื่อถือได้ ทำให้ราคาตรงกันทุกโครงการ</li>
                 <li>ถ้าอินเทอร์เน็ตไม่เสถียร แนะนำสลับใช้โหมด Offline ที่ด้านล่าง</li>
-                <li>สามารถปรับปรุงสคีมาหรือเพิ่มฟิลด์ได้ โดยรักษาชื่อคีย์หลักให้เดิม (Keynote/Comment/Unit/...)</li>
+                <li>ในอนาคตอาจมีการเพิ่มฟีเจอร์ใหม่ๆ ราคาหลากหลายพื้นที่ในประเทศไทย เพื่อรองรับการทำงานที่หลากหลายมากขึ้น</li>
               </ul>
             </CardContent>
           </Card>
@@ -61,103 +85,12 @@ export default function DatabasePage() {
           <div>
             <h2 className="text-2xl font-bold">Offline Database</h2>
             <p className="text-sm text-muted-foreground">
-              สำหรับองค์กรที่ต้องการ “ล็อกเวอร์ชันข้อมูล” หรือใช้งานแบบออฟไลน์
-              ชุดไฟล์ด้านล่างคือแพ็กเกจมาตรฐานที่จะแถมไปให้ พร้อมคอลัมน์ที่ Add-in คาดหวัง
-              (สามารถใช้ได้ทั้ง <code>.xlsx</code> / <code>.csv</code> / <code>.json</code>)
+              Offline Database คือข้อมูลเดียวกันกับ Online Database แต่ถูกดาวน์โหลดมาเก็บไว้ภายในเครื่อง
+              หรือเซิร์ฟเวอร์องค์กร เหมาะสำหรับงานที่{" "}
+              <strong>ต้องการล็อกเวอร์ชันข้อมูล</strong> 
+              ให้คงที่ตลอดทั้งโปรเจกต์ โดยไม่ขึ้นกับการอัปเดตออนไลน์ อีกทั้งยังสามารถแก้ไขข้อมูลได้เอง ตามมาตรฐานหรือข้อมูลความต้องการของแต่ละองค์กร
+           
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-4">
-            <Card className="rounded-2xl">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-base">1) Items.xlsx</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground space-y-2">
-                <p>ตารางรายการมาตรฐานที่เป็น “ต้นทาง” ให้ BOQ</p>
-                <div className="rounded-lg border p-3 text-xs overflow-auto">
-                  <pre>{`ItemCode (TEXT)    // รหัสรายการ (เช่น A1000.1)
-Description (TEXT) // รายการ/คำอธิบาย
-Unit (TEXT)        // หน่วย (m, m2, m3, kg, ea, ...)
-Group (TEXT)       // กลุ่มหมวด (A/B/C/...)
-`}</pre>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-base">2) Rates.xlsx</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground space-y-2">
-                <p>ราคารายหน่วย แยกวัสดุ/ค่าแรง และข้อมูลอ้างอิง</p>
-                <div className="rounded-lg border p-3 text-xs overflow-auto">
-                  <pre>{`ItemCode (TEXT)           // FK → Items.ItemCode
-MaterialUnitCost (NUMBER) // ราคาวัสดุ/หน่วย
-LabourUnitCost (NUMBER)   // ค่าแรง/หน่วย
-Currency (TEXT)           // THB, ...
-Source (TEXT)             // แหล่งที่มา
-EffectiveDate (DATE)      // YYYY-MM-DD
-Region (TEXT)             // ภูมิภาค (ถ้ามี)
-`}</pre>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-base">3) Wastes.xlsx</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground space-y-2">
-                <p>เปอร์เซ็นต์เผื่อสูญเสียต่อรายการ (ใช้แก้ปัญหา Accuracy Paradox)</p>
-                <div className="rounded-lg border p-3 text-xs overflow-auto">
-                  <pre>{`ItemCode (TEXT)     // FK → Items.ItemCode
-WastePercent (NUMBER) // 0–100 (%)
-Note (TEXT)           // หมายเหตุ (เช่น ตามมาตรฐานบริษัท)
-`}</pre>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-base">4) Mappings.xlsx</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground space-y-2">
-                <p>แมปจาก <em>Keynote/Parameters</em> ใน Revit → <code>ItemCode</code> เพื่อเชื่อม BOQ</p>
-                <div className="rounded-lg border p-3 text-xs overflow-auto">
-                  <pre>{`Keynote (TEXT)      // เช่น A1000.1
-Param (TEXT)        // ตัวเลือก: พารามิเตอร์ที่ใช้ตัดสินใจเพิ่ม
-ItemCode (TEXT)     // FK → Items.ItemCode
-Remark (TEXT)       // เงื่อนไขพิเศษ (ถ้ามี)
-`}</pre>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-base">5) Units.xlsx (ไม่บังคับ)</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground space-y-2">
-                <p>กำหนดการแปลงหน่วย/การปัดเศษตามมาตรฐานองค์กร</p>
-                <div className="rounded-lg border p-3 text-xs overflow-auto">
-                  <pre>{`Unit (TEXT)          // m, m2, m3, kg, ea, ...
-Rounding (NUMBER)   // หลักทศนิยมที่ปัด/วิธีปัด
-AltUnit (TEXT)      // หน่วยสำรอง (ถ้ามี)
-Factor (NUMBER)     // ตัวคูณแปลงหน่วย
-`}</pre>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="rounded-2xl">
-              <CardHeader className="pb-2">
-                <CardTitle className="text-base">6) README.pdf</CardTitle>
-              </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
-                คู่มือสั้น ๆ สำหรับทีม: วิธีวางไฟล์, โครงสคีมา, และจุดตั้งค่าพาธใน Add-in
-              </CardContent>
-            </Card>
           </div>
 
           <Card className="rounded-2xl">
@@ -166,14 +99,17 @@ Factor (NUMBER)     // ตัวคูณแปลงหน่วย
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground space-y-2">
               <ol className="list-decimal pl-5 space-y-1">
-                <li>วางไฟล์ทั้งหมดในโฟลเดอร์เดียวกัน เช่น <code>\\Company\BIM\Database\2025\</code></li>
-                <li>ตั้งค่า Add-in ให้ชี้พาธของโฟลเดอร์นั้น (หรืออัปโหลดเข้า SharePoint/Drive ที่แมปเป็นไดรฟ์)</li>
-                <li>อัปเดตข้อมูลให้เปลี่ยนเฉพาะไฟล์ <code>Rates.xlsx</code> / <code>Wastes.xlsx</code> เพื่อรักษาเสถียรภาพของแมป</li>
-                <li>ล็อกเวอร์ชันชุดข้อมูลต่อโปรเจกต์ โดยระบุวันที่และผู้รับผิดชอบ</li>
+                <li>เข้าไปที่ Drive ของ Small BIM Studio เพื่อดาวน์โหลด Offline Database</li>
+                <li>เก็บไฟล์ไว้ในโฟลเดอร์ที่ต้องการ เช่น <code>\\Company\BIM\Database\2024\</code></li>
+                <li>ตั้งค่า Add-in ให้ชี้ไปยังโฟลเดอร์นั้นเพื่อใช้งาน</li>
+                <li>หากต้องการแก้ไข ให้เปลี่ยนเฉพาะข้อมูลด้านในไฟล์ โดยคงคอลัมน์หลัก (ItemCode, Unit, Description ฯลฯ) เดิมไว้</li>
+                <li>ควรกำหนดเวอร์ชันข้อมูล เช่น ระบุวันที่และผู้ปรับปรุง เพื่อให้สามารถอ้างอิงย้อนหลังได้</li>
               </ol>
             </CardContent>
           </Card>
         </section>
+
+
       </div>
     </SidebarInset>
   )

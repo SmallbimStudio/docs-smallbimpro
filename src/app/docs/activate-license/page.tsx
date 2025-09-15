@@ -60,19 +60,19 @@ export default function installation() {
         <p>วิธีการเปิดใช้งาน Small BIM PRO</p>
       </header>
 
-      <Card className="overflow-hidden rounded-2xl border bg-card">
-        <CardContent>
-          <AspectRatio ratio={16 / 9}>
+       {/* ===== VIDEO ===== */}
+        <section className="text-center space-y-6">
+          <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
             <iframe
-              src="https://www.youtube.com/embed/e1df1ntb8NQ"
-              title="Small BIM PRO Activate License Video"
               className="w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              src="https://www.youtube.com/embed/e1df1ntb8NQ"
+              title="Download and Installation Small BIM PRO"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
-            />
-          </AspectRatio>
-        </CardContent>
-      </Card>
+            ></iframe>
+          </div>
+        </section>
 
       <section className="space-y-6">
         

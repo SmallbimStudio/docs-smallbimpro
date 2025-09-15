@@ -28,6 +28,20 @@ export default function Page() {
 
         <Separator />
 
+        {/* ===== VIDEO ===== */}
+        <section className="text-center space-y-6">
+          <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/BxcIrjYSKrA"
+              title="Download and Installation Small BIM PRO"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
+
         <div className="grid lg:grid-cols-2 gap-6">
           <section className="space-y-6">
             <Card><CardHeader className="pb-2"><CardTitle className="text-base">คำอธิบาย</CardTitle></CardHeader><CardContent className="text-sm text-muted-foreground">เร่งขั้นตอนทำแปลนเริ่มต้นและจัดรูปแบบอัตโนมัติ พร้อมสำหรับการปรับแต่งต่อ</CardContent></Card>

@@ -11,6 +11,21 @@ export default function Page() {
       <div className="mx-auto max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-8">
         <header className="space-y-2"><h1 className="text-3xl md:text-4xl font-bold">Wall Tag (Plan)</h1><p className="text-sm md:text-base text-muted-foreground">แท็กผนัง</p></header>
         <Separator />
+
+        {/* ===== VIDEO ===== */}
+        <section className="text-center space-y-6">
+          <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/BxcIrjYSKrA"
+              title="Download and Installation Small BIM PRO"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
+        
         <div className="grid lg:grid-cols-2 gap-6">
           <section className="space-y-6">
             <Card><CardHeader className="pb-2"><CardTitle className="text-base">คำอธิบาย</CardTitle></CardHeader><CardContent className="text-sm text-muted-foreground">แท็กหลายหมวดในคำสั่งเดียวด้วยพรีเซ็ตกติกา</CardContent></Card>

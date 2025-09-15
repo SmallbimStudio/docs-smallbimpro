@@ -18,6 +18,21 @@ export default function Page(){return(<SidebarInset>
             <p className="text-sm md:text-base text-muted-foreground">สร้างเลเจนด์แสดงองค์ประกอบแบบด้านข้าง</p>
             </header>
             <Separator/>
+
+            {/* ===== VIDEO ===== */}
+        <section className="text-center space-y-6">
+          <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/BxcIrjYSKrA"
+              title="Download and Installation Small BIM PRO"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
+        
             <div className="grid lg:grid-cols-2 gap-6">
                 <section className="space-y-6">
                     <Card>
