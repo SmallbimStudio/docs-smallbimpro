@@ -40,7 +40,6 @@ export default function ColumnsOnGridsPage() {
           </div>
         </section>
 
-        
         <section className="grid lg:grid-cols-2 gap-6">
           <div className="prose max-w-none">
             <h3>ทำอะไรได้บ้าง</h3>

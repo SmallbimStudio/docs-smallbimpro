@@ -27,28 +27,18 @@ export default function DatabasePage() {
 
         <Separator />
 
-        {/* ===== VIDEO or IMAGE ===== */}
+        {/* ===== VIDEO ===== */}
         <section className="text-center space-y-6">
-          {false ? ( // เปลี่ยนเป็น true ถ้าอยากกลับมาโชว์วิดีโอ
-            <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/BxcIrjYSKrA"
-                title="Download and Installation Small BIM PRO"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            </div>
-          ) : (
-            <div className="">
-              <img
-                src="/images/docs/data-preparation/revit-database-cover.png"
-                alt="Data Preparation Guide"
-                className="rounded-xl shadow-lg"
-              />
-            </div>
-          )}
+          <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/OlBYQdSLNF0"
+              title="Download and Installation Small BIM PRO"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
         </section>
 
         {/* ========================== ONLINE ========================== */}
