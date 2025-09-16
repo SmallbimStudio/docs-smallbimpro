@@ -136,36 +136,13 @@ export default function ModelDataManagementPage() {
           <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/BxcIrjYSKrA"
+              src="https://www.youtube.com/embed/rx9EBPMLYFI"
               title="Download and Installation Small BIM PRO"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
           </div>
-        </section>
-
-
-        <Separator />
-
-        {/* Prerequisites */}
-        <section className="grid md:grid-cols-2 gap-4">
-          <Card className="rounded-2xl">
-            <CardHeader className="pb-2">
-              <CardTitle className="flex items-center gap-2 text-base">
-                <Info className="h-4 w-4" />
-                ข้อกำหนดก่อนใช้งาน (Prerequisites)
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="text-sm text-muted-foreground space-y-2">
-              <ul className="list-disc pl-5 space-y-1">
-                <li>เปิดไฟล์โมเดล Revit ที่ต้องการตรวจสอบและบันทึกล่าสุด</li>
-                <li>ติดตั้ง Shared Parameters และ Template ตามมาตรฐานองค์กร</li>
-                <li>ตั้งค่า Units / Phases / Levels ให้สอดคล้องกับโครงการ</li>
-              </ul>
-            </CardContent>
-          </Card>
-
         </section>
       </div>
     </SidebarInset>
