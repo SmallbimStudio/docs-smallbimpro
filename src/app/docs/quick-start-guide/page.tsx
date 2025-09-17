@@ -58,35 +58,77 @@ const CATEGORIES: GuideCategory[] = [
   {
     title: "Data Preparation (การเตรียมข้อมูล)",
     items: [
-      { title: "Revit Template (การใช้งาน Revit Template)", href: "/docs/data-preparation/revit-template" },
-      { title: "Revit Parameters (การใช้งาน Parameters)", href: "/docs/data-preparation/revit-parameters" },
-      { title: "Revit Shared Parameters (การตั้งค่า Shared Parameters)", href: "/docs/data-preparation/shared-parameters" },
-      { title: "Revit Keynote (การตั้งค่า Keynote)", href: "/docs/data-preparation/revit-keynote" },
-      { title: "Database (การเชื่อมต่อฐานข้อมูล)", href: "/docs/data-preparation/database" },
+      {
+        title: "Data Preparation and Revit Template (การใช้งาน Revit Template)",
+        href: "/docs/data-preparation/revit-template",
+        video: "https://www.youtube.com/embed/dL7ADTowG6U",
+      },
+      {
+        title: "Revit Parameters (การใช้งาน Parameters)",
+        href: "/docs/data-preparation/revit-parameters",
+        video: "https://www.youtube.com/embed/10C9VBol4e8",
+      },
+      {
+        title: "Revit Shared Parameters (การตั้งค่า Shared Parameters)",
+        href: "/docs/data-preparation/shared-parameters",
+        video: "https://www.youtube.com/embed/P90X0bjHq04",
+      },
+      {
+        title: "Revit Keynote (การตั้งค่า Keynote)",
+        href: "/docs/data-preparation/revit-keynote",
+        video: "https://www.youtube.com/embed/2fL4tHIx0ns",
+      },
+      {
+        title: "Database (การเชื่อมต่อฐานข้อมูล)",
+        href: "/docs/data-preparation/database",
+        video: "https://www.youtube.com/embed/OlBYQdSLNF0",
+      },
     ],
   },
   {
     title: "Main Features (ฟีเจอร์หลัก)",
     items: [
-      { title: "BOQ Tools (เครื่องมือสำหรับการประมาณราคา)", href: "/docs/boq-tools/boq" },
-      { title: "Modeling Tools (เครื่องมือสำหรับการสร้างโมเดล)", href: "/docs/modeling-tools/grid-layout" },
-      { title: "Drawing Tools (เครื่องมือสำหรับการเขียนแบบ)", href: "/docs/drawing-tools/fast-plan" },
-
+      { 
+        title: "BOQ Tools (เครื่องมือสำหรับการประมาณราคา)", 
+        href: "/docs/boq-tools/boq",
+        image: "/images/guides/Guide-BOQ-Tools.png"
+      },
+      { 
+        title: "Modeling Tools (เครื่องมือสำหรับการสร้างโมเดล)", 
+        href: "/docs/modeling-tools/grid-layout",
+        image: "/images/guides/Guide-Modeling-Tools.png"
+      },
+      { 
+        title: "Drawing Tools (เครื่องมือสำหรับการเขียนแบบ)", 
+        href: "/docs/drawing-tools/fast-plan",
+        image: "/images/guides/Guide-Drawing-Tools.png"
+      },
     ],
   },
   {
     title: "Other Guides (คู่มืออื่น ๆ )",
     items: [
-      { title: "Cost Code Guide (ตัวอย่างการกำหนดรหัสต้นทุน)", href: "/docs/cost-code-guide/a-structural" },
-      { title: "Online BOQ Transfer (การใช้งาน BOQ ออนไลน์)", href: "/docs/online-boq" },
-      { title: "BOQ Results and Working with AI (ผลลัพธ์และการใช้งานกับ AI)", href: "#" },
+      {
+        title: "Cost Code Guide (ตัวอย่างการกำหนดรหัสต้นทุน)",
+        href: "/docs/cost-code-guide/a-structural",
+        image: "/images/guides/Guide-Cost-Code.png"
+      },
+      {
+        title: "Online BOQ Transfer (การใช้งาน BOQ ออนไลน์)",
+        href: "/docs/online-boq",
+        image: "/images/guides/Guide-Online-BOQ.png"
+      },
       { 
         title: "Background and Research (จุดเริ่มต้นของ Small BIM PRO)", 
         href: "/docs/background-research",
         image: "/images/guides/Guide-background.png"
       },
-      { title: "Troubleshooting & FAQ (ปัญหาและคำถามที่พบบ่อย)", href: "/docs/troubleshooting-faq/faq" },
-      
+      {
+        title: "Troubleshooting & FAQ (ปัญหาและคำถามที่พบบ่อย)",
+        href: "/docs/troubleshooting-faq/faq",
+        image: "/images/guides/Guide-FAQ.png"
+      },
+     
     ],
   },
 ]

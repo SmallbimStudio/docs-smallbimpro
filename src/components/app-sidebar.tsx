@@ -131,7 +131,7 @@ export const NAV: NavCategory[] = [
       { title: "Level Dimension (Elevation/Section)", href: "/docs/drawing-tools/level-dimension-elevation-section" },
       { title: "Element Tags (Plan)", href: "/docs/drawing-tools/element-tags-plan" },
       { title: "Element Tags (Elevation/Section)", href: "/docs/drawing-tools/element-tags-elevation-section" },
-      { title: "Legend Component View", href: "/docs/drawing-tools/legend-component-view" },
+      { title: "Legend Component Views", href: "/docs/drawing-tools/legend-component-view" },
     ],
   },
 

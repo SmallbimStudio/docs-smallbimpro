@@ -16,7 +16,7 @@ export default function Page() {
                         Legend Component Views — User Guide
                     </h1>
                     <p className="text-base text-muted-foreground">
-                        คู่มือการใช้งานคำสั่ง Legend Component Views สำหรับปรับมุมมองต่างๆ ของ Legend Component อย่างรวดเร็ว
+                        คู่มือการใช้งานคำสั่ง Legend Component Views สำหรับปรับมุมมองต่างๆ ของ Legend Component
                     </p>
                 </header>
 
@@ -27,7 +27,7 @@ export default function Page() {
                     <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
                         <iframe
                             className="w-full h-full"
-                            src="https://www.youtube.com/embed/QBG00hwk1Fw"
+                            src="https://www.youtube.com/embed/2YZBVfdpyok"
                             title="Download and Installation Small BIM PRO"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
