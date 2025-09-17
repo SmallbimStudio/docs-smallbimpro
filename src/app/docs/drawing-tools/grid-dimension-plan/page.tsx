@@ -8,20 +8,27 @@ function ImageBlock({ label }: { label: string }) { return (<figure className="r
 
 export default function Page() {
   return (
+
     <SidebarInset>
-      <div className="mx-auto max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-8">
-        <header className="space-y-2">
-          <h1 className="text-3xl md:text-4xl font-bold">Grid Dimension (Plan)</h1>
-          <p className="text-sm md:text-base text-muted-foreground">ใส่เส้นบอกระยะกริดในแปลนแบบรวดเร็ว</p>
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-10">
+        {/* Headline */}
+        <header className="space-y-3">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+            Grid Dimension (Plan) — User Guide
+          </h1>
+          <p className="text-base text-muted-foreground">
+            คู่มือการใช้งานคำสั่ง Grid Dimension (Plan) คำสั่งสำหรับการใส่ Dimension ในแปลนพื้นอย่างรวดเร็ว
+          </p>
         </header>
+
         <Separator />
-        
+
         {/* ===== VIDEO ===== */}
         <section className="text-center space-y-6">
           <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/BxcIrjYSKrA"
+              src="https://www.youtube.com/embed/CNqaIxksqhs"
               title="Download and Installation Small BIM PRO"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -29,21 +36,6 @@ export default function Page() {
             ></iframe>
           </div>
         </section>
-
-        <div className="grid lg:grid-cols-2 gap-6">
-          <section className="space-y-6">
-            <Card><CardHeader className="pb-2"><CardTitle className="text-base">คำอธิบาย</CardTitle></CardHeader><CardContent className="text-sm text-muted-foreground">เลือกกริดจากมุมมองปัจจุบันแล้วสร้างมิติอัตโนมัติ</CardContent></Card>
-            <Card><CardHeader className="pb-2"><CardTitle className="text-base">ทำอะไรได้บ้าง</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1"><li>ตั้งหัวมิติ/ค่าความละเอียด</li><li>จัดตำแหน่งหัว–ท้ายเป็นระเบียบ</li></ul></CardContent></Card>
-            <div className="grid sm:grid-cols-2 gap-4">
-              <Card><CardHeader className="pb-2"><CardTitle className="text-base">Input</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1"><li>Plan View</li><li>Grids</li></ul></CardContent></Card>
-              <Card><CardHeader className="pb-2"><CardTitle className="text-base">Output</CardTitle></CardHeader><CardContent><ul className="list-disc pl-5 text-sm text-muted-foreground space-y-1"><li>มิติกริดลองแกน X/Y</li><li>ระยะ/หัวลูกศรตามมาตรฐาน</li></ul></CardContent></Card>
-            </div>
-          </section>
-          <section className="space-y-4">
-            <ImageBlock label="Grid Dim Plan — Place" />
-            <ImageBlock label="Grid Dim Plan — Result" />
-          </section>
-        </div>
       </div>
     </SidebarInset>
   )
