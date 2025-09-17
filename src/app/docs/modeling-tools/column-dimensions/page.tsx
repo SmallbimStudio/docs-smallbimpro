@@ -1,3 +1,4 @@
+// src/app/docs/modeling-tools/column-dim-all-in-view/page.tsx
 "use client"
 
 import * as React from "react"
@@ -13,18 +14,17 @@ function ImageBlock({ label, caption }: { label: string; caption?: string }) {
   )
 }
 
-export default function FoundationSupportPage() {
+export default function ColumnDimAllInViewPage() {
   return (
-
     <SidebarInset>
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-10">
         {/* Headline */}
         <header className="space-y-3">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
-            Foundation Support — User Guide
+            Column Dimensions — User Guide
           </h1>
           <p className="text-base text-muted-foreground">
-            คู่มือการใช้งานคำสั่ง Foundation Support คำสั่งสำหรับสร้างโมเดลวัสดุรองก้นฐานราก (Foundation Support) อย่างรวดเร็ว
+            คู่มือการใช้งานคำสั่ง Column Dimensions คำสั่งสำหรับสร้างเส้น Dimension บอกขนาดเสาอัตโนมัติ
           </p>
         </header>
         <Separator />
@@ -34,7 +34,7 @@ export default function FoundationSupportPage() {
           <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/34g5bDXwNS0"
+              src="https://www.youtube.com/embed/zrGXFBU275A"
               title="Download and Installation Small BIM PRO"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

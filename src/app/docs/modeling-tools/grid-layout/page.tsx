@@ -39,7 +39,7 @@ export default function GridLayoutPage() {
           <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/BxcIrjYSKrA"
+              src="https://www.youtube.com/embed/Kocgu8ll1jQ"
               title="Download and Installation Small BIM PRO"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

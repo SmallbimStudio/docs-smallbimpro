@@ -17,49 +17,33 @@ function ImageBlock({ label, caption }: { label: string; caption?: string }) {
 export default function ColumnsOnGridsPage() {
   return (
     <SidebarInset>
-      <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 space-y-8">
-        <header className="space-y-1">
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">Columns on Grids</h1>
-          <p className="text-base md:text-lg text-muted-foreground">
-            วางคอลัมน์อัตโนมัติที่จุดตัดกริด เลือก Family/Type ระดับฐาน–ยอด และการเยื้องศูนย์ได้
-          </p>
-        </header>
-        <Separator />
-
-        {/* ===== VIDEO ===== */}
-        <section className="text-center space-y-6">
-          <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
-            <iframe
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/BxcIrjYSKrA"
-              title="Download and Installation Small BIM PRO"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
+          <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-10">
+            {/* Headline */}
+            <header className="space-y-3">
+              <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+                Column on Grids — User Guide
+              </h1>
+              <p className="text-base text-muted-foreground">
+                คู่มือการใช้งานคำสั่ง Column on Grids คำสั่งสำหรับสร้างโมเดลเสาบนเส้นกริด (Column on Grids) อย่างรวดเร็ว
+              </p>
+            </header>
+            <Separator />
+    
+            {/* ===== VIDEO ===== */}
+            <section className="text-center space-y-6">
+              <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/270vhMQY3FA"
+                  title="Download and Installation Small BIM PRO"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            </section>
+    
           </div>
-        </section>
-
-        <section className="grid lg:grid-cols-2 gap-6">
-          <div className="prose max-w-none">
-            <h3>ทำอะไรได้บ้าง</h3>
-            <ul>
-              <li>เลือกช่วงแกนหรือทั้งชุด แล้ววางคอลัมน์อัตโนมัติ</li>
-              <li>ตั้ง Base/Top Level, Base/Top Offset, และ Orientation</li>
-              <li>ตัวเลือกเว้นจุด (Skip) และแทนที่เฉพาะบางตำแหน่ง</li>
-            </ul>
-            <h4>อินพุต & เอาต์พุต</h4>
-            <ul>
-              <li><strong>Input:</strong> ชุด Grid, Column Family/Type, ระดับ</li>
-              <li><strong>Output:</strong> คอลัมน์ถูกวางครบตามเกณฑ์</li>
-            </ul>
-          </div>
-          <div className="space-y-4">
-            <ImageBlock label="Grid Selection" caption="เลือกกริดหรือช่วงแกนที่ต้องการ" />
-            <ImageBlock label="Columns Placed" caption="ผลลัพธ์หลังสั่งวางคอลัมน์" />
-          </div>
-        </section>
-      </div>
-    </SidebarInset>
+        </SidebarInset>
   )
 }

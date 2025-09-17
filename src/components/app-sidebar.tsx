@@ -114,8 +114,7 @@ export const NAV: NavCategory[] = [
       { title: "Foundation Support", href: "/docs/modeling-tools/foundation-support" },
       { title: "Columns on Grids", href: "/docs/modeling-tools/columns-on-grids" },
       { title: "Tag All Columns", href: "/docs/modeling-tools/tag-all-columns" },
-      { title: "Column Dim – Selected", href: "/docs/modeling-tools/column-dim-selected" },
-      { title: "Column Dim – All in View", href: "/docs/modeling-tools/column-dim-all-in-view" },
+      { title: "Column Dimensions", href: "/docs/modeling-tools/column-dimensions" },
       { title: "Toggle Rebar Visibility", href: "/docs/modeling-tools/toggle-rebar-visibility" },
       { title: "Foundation Rebar", href: "/docs/modeling-tools/foundation-rebar" },
       

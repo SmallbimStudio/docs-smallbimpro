@@ -16,12 +16,16 @@ function ImageBlock({ label, caption }: { label: string; caption?: string }) {
 
 export default function FoundationRebarPage() {
   return (
+
     <SidebarInset>
-      <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 space-y-8">
-        <header className="space-y-1">
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">Foundation Rebar</h1>
-          <p className="text-base md:text-lg text-muted-foreground">
-            สร้างเหล็กเสริมฐานรากอัตโนมัติด้วยกฎมาตรฐาน: ขนาดระยะหุ้ม ระยะทาบ ระยะเรียง และรูปแบบวาง
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-10">
+        {/* Headline */}
+        <header className="space-y-3">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+            Foundation Rebar — User Guide
+          </h1>
+          <p className="text-base text-muted-foreground">
+            คู่มือการใช้งานคำสั่ง Foundation Rebar คำสั่งสำหรับสร้างโมเดลเหล็กเสริมฐานรากอย่างรวดเร็ว
           </p>
         </header>
         <Separator />
@@ -31,7 +35,7 @@ export default function FoundationRebarPage() {
           <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/BxcIrjYSKrA"
+              src="https://www.youtube.com/embed/3xv017k0tdY"
               title="Download and Installation Small BIM PRO"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -39,26 +43,7 @@ export default function FoundationRebarPage() {
             ></iframe>
           </div>
         </section>
-        
-        <section className="grid lg:grid-cols-2 gap-6">
-          <div className="prose max-w-none">
-            <h3>ทำอะไรได้บ้าง</h3>
-            <ul>
-              <li>กำหนดระยะหุ้ม (Cover), ระยะทาบ, Spacing และ Bar Size</li>
-              <li>รูปแบบ Single/Dual Layer และทิศทางวาง</li>
-              <li>รองรับฐานเดี่ยว ฐานแผ่ และฐานต่อเนื่อง</li>
-            </ul>
-            <h4>อินพุต & เอาต์พุต</h4>
-            <ul>
-              <li><strong>Input:</strong> ชนิดฐานราก, กฎเหล็กเสริม, ขนาดแท่ง/ระยะ</li>
-              <li><strong>Output:</strong> เหล็กเสริมถูกวางครบพร้อมตาราง QTO</li>
-            </ul>
-          </div>
-          <div className="space-y-4">
-            <ImageBlock label="Rebar Rules" caption="ตั้งค่ากฎมาตรฐานเหล็กเสริม" />
-            <ImageBlock label="Footing Rebar" caption="เหล็กเสริมฐานพร้อมนับปริมาณ" />
-          </div>
-        </section>
+
       </div>
     </SidebarInset>
   )
