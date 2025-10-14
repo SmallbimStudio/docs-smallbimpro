@@ -59,7 +59,7 @@ export default function SalePage() {
 
               {/* Badge */}
               <Badge className="px-4 py-1 animate-fade-in" variant="secondary">
-                <span className="animate-pulse">New</span> Small BIM PRO v1.0.0 Released (Early Bird -40%)
+                <span className="animate-pulse">New</span> Small BIM PRO v1.0.0 Released for Revit 2024, 2025, 2026 (Early Bird -40%)
               </Badge>
             </div>
 
@@ -178,7 +178,7 @@ export default function SalePage() {
           <div className="text-center space-y-4">
             <h2 className="text-4xl font-bold">ฟีเจอร์หลักของ Small BIM PRO</h2>
             <p className="text-lg text-muted-foreground">
-              ครอบคลุมทุกเครื่องมือสำคัญสำหรับงาน BIM ระดับมืออาชีพ
+              ครอบคลุมทุกเครื่องมือสำคัญสำหรับงาน BIM ระดับมืออาชีพ ใช้งานได้ทั้ง Revit 2024, 2025 และ 2026
             </p>
           </div>
           <img src="/images/promote/feature-lists-pic.png" alt="Feature Lists" className="mx-auto" />
@@ -425,7 +425,7 @@ export default function SalePage() {
             />
             <FaqItem 
               q="Small BIM PRO ใช้กับ Revit เวอร์ชันไหนได้?" 
-              a="ในเวอร์ชันแรก รองรับ Revit 2024 เท่านั้น"
+              a="ใช้ได้ใน Revit 2024, 2025 และ 2026"
             />
             <FaqItem 
               q="License ใช้งานได้กี่เครื่อง?" 

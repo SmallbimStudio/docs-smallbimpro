@@ -313,7 +313,7 @@ export default function FeatureListsPage() {
       <section className="text-center space-y-4">
         <h1 className="text-4xl font-bold">ฟีเจอร์หลักของ Small BIM PRO</h1>
         <p className="text-muted-foreground text-lg">
-          คลิกเพื่อดูเครื่องมือการใช้งานทั้งหมดของ Small BIM PRO (Version 1.0.0)
+          คลิกเพื่อดูเครื่องมือการใช้งานทั้งหมดของ Small BIM PRO (Version 1.0.0) for Revit 2024, 2025, 2026
         </p>
       </section>
 

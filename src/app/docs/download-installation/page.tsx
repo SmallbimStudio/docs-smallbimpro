@@ -84,10 +84,10 @@ export default function installation() {
         >
           <p>
             ทำการดาวน์โหลดตัวติดตั้ง โดยคลิก
-            ปุ่ม <em>Download</em> บนเว็บไซต์ https://smallbimstudio.com หรือแหล่งดาวน์โหลด และไฟล์ที่ได้ จะมีชื่อว่า <em>SmallBIMPRO_Installer.zip</em>
+            ปุ่ม <em>Download</em> บนเว็บไซต์ https://smallbimstudio.com หรือแหล่งดาวน์โหลด และไฟล์ที่ได้ จะมีชื่อว่า <em>SmallBIMPRO_Installer_RevitVersion.zip</em>
           </p>
           <p className="text-sm text-muted-foreground">
-            เคล็ดลับ: เก็บไฟล์ไว้ในโฟลเดอร์ที่เข้าถึงง่าย เช่น <code> Downloads </code>
+            เคล็ดลับ: เลือกไฟล์สำหรับติดตั้งตามเวอร์ชั่นของ Revit ที่ใช้งาน เช่น ไฟล์ SmallBIMPRO_Installer_2025.zip สำหรับ Revit 2025 สามารถดาวน์โหลดและเก็บไฟล์ไว้ในโฟลเดอร์ที่เข้าถึงง่าย เช่น <code> Downloads </code>
           </p>
         </StepBlock>
 
