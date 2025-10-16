@@ -62,7 +62,7 @@ export default function UpdatePage() {
           </div>
           
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-            What's New in Small BIM PRO
+            What is New in Small BIM PRO?
           </h1>
           
           <p className="text-base md:text-lg text-muted-foreground">
