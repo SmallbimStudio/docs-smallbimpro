@@ -59,7 +59,7 @@ export default function SalePage() {
 
               {/* Badge */}
               <Badge className="px-4 py-1 animate-fade-in" variant="secondary">
-                <span className="animate-pulse">New</span> Small BIM PRO v1.0.0 Released for Revit 2024, 2025, 2026 (Early Bird -40%)
+                <span className="animate-pulse">Updated</span> Small BIM PRO v1.0.1 Released for Revit 2024, 2025, 2026 and Bug Fixed
               </Badge>
             </div>
 
@@ -197,7 +197,7 @@ export default function SalePage() {
                 เครื่องมือสำหรับคำนวณ BOQ, Export ปริมาณ และ Mapping ราคากลาง
               </p>
               <CardContent className="mt-auto pt-4 flex items-center gap-2">
-                <span className="text-primary font-medium">2 Tools</span>
+                <span className="text-primary font-medium">3 Tools</span>
               </CardContent>
             </Card>
 
@@ -229,7 +229,7 @@ export default function SalePage() {
                 เครื่องมือสำหรับช่วยในการเขียนแบบให้เร็วและสวยงามมากขึ้น
               </p>
               <CardContent className="mt-auto pt-4 flex items-center gap-2">
-                <span className="text-primary font-medium">29 Tools</span>
+                <span className="text-primary font-medium">30 Tools</span>
               </CardContent>
             </Card>
 

@@ -21,7 +21,7 @@ export default function DocsLayout({
         <AutoBreadcrumbs
             showRoot
             rootHref="/docs"
-            rootLabel="Small BIM PRO (Version 1.0.0)"
+            rootLabel="Small BIM PRO (Version 1.0.1)"
             trimPrefix="/docs"   // ✅ ซ่อน /docs ออกจาก trail
         />
       </header>

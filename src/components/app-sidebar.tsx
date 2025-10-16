@@ -59,6 +59,7 @@ export const NAV: NavCategory[] = [
     items: [
       { title: "Welcome to Small BIM PRO", href: "/docs" },
       { title: "Quick Start Guide", href: "/docs/quick-start-guide" },
+      { title: "Latest Update", href: "/docs/update" }, 
       
     ],
   },
@@ -102,6 +103,7 @@ export const NAV: NavCategory[] = [
     url: "#",
     items: [
       { title: "BOQ", href: "/docs/boq-tools/boq" },
+      { title: "Select to BOQ", href: "/docs/boq-tools/select-to-boq" },
       { title: "Model Data Management", href: "/docs/boq-tools/model-data-management" },
     ],
   },
@@ -132,8 +134,21 @@ export const NAV: NavCategory[] = [
       { title: "Element Tags (Plan)", href: "/docs/drawing-tools/element-tags-plan" },
       { title: "Element Tags (Elevation/Section)", href: "/docs/drawing-tools/element-tags-elevation-section" },
       { title: "Legend Component Views", href: "/docs/drawing-tools/legend-component-view" },
+      { title: "Specification Lists", href: "/docs/drawing-tools/specification-lists" },
+      
     ],
   },
+
+  {
+    title: "Video Tutorials",
+    url: "#",
+    items: [
+      { title: "House Series with BOQ", href: "/docs/tutorial" },
+
+      
+    ],
+  },
+
 
   {
     title: "Cost Code Guide",
@@ -235,7 +250,7 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <VersionSwitcher versions={["1.0.0"]} defaultVersion={"1.0.0"} />
+        <VersionSwitcher versions={["1.0.1"]} defaultVersion={"1.0.0"} />
         <div className="px-4 py-2">
           <SearchInput />
         </div>

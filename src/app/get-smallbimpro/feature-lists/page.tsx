@@ -1,10 +1,12 @@
 "use client"
 
 import { useState } from "react"
-import { FileSpreadsheet, Wrench, PenTool, BookOpen, ChevronDown, CheckCircle2, Clock } from "lucide-react"
+import { FileSpreadsheet, Wrench, PenTool, BookOpen, ChevronDown, CheckCircle2, Clock, Sparkles } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
+import { is } from "date-fns/locale"
+
 
 export default function FeatureListsPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
@@ -14,13 +16,19 @@ export default function FeatureListsPage() {
       icon: <FileSpreadsheet className="w-10 h-10 text-primary" />,
       title: "BOQ Tools",
       desc: "เครื่องมือสำหรับคำนวณ BOQ, Export ปริมาณ และ Mapping ราคากลาง",
-      count: "2 Tools",
+      count: "3 Tools",
       tools: [
         {
           icon: "/images/commands/BOQ.png",
           name: "BOQ",
           desc: "สร้างรายการประมาณราคาจากโมเดล Revit",
           isRecommended: true // เปลี่ยนจาก isHot เป็น isRecommended
+        },
+        {
+          icon: "/images/commands/SelectToBOQ.png",
+          name: "Select to BOQ",
+          desc: "เลือกโมเดลเพื่อสร้างรายการประมาณราคาแบบรวดเร็ว พร้อมใช้ในงานเขียนแบบได้ทันที",
+          isNew: true
         },
         {
           icon: "/images/commands/ModelDataManagement.png",
@@ -33,7 +41,7 @@ export default function FeatureListsPage() {
           desc: "เครื่องมือตรวจสอบคุณภาพโมเดลแบบจำลองสีสัน เพื่อความถูกต้องของโมเดล",
           isComingSoon: true
         },
-        
+
       ]
     },
 
@@ -115,7 +123,7 @@ export default function FeatureListsPage() {
           desc: "สร้างโมเดลกระเบื้องหลังคาอัตโนมัติ",
           isComingSoon: true
         },
-        
+
       ]
     },
 
@@ -123,7 +131,7 @@ export default function FeatureListsPage() {
       icon: <PenTool className="w-10 h-10 text-primary" />,
       title: "Drawing Tools",
       desc: "เครื่องมือสำหรับช่วยในการเขียนแบบให้เร็วและสวยงามมากขึ้น",
-      count: "29 Tools",
+      count: "30 Tools",
       tools: [
         {
           icon: "/images/commands/FastPlan.png",
@@ -275,7 +283,13 @@ export default function FeatureListsPage() {
           icon: "/images/commands/legend_down.png",
           name: "Legend Down View",
           desc: "เปลี่ยน Legend เป็นแบบ Down View ใน Legend View"
-        },       
+        },
+        {
+          icon: "/images/commands/SpecSheet.png",
+          name: "Specification Lists",
+          desc: "สร้างรายการสเปควัสดุอัตโนมัติ จากการเลือกโมเดล",
+          isNew: true
+        },
       ]
     },
 
@@ -300,11 +314,11 @@ export default function FeatureListsPage() {
           name: "Sample Project",
           desc: "ไฟล์ตัวอย่างสำหรับฝึกฝนและเรียนรู้การใช้งาน Small BIM PRO",
         },
-        
+
       ]
     },
 
-   
+
   ]
 
   return (
@@ -313,7 +327,7 @@ export default function FeatureListsPage() {
       <section className="text-center space-y-4">
         <h1 className="text-4xl font-bold">ฟีเจอร์หลักของ Small BIM PRO</h1>
         <p className="text-muted-foreground text-lg">
-          คลิกเพื่อดูเครื่องมือการใช้งานทั้งหมดของ Small BIM PRO (Version 1.0.0) for Revit 2024, 2025, 2026
+          คลิกเพื่อดูเครื่องมือการใช้งานทั้งหมดของ Small BIM PRO (Version 1.0.1) for Revit 2024, 2025, 2026
         </p>
       </section>
 
@@ -327,12 +341,12 @@ export default function FeatureListsPage() {
             className={`
             rounded-2xl shadow-md p-6 text-center flex flex-col items-center cursor-pointer
             card-transition
-            ${selectedCategory === f.title 
-                ? 'border-2 border-primary shadow-lg animate-cardExpand' 
+            ${selectedCategory === f.title
+                ? 'border-2 border-primary shadow-lg animate-cardExpand'
                 : 'hover:shadow-lg hover:border-primary/50'}
             `}
             onClick={() => setSelectedCategory(
-            selectedCategory === f.title ? null : f.title
+              selectedCategory === f.title ? null : f.title
             )}
           >
             <div className="mb-4">{f.icon}</div>
@@ -340,9 +354,8 @@ export default function FeatureListsPage() {
             <p className="text-sm text-muted-foreground mt-2">{f.desc}</p>
             <CardContent className="mt-auto pt-4 flex items-center gap-2">
               <span className="text-primary font-medium">{f.count}</span>
-              <ChevronDown className={`w-4 h-4 transition-transform ${
-                selectedCategory === f.title ? 'rotate-180' : ''
-              }`} />
+              <ChevronDown className={`w-4 h-4 transition-transform ${selectedCategory === f.title ? 'rotate-180' : ''
+                }`} />
             </CardContent>
           </Card>
         ))}
@@ -350,11 +363,10 @@ export default function FeatureListsPage() {
 
       {/* Tools Detail Section */}
       {selectedCategory && (
-        <div 
+        <div
           key={selectedCategory}
-          className={`max-w-6xl mx-auto px-4 ${
-            selectedCategory ? 'animate-fadeIn' : 'animate-fadeOut'
-          }`}
+          className={`max-w-6xl mx-auto px-4 ${selectedCategory ? 'animate-fadeIn' : 'animate-fadeOut'
+            }`}
         >
           <h2 className="text-2xl font-semibold mb-8 text-center">
             {features.find(f => f.title === selectedCategory)?.title} Features
@@ -363,15 +375,16 @@ export default function FeatureListsPage() {
             {features
               .find(f => f.title === selectedCategory)
               ?.tools.map((tool) => (
-                <Card 
-                  key={tool.name} 
+                <Card
+                  key={tool.name}
                   className={`group p-4 hover:shadow-lg transition-all duration-300 relative 
-                    ${tool.isRecommended ? 'border-2 border-blue-700/50 hover:border-blue-700' : ''}
-                    ${tool.isComingSoon ? 'border-2 border-gray-300 opacity-60 hover:opacity-80' : 'hover:border-primary/50'}
-                  `}
+                  ${tool.isRecommended ? 'border-2 border-blue-700/50 hover:border-blue-700' : ''}
+                  ${tool.isComingSoon ? 'border-2 border-gray-300 opacity-60 hover:opacity-80' : 'hover:border-primary/50'}
+                  ${tool.isNew ? 'border-2 border-orange-500/50 hover:border-orange-500' : ''}
+                `}
                 >
                   {tool.isRecommended && (
-                    <Badge 
+                    <Badge
                       className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 
                         bg-gradient-to-r from-blue-700 to-blue-900 
                         hover:from-blue-800 hover:to-blue-950 text-white 
@@ -381,9 +394,9 @@ export default function FeatureListsPage() {
                       Recommended
                     </Badge>
                   )}
-                  
+
                   {tool.isComingSoon && (
-                    <Badge 
+                    <Badge
                       className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 
                         bg-gradient-to-r from-gray-500 to-gray-600
                         hover:from-gray-600 hover:to-gray-700 text-white
@@ -394,9 +407,21 @@ export default function FeatureListsPage() {
                     </Badge>
                   )}
 
+                  {tool.isNew && (
+                    <Badge 
+                      className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 
+                        bg-gradient-to-r from-orange-500 to-orange-600
+                        hover:from-orange-600 hover:to-orange-700 text-white
+                        shadow-lg px-3 py-1 rounded-full"
+                    >
+                      <Sparkles className="w-3.5 h-3.5 mr-1.5" />
+                      New
+                    </Badge>
+                  )}
+
                   <div className={`flex flex-col items-center text-center space-y-4 pt-2
                     ${tool.isComingSoon ? 'filter grayscale' : ''}`}
-                  > 
+                  >
                     <div className="relative w-12 h-12 transform transition-transform duration-300 group-hover:scale-110">
                       <Image
                         src={tool.icon}
