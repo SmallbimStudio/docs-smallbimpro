@@ -250,7 +250,7 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <VersionSwitcher versions={["1.0.1"]} defaultVersion={"1.0.0"} />
+        <VersionSwitcher versions={["1.0.2"]} defaultVersion={"1.0.0"} />
         <div className="px-4 py-2">
           <SearchInput />
         </div>
