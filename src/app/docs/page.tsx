@@ -59,7 +59,7 @@ export default function SalePage() {
 
               {/* Badge */}
               <Badge className="px-4 py-1 animate-fade-in" variant="secondary">
-                <span className="animate-pulse">Updated</span> Small BIM PRO v1.0.1 Released for Revit 2024, 2025, 2026 and Bug Fixed
+                <span className="animate-pulse">Updated</span> Small BIM PRO v1.0.2 Released for Revit 2024, 2025, 2026 and Bug Fixed
               </Badge>
             </div>
 
