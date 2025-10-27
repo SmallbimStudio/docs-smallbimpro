@@ -1,4 +1,3 @@
-// src/app/docs/update/page.tsx
 "use client"
 
 import * as React from "react"
@@ -7,11 +6,11 @@ import { Separator } from "@/components/ui/separator"
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { 
-  Sparkles, 
-  CheckCircle2, 
-  Wrench, 
-  Bug, 
+import {
+  Sparkles,
+  CheckCircle2,
+  Wrench,
+  Bug,
   TrendingUp,
   Calendar,
   Package,
@@ -26,13 +25,13 @@ function UpdateBadge({ type }: { type: "new" | "improved" | "fixed" }) {
     improved: "bg-gradient-to-r from-blue-500 to-blue-600 text-white",
     fixed: "bg-gradient-to-r from-green-500 to-green-600 text-white",
   }
-  
+
   const icons = {
     new: <Sparkles className="w-3 h-3" />,
     improved: <TrendingUp className="w-3 h-3" />,
     fixed: <CheckCircle2 className="w-3 h-3" />,
   }
-  
+
   const labels = {
     new: "New",
     improved: "Improved",
@@ -48,23 +47,25 @@ function UpdateBadge({ type }: { type: "new" | "improved" | "fixed" }) {
 }
 
 export default function UpdatePage() {
+  const [isVersion102Expanded, setIsVersion102Expanded] = React.useState(true)
+  const [isVersion101Expanded, setIsVersion101Expanded] = React.useState(false)
   const [isVersion100Expanded, setIsVersion100Expanded] = React.useState(false)
 
   return (
     <SidebarInset>
       <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-10">
-        
+
         {/* Hero Section */}
         <header className="text-center space-y-4">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20">
             <Sparkles className="w-4 h-4 text-orange-600" />
             <span className="text-sm font-medium text-orange-600">Update History</span>
           </div>
-          
+
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
             What is New in Small BIM PRO?
           </h1>
-          
+
           <p className="text-base md:text-lg text-muted-foreground">
             ประวัติการอัพเดตและฟีเจอร์ใหม่ที่เพิ่มเข้ามาในแต่ละเวอร์ชัน
           </p>
@@ -72,149 +73,377 @@ export default function UpdatePage() {
 
         <Separator />
 
-        {/* Version 1.0.1 - Latest */}
+        {/* Version 1.0.2 - Latest */}
         <section className="space-y-6">
-          <div className="flex items-center gap-3 flex-wrap">
-            <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
-              <Package className="w-4 h-4 text-primary" />
-              <span className="font-semibold text-primary">Version 1.0.1</span>
+          <div
+            className="flex items-center justify-between gap-3 flex-wrap cursor-pointer group"
+            onClick={() => setIsVersion102Expanded(!isVersion102Expanded)}
+          >
+            <div className="flex items-center gap-3 flex-wrap">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
+                <Package className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-primary">Version 1.0.2</span>
+              </div>
+              <Badge className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+                Latest
+              </Badge>
+              <span className="text-sm text-muted-foreground flex items-center gap-1">
+                <Calendar className="w-3.5 h-3.5" />
+                27 October 2025
+              </span>
             </div>
-            <Badge className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
-              Latest
-            </Badge>
-            <span className="text-sm text-muted-foreground flex items-center gap-1">
-              <Calendar className="w-3.5 h-3.5" />
-              October 2025
-            </span>
+
+            <Button variant="ghost" size="sm" className="flex items-center gap-2">
+              {isVersion102Expanded ? (
+                <>
+                  <span className="text-sm">ซ่อน</span>
+                  <ChevronUp className="w-4 h-4" />
+                </>
+              ) : (
+                <>
+                  <span className="text-sm">ดูรายละเอียด</span>
+                  <ChevronDown className="w-4 h-4" />
+                </>
+              )}
+            </Button>
           </div>
 
-          {/* New Features in 1.0.1 */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-orange-600" />
-              <h3 className="text-xl font-bold">New Features</h3>
+          {isVersion102Expanded && (
+            <div className="space-y-4 animate-in slide-in-from-top-2 duration-300">
+
+              {/* Improvements */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-blue-600" />
+                  <h3 className="text-xl font-bold">Improvements</h3>
+                </div>
+
+                <div className="space-y-3">
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">RSB-PROFESSIONAL Template (V2)</p>
+                          <p className="text-sm text-muted-foreground">
+                            อัพเดต RSB-PROFESSIONAL Template เวอร์ชันใหม่ (Version 2) เพิ่มรหัส Keynote, Type Comment สำหรับ Family ประเภทต่างๆเพื่อรองรับการถอดปริมาณและการเขียนแบบได้ดียิ่งขึ้น สามารถใช้งานได้ใน Revit 2024, 2025 และ 2026
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">New Door Family (Nested Family)</p>
+                          <p className="text-sm text-muted-foreground">
+                            ออกแบบใหม่ทั้งหมด สำหรับประตูแบบ Nested Family เพื่อให้ผู้ใช้งานสามารถออกแบบ ปรับแต่งรายการภายในประตูได้ละเอียดมากขึ้น รองรับการถอดปริมาณทั้งแบบชุดและแบบตร.ม. และสามารถคาดการณ์ราคาประตู-หน้าต่างทั้งชุด ได้แม่นยำยิ่งขึ้น
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            New 2 Project Example – Nested Family Study (Storage & Aluminium Door)
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            ตัวอย่างการใช้งานประตูแบบ Nested Family ในไฟล์งานตัวอย่าง 2 โครงการ ได้แก่ โครงการ Storage และโครงการ Aluminium Door สามารถดาวน์โหลดไปศึกษาเพิ่มเติมได้ (สำหรับผู้ใช้งานที่มีสิทธิ์ใช้งาน Small BIM PRO แบบตัวเต็ม เท่านั้น)
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">New Basic Wall (ผนังแป้นเกล็ด)</p>
+                          <p className="text-sm text-muted-foreground">
+                            เพิ่มเติมผนังแป้นเกล็ด (Louver Wall) ใน Basic Wall Family สำหรับงานออกแบบอาคารที่ต้องการผนังแป้นเกล็ดเพื่อการระบายอากาศ
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">Database Update - Version 1.0.2</p>
+                          <p className="text-sm text-muted-foreground">
+                            อัพเดตฐานข้อมูลวัสดุและราคาวัสดุก่อสร้างใหม่ล่าสุด ในหมวดของงานประตู-หน้าต่าง และบัวผนัง เพื่อรองรับการสเปคแบบ และถอดปริมาณอย่างละเอียดมากยิ่งขึ้นได้ ทั้งในรูปแบบออนไลน์และออฟไลน์
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">Revit Keynote Update - Version 1.0.2</p>
+                          <p className="text-sm text-muted-foreground">
+                            จากการอัพเดตฐานข้อมูลวัสดุใหม่ ส่งผลให้มีการออกแบบ Keynote ใหม่เพิ่มเติม เพื่อรองรับงาน ประตู-หน้าต่าง, งานบัวผนัง, งานพื้น และงานโครงสร้าง เป็นต้น
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Bug Fixes */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <Bug className="w-5 h-5 text-green-600" />
+                  <h3 className="text-xl font-bold">Bug Fixes</h3>
+                </div>
+
+                <div className="space-y-3">
+                  {/* Bug 1 */}
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">Select to BOQ – การคำนวณปริมาณน้ำหนักเหล็กเสริม</p>
+                          <p className="text-sm text-muted-foreground">
+                            ปรับปรุงหลักการคำนวณน้ำหนักเหล็กเสริมในคำสั่ง Select to BOQ
+                            เพื่อให้สามารถถอดปริมาณได้จริงตรงตามมาตรฐาน
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Bug 2 */}
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">BOQ and Select to BOQ - การตรวจจับประเภทคาน</p>
+                          <p className="text-sm text-muted-foreground">
+                            ปรับปรุงหลักการตรวจจับประเภทของคานเหล็ก คานไม้ และคอนกรีตใหม่
+                            เพื่อให้ได้ปริมาณอย่างเหมาะสม ไม่ตกหล่น
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Bug 3 */}
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">BOQ - Door & Window Quantity Logic</p>
+                          <p className="text-sm text-muted-foreground">
+                            ปรับปรุงหลักการถอดปริมาณประตูและหน้าต่างใหม่
+                            หากเป็นชนิดทั่วไปจะนับเป็น ชุด
+                            และหากเป็นประตู/หน้าต่างอลูมิเนียมจะคำนวณเป็น ตารางเมตร (Width × Height)
+                            พร้อมรองรับ Nested Family แบบละเอียด
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
             </div>
-
-            <div className="grid gap-4 md:grid-cols-2">
-              <Card className="rounded-2xl border-orange-500/20">
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between">
-                    <CardTitle className="text-base font-semibold">Select to BOQ</CardTitle>
-                    <UpdateBadge type="new" />
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    เลือกโมเดลเพื่อสร้างรายการประมาณราคาแบบรวดเร็ว พร้อมใช้ในงานเขียนแบบได้ทันที
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card className="rounded-2xl border-orange-500/20">
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between">
-                    <CardTitle className="text-base font-semibold">Specification Lists</CardTitle>
-                    <UpdateBadge type="new" />
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    สร้างรายการคุณสมบัติของวัสดุและงานก่อสร้างอัตโนมัติ เพื่อใช้ประกอบเอกสารประกอบแบบ
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          <Separator />
-
-          {/* Improvements in 1.0.1 */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-blue-600" />
-              <h3 className="text-xl font-bold">Improvements</h3>
-            </div>
-
-            <div className="space-y-3">
-              <Card className="rounded-2xl border-blue-500/20">
-                <CardContent className="pt-6">
-                  <div className="flex items-start gap-3">
-                    <UpdateBadge type="improved" />
-                    <div className="space-y-1">
-                      <p className="font-medium">Revit 2025 & 2026 Support</p>
-                      <p className="text-sm text-muted-foreground">
-                        เพิ่มการรองรับ Autodesk Revit 2025 และ Revit 2026 เต็มรูปแบบ ทำให้ใช้งานได้กับ Revit 2024, 2025 และ 2026
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            <div className="space-y-3">
-              <Card className="rounded-2xl border-blue-500/20">
-                <CardContent className="pt-6">
-                  <div className="flex items-start gap-3">
-                    <UpdateBadge type="improved" />
-                    <div className="space-y-1">
-                      <p className="font-medium">RSB-PROFESSIONAL Template for Revit 2025 & 2026</p>
-                      <p className="text-sm text-muted-foreground">
-                        อัพเดต RSB-PROFESSIONAL Template ให้รองรับ Revit 2025 และ 2026 พร้อมปรับปรุงมาตรฐานและฐานข้อมูลวัสดุใหม่
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          <Separator />
-
-          {/* Bug Fixes in 1.0.1 */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <Bug className="w-5 h-5 text-green-600" />
-              <h3 className="text-xl font-bold">Bug Fixes</h3>
-            </div>
-
-            <div className="space-y-3">
-              <Card className="rounded-2xl border-green-500/20">
-                <CardContent className="pt-6">
-                  <div className="flex items-start gap-3">
-                    <UpdateBadge type="fixed" />
-                    <div className="space-y-1">
-                      <p className="font-medium">Export to PDF in BOQ</p>
-                      <p className="text-sm text-muted-foreground">
-                        แก้ไขปัญหาปุ่มคำสั่ง Export to PDF ใน BOQ ให้สามารถส่งออกไฟล์ PDF ได้ใน Revit 2025 และ 2026
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="rounded-2xl border-green-500/20">
-                <CardContent className="pt-6">
-                  <div className="flex items-start gap-3">
-                    <UpdateBadge type="fixed" />
-                    <div className="space-y-1">
-                      <p className="font-medium">Revit 2026 API Development</p>
-                      <p className="text-sm text-muted-foreground">
-                        แก้ไขปัญหาการพัฒนา API ใน Revit 2026
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+          )}
         </section>
+
+        <Separator className="my-12" />
+
+
+
+
+        {/* Version 1.0.1 - Collapsible */}
+        <section className="space-y-6">
+          <div
+            className="flex items-center justify-between gap-3 flex-wrap cursor-pointer group"
+            onClick={() => setIsVersion101Expanded(!isVersion101Expanded)}
+          >
+            <div className="flex items-center gap-3 flex-wrap">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted border group-hover:border-primary/30 transition-colors">
+                <Package className="w-4 h-4 text-muted-foreground" />
+                <span className="font-semibold text-muted-foreground">Version 1.0.1</span>
+              </div>
+              <span className="text-sm text-muted-foreground flex items-center gap-1">
+                <Calendar className="w-3.5 h-3.5" />
+                October 2025
+              </span>
+            </div>
+
+            <Button variant="ghost" size="sm" className="flex items-center gap-2">
+              {isVersion101Expanded ? (
+                <>
+                  <span className="text-sm">ซ่อน</span>
+                  <ChevronUp className="w-4 h-4" />
+                </>
+              ) : (
+                <>
+                  <span className="text-sm">ดูรายละเอียด</span>
+                  <ChevronDown className="w-4 h-4" />
+                </>
+              )}
+            </Button>
+          </div>
+
+          {isVersion101Expanded && (
+            <>
+
+
+              {/* New Features in 1.0.1 */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-orange-600" />
+                  <h3 className="text-xl font-bold">New Features</h3>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-2">
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">Select to BOQ</CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">
+                        เลือกโมเดลเพื่อสร้างรายการประมาณราคาแบบรวดเร็ว พร้อมใช้ในงานเขียนแบบได้ทันที
+                      </p>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">Specification Lists</CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">
+                        สร้างรายการคุณสมบัติของวัสดุและงานก่อสร้างอัตโนมัติ เพื่อใช้ประกอบเอกสารประกอบแบบ
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Improvements in 1.0.1 */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-blue-600" />
+                  <h3 className="text-xl font-bold">Improvements</h3>
+                </div>
+
+                <div className="space-y-3">
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">Revit 2025 & 2026 Support</p>
+                          <p className="text-sm text-muted-foreground">
+                            เพิ่มการรองรับ Autodesk Revit 2025 และ Revit 2026 เต็มรูปแบบ ทำให้ใช้งานได้กับ Revit 2024, 2025 และ 2026
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <div className="space-y-3">
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">RSB-PROFESSIONAL Template for Revit 2025 & 2026</p>
+                          <p className="text-sm text-muted-foreground">
+                            อัพเดต RSB-PROFESSIONAL Template ให้รองรับ Revit 2025 และ 2026 พร้อมปรับปรุงมาตรฐานและฐานข้อมูลวัสดุใหม่
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* Bug Fixes in 1.0.1 */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <Bug className="w-5 h-5 text-green-600" />
+                  <h3 className="text-xl font-bold">Bug Fixes</h3>
+                </div>
+
+                <div className="space-y-3">
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">Export to PDF in BOQ</p>
+                          <p className="text-sm text-muted-foreground">
+                            แก้ไขปัญหาปุ่มคำสั่ง Export to PDF ใน BOQ ให้สามารถส่งออกไฟล์ PDF ได้ใน Revit 2025 และ 2026
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">Revit 2026 API Development</p>
+                          <p className="text-sm text-muted-foreground">
+                            แก้ไขปัญหาการพัฒนา API ใน Revit 2026
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+            </>
+          )}
+        </section>
+
 
         <Separator className="my-12" />
 
         {/* Version 1.0.0 - Initial Release (Collapsible) */}
         <section className="space-y-6">
           {/* Header with Toggle Button */}
-          <div 
+          <div
             className="flex items-center justify-between gap-3 flex-wrap cursor-pointer group"
             onClick={() => setIsVersion100Expanded(!isVersion100Expanded)}
           >
@@ -231,9 +460,9 @@ export default function UpdatePage() {
                 September 2025
               </span>
             </div>
-            
-            <Button 
-              variant="ghost" 
+
+            <Button
+              variant="ghost"
               size="sm"
               className="flex items-center gap-2"
             >
@@ -331,7 +560,7 @@ export default function UpdatePage() {
 
         <Separator className="my-12" />
 
-       
+
         {/* Footer Note */}
         <div className="text-center pt-6 space-y-2">
           <p className="text-sm text-muted-foreground">
