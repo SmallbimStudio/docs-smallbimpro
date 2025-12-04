@@ -47,7 +47,9 @@ function UpdateBadge({ type }: { type: "new" | "improved" | "fixed" }) {
 }
 
 export default function UpdatePage() {
-  const [isVersion102Expanded, setIsVersion102Expanded] = React.useState(true)
+  // Config State: Version 1.0.3 เปิดไว้เป็นค่าเริ่มต้น, Version อื่นๆ ปิดไว้
+  const [isVersion103Expanded, setIsVersion103Expanded] = React.useState(true)
+  const [isVersion102Expanded, setIsVersion102Expanded] = React.useState(false)
   const [isVersion101Expanded, setIsVersion101Expanded] = React.useState(false)
   const [isVersion100Expanded, setIsVersion100Expanded] = React.useState(false)
 
@@ -73,20 +75,415 @@ export default function UpdatePage() {
 
         <Separator />
 
-        {/* Version 1.0.2 - Latest */}
+        {/* =====================================================================================
+            Version 1.0.3 - Template (Latest)
+           ===================================================================================== */}
+        <section className="space-y-6">
+          <div
+            className="flex items-center justify-between gap-3 flex-wrap cursor-pointer group"
+            onClick={() => setIsVersion103Expanded(!isVersion103Expanded)}
+          >
+            <div className="flex items-center gap-3 flex-wrap">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
+                <Package className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-primary">Version 1.0.3</span>
+              </div>
+              <Badge className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+                Latest
+              </Badge>
+              <span className="text-sm text-muted-foreground flex items-center gap-1">
+                <Calendar className="w-3.5 h-3.5" />
+                {/* TODO: ใส่ระบุวันที่อัพเดตตรงนี้ */}
+                04 December 2025
+              </span>
+            </div>
+
+            <Button variant="ghost" size="sm" className="flex items-center gap-2">
+              {isVersion103Expanded ? (
+                <>
+                  <span className="text-sm">ซ่อน</span>
+                  <ChevronUp className="w-4 h-4" />
+                </>
+              ) : (
+                <>
+                  <span className="text-sm">ดูรายละเอียด</span>
+                  <ChevronDown className="w-4 h-4" />
+                </>
+              )}
+            </Button>
+          </div>
+
+          {isVersion103Expanded && (
+            <div className="space-y-4 animate-in slide-in-from-top-2 duration-300">
+
+              {/* -------------------- NEW FEATURES TEMPLATE -------------------- */}
+              {/* ถ้าไม่มีฟีเจอร์ใหม่ ให้ Comment ส่วนนี้ปิดไว้ได้เลย */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-orange-600" />
+                  <h3 className="text-xl font-bold">New Features</h3>
+                </div>
+                <div className="space-y-3">
+                  {/* Card Template สำหรับ New Feature */}
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Foundation Dimension Tool - Selected and All in View (เครื่องมือวัดขนาดฐานรากอัตโนมัติ)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        ระบบจะทำการใส่ Dimension ฐานรากให้โดยอัตโนมัติ สามารถเลือกได้ทั้งแบบ
+                        Select เอง หรือทำทั้ง Viewport ช่วยลดเวลาการเขียนแบบได้กว่า 50%
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Foundation-dimension.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Foundation Dimension Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  {/* Card Template สำหรับ New Feature */}
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          {/* ใส่ชื่อฟีเจอร์ใหม่ตรงนี้ */}
+                          Foundation and Column Combined Tag (เครื่องมือแท็กคอลัมน์และฐานรากรวมกัน)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* ใส่รายละเอียดฟีเจอร์ตรงนี้ */}
+                        เคยเขียนแบบแปลนฐานรากแล้วต้องจัดการ Tag ทั้งเสาและฐานรากเองไหม ขยับเท่าไหร่ก็ไม่สวยสักที แถมใช้เวลานานด้วย ในคำสั่ง Foundation and Column Combined Tag 
+                        เป็นเครื่องมือแท็กที่จะนำ Foundation Tag และ Column Tag มาสร้างไว้ด้วยกัน พร้อมๆกันภายในปุ่มเดียว ด้วยวิธีการลากคลุมโมเดลฐานรากและเสา ช่วยให้การแท็กคอลัมน์และฐานรากใน Revit เป็นเรื่องง่าย
+                      </p>
+
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Foundation-column-combined-tag.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Foundation and Column Combined Tag Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Card Template สำหรับ New Feature */}
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-3">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          {/* ใส่ชื่อฟีเจอร์ใหม่ตรงนี้ */}
+                          VG Override (เครื่องมือจัดการ VG Override แบบรวดเร็ว) - Beta Version
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* ใส่รายละเอียดฟีเจอร์ตรงนี้ */}
+                        ในการทำงานเขียนแบบ Revit บางครั้งเราต้องการปรับแต่งการแสดงผลของโมเดลใน Viewport ต่างๆ เช่น การซ่อนบางหมวดหมู่ หรือการปรับสีของโมเดลให้แตกต่างกันไปตามความต้องการของงาน 
+                        ในคำสั่ง VG Override จะช่วยให้คุณสามารถจัดการกับการ Override ของ Visibility/Graphics ได้อย่างรวดเร็วและง่ายดาย โดยไม่ต้องเข้าไปแก้ไขในแต่ละ Viewport ทีละอัน
+                      </p>
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/VG-Override.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="VG Override Tool Preview"
+                          className="w-full h-auto"
+                        />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* -------------------- IMPROVEMENTS TEMPLATE -------------------- */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-blue-600" />
+                  <h3 className="text-xl font-bold">Improvements</h3>
+                </div>
+                <div className="space-y-3">
+                  {/* Card Template สำหรับ Improvement */}
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            BOQ - Time Estimate (ประเมินระยะเวลาโครงการเบื้องต้น)
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            ทางเราได้พัฒนากิมมิคการประเมินระยะเวลาโครงการเบื้องต้น ให้กับคำสั่งหลักอย่าง BOQ เพื่อช่วยให้ผู้ใช้งานสามารถประเมินระยะเวลาโครงการได้อย่างรวดเร็ว
+                          </p>
+                          <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Time-estimate.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Time Estimate Tool Preview"
+                          className="w-full h-auto"
+                        />
+                      </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            BOQ - Auto Suggest (ระบบแนะนำรายการวัสดุอัตโนมัติ) - Beta Version
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            เนื่องจากการถอดปริมาณและการสเปควัสดุก่อสร้างเป็นงานที่ซับซ้อน และใช้เวลานาน ทางเราได้พัฒนาระบบ Auto Suggest 
+                            เพื่อช่วยแนะนำรายการวัสดุที่เหมาะสมกับงานก่อสร้างต่างๆ โดยอัตโนมัติ ช่วยลดเวลาการทำงานและเพิ่มความแม่นยำในการสเปควัสดุ
+                            อีกทั้งยังเพิ่มปุ่ม Load Database ในหน้า Document Presentation เพื่อรองรับการคำนวณราคาจาก Auto Suggest ด้วย
+                          </p>
+                          <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Auto-suggest.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Auto Suggest Tool Preview"
+                          className="w-full h-auto"
+                        />
+                      </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            BOQ - Structural Foundation and Pile to Description Improvement
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            เพิ่มความสามารถในการสรุปรวมปริมาณเสาเข็ม โดยสามารถนับเป็นจำนวนต้นได้ ในช่องหมายเหตุ 
+                            เพื่อนำไปใช้ในงานประมาณราคาได้อย่างถูกต้อง และแม่นยำ โดยสามารถนำไปถอดปริมาณหาจำนวนการสกัดหัวเสาเข็ม หรือค่าแรงงานสำหรับงานเสาเข็มได้ทันที
+                            
+                          </p>
+                          
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            Structural Foundation and Pile Database Update
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            มีการอัพเดตระบบฐานข้อมูลใหม่ และประเภทเสาเข็มใน RSB-PROFESSIONAL Template เพื่อรองรับการสเปคแบบเสาเข็มได้อย่างครอบคลุมมากยิ่งขึ้น
+                          </p>
+                          
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            Select to BOQ - Improvement
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            เพิ่มความสามารถในการถอดปริมาณวัสดุก่อสร้างที่หลากหลายมากยิ่งขึ้นในคำสั่ง Select to BOQ
+                            และปรับปรุงประสิทธิภาพการถอดปริมาณ ให้ตรงหน่วย และรองรับการคำนวณปริมาณเพิ่มเติม เหมือนกับคำสั่ง BOQ
+                          </p>
+                          <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Select-to-boq-improve.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Select to BOQ Improved Preview"
+                          className="w-full h-auto"
+                        />
+                      </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            New Revit Family in RSB-PROFESSIONAL Template
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            มีการเพิ่ม Family ใหม่หลายชิ้นใน RSB-PROFESSIONAL Template ที่มีความจำเป็นสำหรับการทำงาน เช่น Structural Foundation Tag, Structural Column Tag หรืออื่นๆ
+                          </p>
+                          
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* -------------------- BUG FIXES TEMPLATE -------------------- */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <Bug className="w-5 h-5 text-green-600" />
+                  <h3 className="text-xl font-bold">Bug Fixes</h3>
+                </div>
+                <div className="space-y-3">
+                  {/* Card Template สำหรับ Bug Fix */}
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            BOQ - Fix Steel Column Quantity Calculation
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            แก้ไขหลักการถอดปริมาณเสาเหล็กใหม่ เพื่อให้มีการตรวจจับ และแสดงหน่วยที่ถูกต้อง
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            BOQ - Fix Export to PDF
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            แก้ไขปัญหาการส่งออกไฟล์ PDF ให้สามารถทำงานได้อย่างถูกต้อง โดยปรับปรุงให้ไฟล์ PDF ที่ส่งออก มีคอลัมน์ในส่วนของ %เผื่อ และปริมาณเผื่อแล้ว สำหรับการนำไปใช้ในงานประมาณราคาที่แม่นยำ ชัดเจนยิ่งขึ้น
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            Select to BOQ - Fix Logic
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            แก้ไขปัญหาการถอดปริมาณวัสดุก่อสร้างในคำสั่ง Select to BOQ ให้สามารถถอดปริมาณได้ตรงตามมาตรฐาน และแสดงหน่วยที่ถูกต้อง
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            Activate Small BIM PRO License - Fix Issue
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            แก้ไขปัญหาสำหรับปุ่ม Copy Machine ID ในหน้า Activate Small BIM PRO License ที่ไม่สามารถคัดลอก Machine ID ได้ในบางเครื่อง
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            RSB-PROFESSIONAL Template - Fix Issue
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            ปรับปรุง Family หลายชิ้น ให้มีข้อมูล Keynote ที่ถูกต้องมากขึ้น และปรับปรุง Family ที่ยังใช้งานได้ไม่ถูกต้อง
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+            </div>
+          )}
+        </section>
+
+        <Separator className="my-12" />
+
+        {/* =====================================================================================
+            Version 1.0.2 - History (Collapsed)
+           ===================================================================================== */}
         <section className="space-y-6">
           <div
             className="flex items-center justify-between gap-3 flex-wrap cursor-pointer group"
             onClick={() => setIsVersion102Expanded(!isVersion102Expanded)}
           >
             <div className="flex items-center gap-3 flex-wrap">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
-                <Package className="w-4 h-4 text-primary" />
-                <span className="font-semibold text-primary">Version 1.0.2</span>
+              {/* เปลี่ยน Style ให้เป็นแบบ History (สีเทา) ไม่ใช่สี Primary */}
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted border group-hover:border-primary/30 transition-colors">
+                <Package className="w-4 h-4 text-muted-foreground" />
+                <span className="font-semibold text-muted-foreground">Version 1.0.2</span>
               </div>
-              <Badge className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
-                Latest
-              </Badge>
+              
               <span className="text-sm text-muted-foreground flex items-center gap-1">
                 <Calendar className="w-3.5 h-3.5" />
                 27 October 2025
@@ -111,7 +508,7 @@ export default function UpdatePage() {
           {isVersion102Expanded && (
             <div className="space-y-4 animate-in slide-in-from-top-2 duration-300">
 
-              {/* Improvements */}
+              {/* Improvements 1.0.2 */}
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
                   <TrendingUp className="w-5 h-5 text-blue-600" />
@@ -209,7 +606,7 @@ export default function UpdatePage() {
 
               <Separator />
 
-              {/* Bug Fixes */}
+              {/* Bug Fixes 1.0.2 */}
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
                   <Bug className="w-5 h-5 text-green-600" />
@@ -217,7 +614,6 @@ export default function UpdatePage() {
                 </div>
 
                 <div className="space-y-3">
-                  {/* Bug 1 */}
                   <Card className="rounded-2xl border-green-500/20">
                     <CardContent className="pt-6">
                       <div className="flex items-start gap-3">
@@ -233,7 +629,6 @@ export default function UpdatePage() {
                     </CardContent>
                   </Card>
 
-                  {/* Bug 2 */}
                   <Card className="rounded-2xl border-green-500/20">
                     <CardContent className="pt-6">
                       <div className="flex items-start gap-3">
@@ -249,7 +644,6 @@ export default function UpdatePage() {
                     </CardContent>
                   </Card>
 
-                  {/* Bug 3 */}
                   <Card className="rounded-2xl border-green-500/20">
                     <CardContent className="pt-6">
                       <div className="flex items-start gap-3">
@@ -275,10 +669,9 @@ export default function UpdatePage() {
 
         <Separator className="my-12" />
 
-
-
-
-        {/* Version 1.0.1 - Collapsible */}
+        {/* =====================================================================================
+            Version 1.0.1 - History (Collapsed)
+           ===================================================================================== */}
         <section className="space-y-6">
           <div
             className="flex items-center justify-between gap-3 flex-wrap cursor-pointer group"
@@ -312,8 +705,6 @@ export default function UpdatePage() {
 
           {isVersion101Expanded && (
             <>
-
-
               {/* New Features in 1.0.1 */}
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
@@ -440,7 +831,9 @@ export default function UpdatePage() {
 
         <Separator className="my-12" />
 
-        {/* Version 1.0.0 - Initial Release (Collapsible) */}
+        {/* =====================================================================================
+            Version 1.0.0 - History (Collapsed)
+           ===================================================================================== */}
         <section className="space-y-6">
           {/* Header with Toggle Button */}
           <div
