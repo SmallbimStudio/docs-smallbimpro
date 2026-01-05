@@ -59,7 +59,8 @@ export const NAV: NavCategory[] = [
     items: [
       { title: "Welcome to Small BIM PRO", href: "/docs" },
       { title: "Quick Start Guide", href: "/docs/quick-start-guide" },
-      { title: "Latest Update", href: "/docs/update" }, 
+      { title: "Latest Update", href: "/docs/update" },
+      { title: "Roadmap", href: "/docs/roadmap" },
       
     ],
   },
