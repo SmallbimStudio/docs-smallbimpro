@@ -73,6 +73,28 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 50,
   },
+  {
+    id: "v200-boq-paint-area-calculation-advanced",
+    title: "BOQ - Paint Area Calculation (More Controls)",
+    description:
+      "ปรับโค้ดการคำนวณพื้นที่ทาสีให้รัดกุมและยืดหยุ่นมากขึ้น",
+    status: "done",
+    tags: ["BOQ", "Improvement"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 60,
+  },
+  {
+    id: "v200-boq-paint-database-updated",
+    title: "BOQ - Paint Database Updated",
+    description:
+      "ปรับ Database สำหรับสีให้ครอบคลุมรายการสีที่ใช้บ่อยมากขึ้น โดยเพิ่มการแบ่งหมวดงาน",
+    status: "done",
+    tags: ["Database", "Updated"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 70,
+  },
 
   // =====================================================================================
   // IN PROGRESS (v2.0.0)
@@ -110,17 +132,7 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 30,
   },
-  {
-    id: "v200-boq-paint-area-calculation-advanced",
-    title: "BOQ - Paint Area Calculation (More Controls)",
-    description:
-      "ปรับโค้ดการคำนวณพื้นที่ทาสีให้กำหนดรายละเอียดได้มากขึ้น (เช่น เงื่อนไขหักช่องเปิด/ตัวคูณ/แยกชนิดงาน)",
-    status: "in_progress",
-    tags: ["BOQ", "Improvement"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 40,
-  },
+  
 
   // =====================================================================================
   // PLANNED (v2.0.0)
