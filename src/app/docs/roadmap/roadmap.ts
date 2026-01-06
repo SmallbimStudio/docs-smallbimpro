@@ -117,6 +117,28 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 90,
   },
+  {
+    id: "v200-boq-load-online-db-window-fit-screen",
+    title: "BOQ - Load Online Database Window Fit Screen",
+    description:
+      "แก้ไขขนาดหน้าจอเริ่มต้นของหน้าต่าง Load Online Database ไม่ให้ล้นจอ โดยเปลี่ยนขนาด min-height ใหม่",
+    status: "done",
+    tags: ["BOQ", "Bug Fix"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 100,
+  },
+  {
+    id: "v200-boq-new-workflow",
+    title: "BOQ - New Workflow Implementation",
+    description:
+      "ปรับปรุง Workflow การทำงานของคำสั่ง BOQ ใหม่ทั้งหมด ให้เหมาะสมกับการใช้งานจริง ค่อยๆประมาณราคาไปเป็นหมวดๆ โดยคีย์สำคัญคือ Save Session และ Load Session เพื่อให้สามารถกลับมาทำงานต่อได้ง่ายขึ้น",
+    status: "done",
+    tags: ["BOQ", "Workflow Improvement"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 110,
+  },
 
   // =====================================================================================
   // IN PROGRESS (v2.0.0)
@@ -226,17 +248,6 @@ export const ROADMAP: RoadmapItem[] = [
     version: "v2.0.0",
     date: "2026-01-01",
     order: 70,
-  },
-  {
-    id: "v200-boq-load-online-db-window-fit-screen",
-    title: "BOQ - Load Online Database Window Fit Screen",
-    description:
-      "แก้ไขขนาดหน้าจอเริ่มต้นของหน้าต่าง Load Online Database ไม่ให้ล้นจอ โดยเพิ่มการคำนวณพื้นที่หน้าจอของผู้ใช้งาน",
-    status: "planned",
-    tags: ["BOQ", "Bug Fix"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 80,
   },
   {
     id: "v200-rebar-spec-sd40-more",
