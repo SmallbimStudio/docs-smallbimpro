@@ -139,6 +139,28 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 110,
   },
+  {
+    id: "v200-boq-stair-category",
+    title: "BOQ - Stair Category",
+    description:
+      "ปรับปรุงคำสั่ง BOQ ให้หมวดบันไดอยู่ในกลุ่ม Category Pack ทั้ง Structural และ Architectural เพื่อให้ถอดปริมาณบันไดได้ครบถ้วนและถูกต้องมากขึ้น",
+    status: "done",
+    tags: ["BOQ", "Improvement"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 110,
+  },
+  {
+    id: "v200-boq-mechanical-equipment-category",
+    title: "BOQ - Mechanical Equipment Category",
+    description:
+      "ปรับปรุงหน่วยเรียกของ Mechanical Equipment ให้แสดงผลอย่างถูกต้องในคำสั่ง BOQ",
+    status: "done",
+    tags: ["BOQ", "Improvement"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 120,
+  },
 
   // =====================================================================================
   // IN PROGRESS (v2.0.0)
