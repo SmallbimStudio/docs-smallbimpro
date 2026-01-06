@@ -77,7 +77,7 @@ export const ROADMAP: RoadmapItem[] = [
     id: "v200-boq-paint-area-calculation-advanced",
     title: "BOQ - Paint Area Calculation (More Controls)",
     description:
-      "ปรับโค้ดการคำนวณพื้นที่ทาสีให้รัดกุมและยืดหยุ่นมากขึ้น",
+      "ปรับปรุงคำอธิบายการคำนวณพื้นที่ทาสีให้ชัดเจนมากขึ้น พร้อมแสดงรหัสต้นทุนที่ใช้ในการคำนวณ",
     status: "done",
     tags: ["BOQ", "Improvement"],
     version: "v2.0.0",
@@ -95,21 +95,33 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 70,
   },
-
-  // =====================================================================================
-  // IN PROGRESS (v2.0.0)
-  // =====================================================================================
   {
     id: "v200-boq-formwork-calculation-advanced",
     title: "BOQ - Formwork Calculation (More Controls)",
     description:
-      "ปรับโค้ดการคำนวณไม้แบบใน BOQ ให้สามารถกำหนดรายละเอียดและเงื่อนไขได้มากขึ้น",
-    status: "in_progress",
+      "ปรับปรุงคำอธิบายการคำนวณปริมาณไม้แบบให้ชัดเจนมากขึ้น พร้อมแสดงรหัสต้นทุนที่ใช้ในการคำนวณ",
+    status: "done",
     tags: ["BOQ", "Improvement"],
     version: "v2.0.0",
     date: "2026-01-01",
-    order: 10,
+    order: 80,
   },
+  {
+    id: "v200-boq-rebar-calculation-advanced",
+    title: "BOQ - Rebar Calculation (More Controls)",
+    description:
+      "ปรับปรุงคำอธิบายการคำนวณปริมาณเหล็กเสริมให้ชัดเจนมากขึ้น พร้อมแสดงรหัสต้นทุนที่ใช้ในการคำนวณ",
+    status: "done",
+    tags: ["BOQ", "Improvement"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 90,
+  },
+
+  // =====================================================================================
+  // IN PROGRESS (v2.0.0)
+  // =====================================================================================
+  
   {
     id: "v200-database-concrete-multiple-strength",
     title: "Database - Concrete Multiple Strengths",
@@ -132,6 +144,7 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 30,
   },
+  
   
 
   // =====================================================================================
