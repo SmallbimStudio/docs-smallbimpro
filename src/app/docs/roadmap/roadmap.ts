@@ -161,6 +161,17 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 120,
   },
+  {
+    id: "v200-property-line-titledeed-area",
+    title: "Property Line & Title Deed Area - Area Calculation",
+    description:
+      "เครื่องมือช่วยคำนวณพื้นที่จากเส้นเขตที่ดิน (Property Line) และโฉนดที่ดิน (Title Deed Area) เพื่อช่วยงานถอดปริมาณและประมาณราคา",
+    status: "done",
+    tags: ["Property Line & Title Deed Area", "New Command"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 130,
+  },
 
   // =====================================================================================
   // IN PROGRESS (v2.0.0)
@@ -322,17 +333,6 @@ export const ROADMAP: RoadmapItem[] = [
       "เพิ่มสเปคเหล็ก SD40 และสเปคอื่นๆ เพื่อรองรับการทำงานให้ครอบคลุมมากขึ้น",
     status: "planned",
     tags: ["Rebar Spec", "Improvement"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 90,
-  },
-  {
-    id: "v200-property-line-titledeed-area",
-    title: "Property Line & Title Deed Area - Area Calculation",
-    description:
-      "เครื่องมือช่วยคำนวณพื้นที่จากเส้นเขตที่ดิน (Property Line) และโฉนดที่ดิน (Title Deed Area) เพื่อช่วยงานถอดปริมาณและประมาณราคา",
-    status: "planned",
-    tags: ["Property Line & Title Deed Area", "New Command"],
     version: "v2.0.0",
     date: "2026-01-01",
     order: 90,
