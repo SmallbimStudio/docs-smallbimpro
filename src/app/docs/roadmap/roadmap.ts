@@ -57,7 +57,7 @@ export const ROADMAP: RoadmapItem[] = [
     description:
       "สร้างปุ่มคำสั่งใหม่สำหรับการสร้างโครงสร้างหลังคาแบบรวดเร็ว ครบจบในคำสั่งเดียว",
     status: "done",
-    tags: ["Roof Framing Creator", "New"],
+    tags: ["Roof Framing Creator", "New Command"],
     version: "v2.0.0",
     date: "2026-01-01",
     order: 40,
@@ -175,7 +175,7 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["Database", "Improvement"],
     version: "v2.0.0",
     date: "2026-01-01",
-    order: 20,
+    order: 10,
   },
   {
     id: "v200-template-concrete-multiple-strength-families",
@@ -186,7 +186,51 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["Template", "Improvement"],
     version: "v2.0.0",
     date: "2026-01-01",
+    order: 20,
+  },
+  {
+    id: "v200-Column-Footing-Rebar",
+    title: "Column Footing Rebar - Automatic Rebar creation for Column Footings",
+    description:
+      "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในเสาตอม่อคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
+    status: "in_progress",
+    tags: ["Column Footing Rebar", "New Command"],
+    version: "v2.0.0",
+    date: "2026-01-01",
     order: 30,
+  },
+  {
+    id: "v200-Column-Rebar",
+    title: "Column Rebar - Automatic Rebar creation for Columns",
+    description:
+      "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในเสาคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
+    status: "in_progress",
+    tags: ["Column Rebar", "New Command"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 40,
+  },
+  {
+    id: "v200-Beam-Rebar",
+    title: "Beam Rebar - Automatic Rebar creation for Beams",
+    description:
+      "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในคานคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
+    status: "in_progress",
+    tags: ["Beam Rebar", "New Command"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 50,
+  },
+  {
+    id: "v200-Floor-Rebar",
+    title: "Floor Rebar - Automatic Rebar creation for Floors",
+    description:
+      "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในพื้นคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
+    status: "in_progress",
+    tags: ["Floor Rebar", "New Command"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 60,
   },
   
   
@@ -281,5 +325,27 @@ export const ROADMAP: RoadmapItem[] = [
     version: "v2.0.0",
     date: "2026-01-01",
     order: 90,
+  },
+  {
+    id: "v200-property-line-titledeed-area",
+    title: "Property Line & Title Deed Area - Area Calculation",
+    description:
+      "เครื่องมือช่วยคำนวณพื้นที่จากเส้นเขตที่ดิน (Property Line) และโฉนดที่ดิน (Title Deed Area) เพื่อช่วยงานถอดปริมาณและประมาณราคา",
+    status: "planned",
+    tags: ["Property Line & Title Deed Area", "New Command"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 90,
+  },
+  {
+    id: "v200-BOQ-Rebar-Data-Extraction-to-meter",
+    title: "BOQ - Rebar Data Extraction to Meter",
+    description:
+      "เพิ่มคำสั่งพิเศษสำหรับแปลงข้อมูลเหล็กใน BOQ ให้กลายเป็นรายการที่มีหน่วยเป็นเมตร เพื่อช่วยงานถอดปริมาณและประมาณราคา และพัฒนา Document Presentation ให้รองรับการแปลงหน่วนกลับเป็น kg ได้",
+    status: "planned",
+    tags: ["BOQ", "Rebar"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 100,
   },
 ];
