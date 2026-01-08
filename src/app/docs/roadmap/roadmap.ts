@@ -243,8 +243,17 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 60,
   },
-  
-  
+  {
+    id: "v200-Cutting-Optimizer",
+    title: "Cutting Optimizer",
+    description:
+      "พัฒนาคำสั่ง Cutting Optimizer เพื่อช่วยในการจัดการตัดวัสดุให้เหมาะสมที่สุด เพื่อลดของเสียและประหยัดต้นทุน",
+    status: "in_progress",
+    tags: ["Cutting Optimizer", "New Command"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 70,
+  },
 
   // =====================================================================================
   // PLANNED (v2.0.0)
