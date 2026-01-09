@@ -254,6 +254,17 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 70,
   },
+   {
+    id: "v200-Room-to-elements",
+    title: "Room to Elements",
+    description:
+      "พัฒนาคำสั่ง Room to Elements เพื่อช่วยในการแปลงข้อมูลห้องให้กลายเป็นรายการวัสดุและงานต่างๆ ที่เกี่ยวข้อง",
+    status: "in_progress",
+    tags: ["Room to Elements", "New Command"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 70,
+  },
 
   // =====================================================================================
   // PLANNED (v2.0.0)
