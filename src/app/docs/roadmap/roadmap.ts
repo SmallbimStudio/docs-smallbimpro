@@ -211,60 +211,62 @@ export const ROADMAP: RoadmapItem[] = [
     order: 20,
   },
   {
-    id: "v200-Column-Footing-Rebar",
-    title: "Column Footing Rebar - Automatic Rebar creation for Column Footings",
+    id: "v200-Column-Footing-Rebar-Beta",
+    title: "Column Footing Rebar - Automatic Rebar creation for Column Footings-Beta",
     description:
       "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในเสาตอม่อคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
     status: "in_progress",
-    tags: ["Column Footing Rebar", "New Command"],
+    tags: ["Column Footing Rebar", "New Command", "Beta"],
     version: "v2.0.0",
     date: "2026-01-01",
     order: 30,
   },
   {
-    id: "v200-Column-Rebar",
-    title: "Column Rebar - Automatic Rebar creation for Columns",
+    id: "v200-Column-Rebar-Beta",
+    title: "Column Rebar - Automatic Rebar creation for Columns-Beta",
     description:
       "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในเสาคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
     status: "in_progress",
-    tags: ["Column Rebar", "New Command"],
+    tags: ["Column Rebar", "New Command", "Beta"],
     version: "v2.0.0",
     date: "2026-01-01",
     order: 40,
   },
   {
-    id: "v200-Beam-Rebar",
-    title: "Beam Rebar - Automatic Rebar creation for Beams",
+    id: "v200-Beam-Rebar-Beta",
+    title: "Beam Rebar - Automatic Rebar creation for Beams-Beta",
     description:
       "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในคานคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
     status: "in_progress",
-    tags: ["Beam Rebar", "New Command"],
+    tags: ["Beam Rebar", "New Command", "Beta"],
     version: "v2.0.0",
     date: "2026-01-01",
     order: 50,
   },
   {
-    id: "v200-Floor-Rebar",
-    title: "Floor Rebar - Automatic Rebar creation for Floors",
+    id: "v200-Floor-Rebar-Beta",
+    title: "Floor Rebar - Automatic Rebar creation for Floors-Beta",
     description:
       "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในพื้นคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
     status: "in_progress",
-    tags: ["Floor Rebar", "New Command"],
+    tags: ["Floor Rebar", "New Command", "Beta"],
     version: "v2.0.0",
     date: "2026-01-01",
     order: 60,
   },
   {
-    id: "v200-Cutting-Optimizer",
-    title: "Cutting Optimizer",
+    id: "v200-Cutting-Optimizer-Beta",
+    title: "Cutting Optimizer-Beta",
     description:
       "พัฒนาคำสั่ง Cutting Optimizer เพื่อช่วยในการจัดการตัดวัสดุให้เหมาะสมที่สุด เพื่อลดของเสียและประหยัดต้นทุน",
     status: "in_progress",
-    tags: ["Cutting Optimizer", "New Command"],
+    tags: ["Cutting Optimizer", "New Command", "Beta"],
     version: "v2.0.0",
     date: "2026-01-01",
     order: 70,
   },
+ 
+
    
 
   // =====================================================================================
@@ -362,7 +364,7 @@ export const ROADMAP: RoadmapItem[] = [
     id: "v200-BOQ-Rebar-Data-Extraction-to-meter",
     title: "BOQ - Rebar Data Extraction to Meter",
     description:
-      "เพิ่มคำสั่งพิเศษสำหรับแปลงข้อมูลเหล็กใน BOQ ให้กลายเป็นรายการที่มีหน่วยเป็นเมตร เพื่อช่วยงานถอดปริมาณและประมาณราคา และพัฒนา Document Presentation ให้รองรับการแปลงหน่วนกลับเป็น kg ได้",
+      "ปรับปรุงข้อมูลการถอดปริมาณเหล็กเสริมใน BOQ จากการถอดปริมาณพร้อมคำนวณน้ำหนักเหล็กเป็น กิโลเมตร ให้กลายเป็น ถอดปริมาณในหน่วยความยาวแบบ เมตร แทน เพื่อช่วยให้ผู้ใช้งานสามารถตรวจสอบความยาวทั้งหมดของเหล็กเสริมได้จริง และพัฒนา BOQ Calculation ให้รองรับการแปลงหน่วยกลับเป็น kg ได้",
     status: "planned",
     tags: ["BOQ", "Rebar"],
     version: "v2.0.0",
