@@ -183,6 +183,72 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 140,
   },
+  {
+    id: "v200-BOQ-Rebar-Data-Extraction-to-meter",
+    title: "BOQ - Rebar Data Extraction to Meter",
+    description:
+      "ปรับปรุงข้อมูลการถอดปริมาณเหล็กเสริมใน BOQ จากการถอดปริมาณพร้อมคำนวณน้ำหนักเหล็กเป็น กิโลเมตร ให้กลายเป็น ถอดปริมาณในหน่วยความยาวแบบ เมตร แทน เพื่อช่วยให้ผู้ใช้งานสามารถตรวจสอบความยาวทั้งหมดของเหล็กเสริมได้จริง และพัฒนา BOQ Calculation ให้รองรับการแปลงหน่วยกลับเป็น kg ได้",
+    status: "done",
+    tags: ["BOQ", "Rebar"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 150,
+  },
+  {
+    id: "v200-Column-Footing-Rebar-Beta",
+    title: "Column Footing Rebar - Automatic Rebar creation for Column Footings-Beta",
+    description:
+      "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในเสาตอม่อคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
+    status: "done",
+    tags: ["Column Footing Rebar", "New Command", "Beta"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 160,
+  },
+  {
+    id: "v200-Column-Rebar-Beta",
+    title: "Column Rebar - Automatic Rebar creation for Columns-Beta",
+    description:
+      "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในเสาคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
+    status: "done",
+    tags: ["Column Rebar", "New Command", "Beta"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 170,
+  },
+  {
+    id: "v200-Beam-Rebar-Beta",
+    title: "Beam Rebar - Automatic Rebar creation for Beams-Beta",
+    description:
+      "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในคานคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
+    status: "done",
+    tags: ["Beam Rebar", "New Command", "Beta"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 180,
+  },
+  {
+    id: "v200-Floor-Rebar-Beta",
+    title: "Floor Rebar - Automatic Rebar creation for Floors-Beta",
+    description:
+      "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในพื้นคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
+    status: "done",
+    tags: ["Floor Rebar", "New Command", "Beta"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 190,
+  },
+  {
+    id: "v200-Cutting-Optimizer-Beta",
+    title: "Cutting Optimizer-Beta",
+    description:
+      "พัฒนาคำสั่ง Cutting Optimizer เพื่อช่วยในการจัดการตัดวัสดุให้เหมาะสมที่สุด เพื่อลดของเสียและประหยัดต้นทุน",
+    status: "done",
+    tags: ["Cutting Optimizer", "New Command", "Beta"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 200,
+  },
 
   // =====================================================================================
   // IN PROGRESS (v2.0.0)
@@ -211,78 +277,44 @@ export const ROADMAP: RoadmapItem[] = [
     order: 20,
   },
   {
-    id: "v200-Column-Footing-Rebar-Beta",
-    title: "Column Footing Rebar - Automatic Rebar creation for Column Footings-Beta",
+    id: "v200-template-family-pricing-audit",
+    title: "Template - Family Pricing Coverage",
     description:
-      "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในเสาตอม่อคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
+      "ตรวจสอบ Family ใน Template ทุกชิ้นให้มีข้อมูลราคาให้ครบมากที่สุด เพื่อพร้อมทำงานและประมาณราคาได้ทันที",
     status: "in_progress",
-    tags: ["Column Footing Rebar", "New Command", "Beta"],
+    tags: ["Template", "Improvement"],
     version: "v2.0.0",
     date: "2026-01-01",
     order: 30,
   },
   {
-    id: "v200-Column-Rebar-Beta",
-    title: "Column Rebar - Automatic Rebar creation for Columns-Beta",
+    id: "v200-roomtag-elevation-section-bugfix",
+    title: "Roomtag Elevation/Section - Bug Fix",
     description:
-      "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในเสาคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
+      "แก้บัคในคำสั่ง Roomtag Elevation/Section ให้ทำงานได้ถูกต้องและเสถียรขึ้น",
     status: "in_progress",
-    tags: ["Column Rebar", "New Command", "Beta"],
+    tags: ["Roomtag Elevation/Section", "Bug Fix"],
     version: "v2.0.0",
     date: "2026-01-01",
     order: 40,
   },
   {
-    id: "v200-Beam-Rebar-Beta",
-    title: "Beam Rebar - Automatic Rebar creation for Beams-Beta",
+    id: "v200-rebar-spec-sd40-more",
+    title: "Rebar Spec - Add SD40 and More",
     description:
-      "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในคานคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
+      "เพิ่มสเปคเหล็ก SD40 และสเปคอื่นๆ เพื่อรองรับการทำงานให้ครอบคลุมมากขึ้น",
     status: "in_progress",
-    tags: ["Beam Rebar", "New Command", "Beta"],
+    tags: ["Rebar Spec", "Improvement"],
     version: "v2.0.0",
     date: "2026-01-01",
     order: 50,
   },
-  {
-    id: "v200-Floor-Rebar-Beta",
-    title: "Floor Rebar - Automatic Rebar creation for Floors-Beta",
-    description:
-      "ออกแบบ และสร้างคำสั่งสำหรับสร้างเหล็กเสริมในพื้นคอนกรีตเสริมเหล็กแบบอัตโนมัติ",
-    status: "in_progress",
-    tags: ["Floor Rebar", "New Command", "Beta"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 60,
-  },
-  {
-    id: "v200-Cutting-Optimizer-Beta",
-    title: "Cutting Optimizer-Beta",
-    description:
-      "พัฒนาคำสั่ง Cutting Optimizer เพื่อช่วยในการจัดการตัดวัสดุให้เหมาะสมที่สุด เพื่อลดของเสียและประหยัดต้นทุน",
-    status: "in_progress",
-    tags: ["Cutting Optimizer", "New Command", "Beta"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 70,
-  },
- 
-
-   
+    
 
   // =====================================================================================
   // PLANNED (v2.0.0)
   // =====================================================================================
-  {
-    id: "v200-template-family-pricing-audit",
-    title: "Template - Family Pricing Coverage",
-    description:
-      "ตรวจสอบ Family ใน Template ทุกชิ้นให้มีข้อมูลราคาให้ครบมากที่สุด เพื่อพร้อมทำงานและประมาณราคาได้ทันที",
-    status: "planned",
-    tags: ["Template", "Improvement"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 10,
-  },
+  
   {
     id: "v200-boq-document-presentation-format-logo",
     title: "BOQ Document Presentation - Format & Logo for PDF",
@@ -292,19 +324,9 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["BOQ", "New"],
     version: "v2.0.0",
     date: "2026-01-01",
-    order: 20,
+    order: 10,
   },
-  {
-    id: "v200-roomtag-elevation-section-bugfix",
-    title: "Roomtag Elevation/Section - Bug Fix",
-    description:
-      "แก้บัคในคำสั่ง Roomtag Elevation/Section ให้ทำงานได้ถูกต้องและเสถียรขึ้น",
-    status: "planned",
-    tags: ["Roomtag Elevation/Section", "Bug Fix"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 30,
-  },
+  
   {
     id: "v200-boq-brick-wall-to-items",
     title: "BOQ - Convert Brick Wall Area to Brick Items",
@@ -314,7 +336,7 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["BOQ", "New"],
     version: "v2.0.0",
     date: "2026-01-01",
-    order: 40,
+    order: 20,
   },
   {
     id: "v200-boq-paint-area-to-paint-buckets",
@@ -325,7 +347,7 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["BOQ", "New"],
     version: "v2.0.0",
     date: "2026-01-01",
-    order: 50,
+    order: 30,
   },
   {
     id: "v200-rc-tie-beam-lintel-creator",
@@ -336,7 +358,7 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["RC Tie Beam & Lintel Creator", "New"],
     version: "v2.0.0",
     date: "2026-01-01",
-    order: 60,
+    order: 40,
   },
   {
     id: "v200-foundation-rebar-more-pile-types",
@@ -347,28 +369,8 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["Foundation Rebar", "Improvement"],
     version: "v2.0.0",
     date: "2026-01-01",
-    order: 70,
+    order: 50,
   },
-  {
-    id: "v200-rebar-spec-sd40-more",
-    title: "Rebar Spec - Add SD40 and More",
-    description:
-      "เพิ่มสเปคเหล็ก SD40 และสเปคอื่นๆ เพื่อรองรับการทำงานให้ครอบคลุมมากขึ้น",
-    status: "planned",
-    tags: ["Rebar Spec", "Improvement"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 90,
-  },
-  {
-    id: "v200-BOQ-Rebar-Data-Extraction-to-meter",
-    title: "BOQ - Rebar Data Extraction to Meter",
-    description:
-      "ปรับปรุงข้อมูลการถอดปริมาณเหล็กเสริมใน BOQ จากการถอดปริมาณพร้อมคำนวณน้ำหนักเหล็กเป็น กิโลเมตร ให้กลายเป็น ถอดปริมาณในหน่วยความยาวแบบ เมตร แทน เพื่อช่วยให้ผู้ใช้งานสามารถตรวจสอบความยาวทั้งหมดของเหล็กเสริมได้จริง และพัฒนา BOQ Calculation ให้รองรับการแปลงหน่วยกลับเป็น kg ได้",
-    status: "planned",
-    tags: ["BOQ", "Rebar"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 100,
-  },
+  
+ 
 ];
