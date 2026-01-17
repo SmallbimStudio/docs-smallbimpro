@@ -249,6 +249,28 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 200,
   },
+  {
+    id: "v200-roomtag-elevation-section-bugfix",
+    title: "Roomtag Elevation/Section - Bug Fix",
+    description:
+      "แก้บัคในคำสั่ง Roomtag Elevation/Section ให้ทำงานได้ถูกต้องและเสถียรขึ้น",
+    status: "done",
+    tags: ["Roomtag Elevation/Section", "Bug Fix"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 210,
+  },
+   {
+    id: "v200-floor-tiles-generator-new-features",
+    title: "Floor Tiles Generator - New Features",
+    description:
+      "พัฒนาคำสั่ง Floor Tiles Generator คำสั่งใหม่สำหรับการสร้างกระเบื้องพื้นได้หลากหลายรูปแบบ",
+    status: "done",
+    tags: ["Floor Tiles Generator", "New Features"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 220,
+  },
 
   // =====================================================================================
   // IN PROGRESS (v2.0.0)
@@ -288,17 +310,6 @@ export const ROADMAP: RoadmapItem[] = [
     order: 30,
   },
   {
-    id: "v200-roomtag-elevation-section-bugfix",
-    title: "Roomtag Elevation/Section - Bug Fix",
-    description:
-      "แก้บัคในคำสั่ง Roomtag Elevation/Section ให้ทำงานได้ถูกต้องและเสถียรขึ้น",
-    status: "in_progress",
-    tags: ["Roomtag Elevation/Section", "Bug Fix"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 40,
-  },
-  {
     id: "v200-rebar-spec-sd40-more",
     title: "Rebar Spec - Add SD40 and More",
     description:
@@ -307,19 +318,9 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["Rebar Spec", "Improvement"],
     version: "v2.0.0",
     date: "2026-01-01",
-    order: 50,
+    order: 40,
   },
-  {
-    id: "v200-floor-tiles-generator-new-features",
-    title: "Floor Tiles Generator - New Features",
-    description:
-      "พัฒนาคำสั่ง Floor Tiles Generator คำสั่งใหม่สำหรับการสร้างกระเบื้องพื้นได้หลากหลายรูปแบบ",
-    status: "in_progress",
-    tags: ["Floor Tiles Generator", "New Features"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 60,
-  },
+ 
 
   // =====================================================================================
   // PLANNED (v2.0.0)
