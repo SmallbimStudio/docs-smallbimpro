@@ -261,12 +261,12 @@ export const ROADMAP: RoadmapItem[] = [
     order: 210,
   },
    {
-    id: "v200-floor-tiles-generator-new-features",
-    title: "Floor Tiles Generator - New Features",
+    id: "v200-floor-tiles-generator-new-features-Beta",
+    title: "Floor Tiles Generator - Beta",
     description:
       "พัฒนาคำสั่ง Floor Tiles Generator คำสั่งใหม่สำหรับการสร้างกระเบื้องพื้นได้หลากหลายรูปแบบ",
     status: "done",
-    tags: ["Floor Tiles Generator", "New Features"],
+    tags: ["Floor Tiles Generator", "New Command", "Beta"],
     version: "v2.0.0",
     date: "2026-01-01",
     order: 220,
@@ -382,6 +382,4 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 50,
   },
-  
- 
 ];
