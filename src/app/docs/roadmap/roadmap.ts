@@ -261,7 +261,7 @@ export const ROADMAP: RoadmapItem[] = [
     order: 210,
   },
    {
-    id: "v200-floor-tiles-generator-new-features-Beta",
+    id: "v200-floor-tiles-generator-Beta",
     title: "Floor Tiles Generator - Beta",
     description:
       "พัฒนาคำสั่ง Floor Tiles Generator คำสั่งใหม่สำหรับการสร้างกระเบื้องพื้นได้หลากหลายรูปแบบ",
@@ -270,6 +270,17 @@ export const ROADMAP: RoadmapItem[] = [
     version: "v2.0.0",
     date: "2026-01-01",
     order: 220,
+  },
+  {
+    id: "v200-Sheet-Cutting-Organizer-Beta",
+    title: "Sheet Cutting Organizer - Beta",
+    description:
+      "พัฒนาคำสั่ง Sheet Cutting Organizer คำสั่งใหม่สำหรับการจัดการตัดแผ่นให้เหมาะสมที่สุด",
+    status: "done",
+    tags: ["Sheet Cutting Organizer", "New Command", "Beta"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 230,
   },
 
   // =====================================================================================
