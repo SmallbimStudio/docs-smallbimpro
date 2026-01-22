@@ -282,11 +282,23 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 230,
   },
+ 
 
   // =====================================================================================
   // IN PROGRESS (v2.0.0)
   // =====================================================================================
   
+  {
+    id: "v200-Construction-Price-Master-Database",
+    title: "Construction Price - Master Database",
+    description:
+      "พัฒนาคำสั่ง Construction Price - Master Database เป็น Website Navigate สำหรับการจัดการฐานข้อมูลราคากลางงานก่อสร้าง รวบรวมรายการวัสดุและราคากลางที่อัปเดตล่าสุดจากแหล่งข้อมูลที่น่าเชื่อถือ มาไว้ในที่เดียว เพื่อให้ผู้ใช้งานสามารถเข้าถึงและอัปเดตฐานข้อมูลได้อย่างสะดวกและรวดเร็ว",
+    status: "in_progress",
+    tags: ["Construction Price"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 10,
+  },
   {
     id: "v200-database-concrete-multiple-strength",
     title: "Database - Concrete Multiple Strengths",
@@ -296,7 +308,7 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["Database", "Improvement"],
     version: "v2.0.0",
     date: "2026-01-01",
-    order: 10,
+    order: 20,
   },
   {
     id: "v200-template-concrete-multiple-strength-families",
@@ -307,7 +319,7 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["Template", "Improvement"],
     version: "v2.0.0",
     date: "2026-01-01",
-    order: 20,
+    order: 30,
   },
   {
     id: "v200-template-family-pricing-audit",
@@ -318,7 +330,7 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["Template", "Improvement"],
     version: "v2.0.0",
     date: "2026-01-01",
-    order: 30,
+    order: 40,
   },
   {
     id: "v200-rebar-spec-sd40-more",
@@ -329,7 +341,29 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["Rebar Spec", "Improvement"],
     version: "v2.0.0",
     date: "2026-01-01",
-    order: 40,
+    order: 50,
+  },
+  {
+    id: "v200-boq-factor-f-improvement",
+    title: "BOQ - Factor F Improvement",
+    description:
+      "ปรับปรุง Factor F ใน BOQ เพื่อให้รองรับการคำนวณที่แม่นยำขึ้น",
+    status: "in_progress",
+    tags: ["BOQ", "Improvement"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 60,
+  },
+   {
+    id: "v200-Project-Specification-Beta",
+    title: "Project Specification - Beta",
+    description:
+      "พัฒนาคำสั่ง Project Specification คำสั่งใหม่สำหรับการจัดการมาตรฐานรายการและราคาของโครงการ",
+    status: "in_progress",
+    tags: ["Project Specification", "New Command", "Beta"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 700,
   },
  
 

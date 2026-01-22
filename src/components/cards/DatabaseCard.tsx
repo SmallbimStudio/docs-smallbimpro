@@ -1,4 +1,3 @@
-// src/components/cards/DatabaseCard.tsx
 "use client"
 
 import * as React from "react"
@@ -17,7 +16,7 @@ import { Button } from "@/components/ui/button"
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select"
-import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, SlidersHorizontal, Search } from "lucide-react"
+import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, SlidersHorizontal, Search, CheckCircle2 } from "lucide-react"
 
 // ที่อยู่ JSON
 const DATA_URL =
@@ -26,13 +25,14 @@ const DATA_URL =
 type Row = Record<string, unknown>
 type Group = "ALL" | "A" | "B" | "C" | "D" | "E" | "F"
 
-const columns: { key: string; label: string }[] = [
-  { key: "Keynote", label: "Keynote" },
-  { key: "Comment", label: "Comment" },
-  { key: "Unit", label: "Unit" },
-  { key: "RSB_LossPercentage", label: "%" },
-  { key: "RSB_MaterialUnitCost", label: "Material Cost" },
-  { key: "RSB_LabourUnitCost", label: "Labour Cost" },
+const columns: { key: string; label: string; align?: "left" | "right" | "center" }[] = [
+  { key: "Keynote", label: "Keynote", align: "left" },
+  { key: "Comment", label: "Description", align: "left" },
+  { key: "Unit", label: "Unit", align: "center" },
+  { key: "RSB_LossPercentage", label: "%", align: "right" },
+  { key: "RSB_MaterialUnitCost", label: "Material", align: "right" },
+  { key: "RSB_LabourUnitCost", label: "Labour", align: "right" },
+  { key: "Verified", label: "Verified", align: "center" },
 ]
 
 function formatValue(v: unknown) {
@@ -136,68 +136,71 @@ export default function DatabaseCard({ defaultKey = "" }: { defaultKey?: string 
   useEffect(() => { setPage(1) }, [query, group, rowsPerPage])
 
   return (
-    <Card className="w-full">
-      <CardHeader className="pb-2">
-        <div className="flex items-center justify-between gap-3">
-          <CardTitle>Database</CardTitle>
+    <Card className="w-full shadow-md border-slate-200">
+      <CardHeader className="pb-4 border-b bg-slate-50/50 rounded-t-xl">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <CardTitle className="flex items-center gap-2 text-xl">
+              <CheckCircle2 className="w-5 h-5 text-green-600" />
+              Verified Database
+            </CardTitle>
+            <p className="text-sm text-muted-foreground">
+               รายการที่ผ่านการตรวจสอบและ Mapping รหัสต้นทุนแล้ว
+            </p>
+          </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-center gap-2 w-full md:w-auto">
             {/* View (เลือกหมวด) */}
-            <div className="flex items-center gap-1">
-              <Button variant="outline" size="sm" className="gap-1">
-                <SlidersHorizontal className="h-4 w-4" />
-                View
-              </Button>
+            <div className="flex items-center gap-2 w-full sm:w-auto">
               <Select value={group} onValueChange={(v) => setGroup(v as Group)}>
-                <SelectTrigger className="h-8 w-[250px]">
-                  <SelectValue placeholder="All" />
+                <SelectTrigger className="h-9 w-full sm:w-[200px]">
+                  <SlidersHorizontal className="h-4 w-4 mr-2 text-muted-foreground" />
+                  <SelectValue placeholder="Select Category" />
                 </SelectTrigger>
                 <SelectContent align="end">
-                  <SelectItem value="ALL">All</SelectItem>
-                  <SelectItem value="A">หมวดงานวิศวกรรมโครงสร้าง</SelectItem>
-                  <SelectItem value="B">หมวดงานสถาปัตยกรรม</SelectItem>
-                  <SelectItem value="C">หมวดงานระบบไฟฟ้า</SelectItem>
-                  <SelectItem value="D">หมวดงานระบบสุขาภิบาล</SelectItem>
-                  <SelectItem value="E">หมวดงานระบบปรับอากาศ</SelectItem>
-                  <SelectItem value="F">หมวดงานทั่วไป</SelectItem>
+                  <SelectItem value="ALL">All Categories</SelectItem>
+                  <SelectItem value="A">A - งานวิศวกรรมโครงสร้าง</SelectItem>
+                  <SelectItem value="B">B - งานสถาปัตยกรรม</SelectItem>
+                  <SelectItem value="C">C - งานระบบไฟฟ้า</SelectItem>
+                  <SelectItem value="D">D - งานระบบสุขาภิบาล</SelectItem>
+                  <SelectItem value="E">E - งานระบบปรับอากาศ</SelectItem>
+                  <SelectItem value="F">F - งานทั่วไป</SelectItem>
                 </SelectContent>
               </Select>
             </div>
 
             {/* Search */}
-            <div className="relative">
-              <Search className="absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+            <div className="relative w-full sm:w-auto">
+              <Search className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search…"
-                className="h-8 w-[220px] pl-8"
+                placeholder="Search items..."
+                className="h-9 w-full sm:w-[240px] pl-9"
               />
             </div>
           </div>
         </div>
-
-        <div className="text-xs text-muted-foreground mt-1">
-          Showing {total ? start + 1 : 0} – {Math.min(end, total)} of {total.toLocaleString()}
-        </div>
       </CardHeader>
 
-      <CardContent>
-        {loading && <div className="text-sm text-muted-foreground">กำลังโหลดข้อมูล…</div>}
-        {!loading && error && <div className="text-sm text-red-600">เกิดข้อผิดพลาด: {error}</div>}
+      <CardContent className="p-0">
+        {loading && <div className="p-8 text-center text-sm text-muted-foreground">กำลังโหลดข้อมูล...</div>}
+        {!loading && error && <div className="p-8 text-center text-sm text-red-600">เกิดข้อผิดพลาด: {error}</div>}
 
         {!loading && !error && (
           <>
             <div className="overflow-x-auto">
-              <div className="max-h-[480px] overflow-y-auto rounded-md border">
+              <div className="max-h-[600px] overflow-y-auto">
                 <Table>
-                  {/* Header ดำ ตัวหนังสือขาว */}
-                  <TableHeader className="sticky top-0 z-10">
-                    <TableRow className="bg-black hover:bg-black">
+                  <TableHeader className="sticky top-0 z-10 shadow-sm">
+                    <TableRow className="bg-slate-900 hover:bg-slate-900 border-none">
                       {columns.map((c) => (
                         <TableHead
                           key={c.key}
-                          className="whitespace-nowrap bg-black text-white"
+                          className={`
+                            whitespace-nowrap bg-slate-900 text-slate-100 font-medium h-10
+                            ${c.align === 'right' ? 'text-right' : c.align === 'center' ? 'text-center' : 'text-left'}
+                          `}
                         >
                           {c.label}
                         </TableHead>
@@ -210,56 +213,80 @@ export default function DatabaseCard({ defaultKey = "" }: { defaultKey?: string 
                       const k = String(row["Keynote"] ?? "")
                       const tone = rowClassByKeynote(k)
                       return (
-                        <TableRow key={start + idx} className={`${tone}`}>
+                        <TableRow key={start + idx} className={`${tone} border-b border-slate-100/50 hover:brightness-95 transition-all`}>
                           {columns.map((c) => (
-                            <TableCell key={c.key} className="max-w-[280px] truncate">
-                              {formatValue(row[c.key])}
+                            <TableCell 
+                              key={c.key} 
+                              className={`
+                                py-3 px-4 max-w-[300px] truncate text-sm
+                                ${c.align === 'right' ? 'text-right font-mono' : c.align === 'center' ? 'text-center' : 'text-left'}
+                                ${c.key === 'Keynote' ? 'font-semibold text-slate-700' : 'text-slate-600'}
+                              `}
+                            >
+                              {c.key === "Verified" ? (
+                                <CheckCircle2 className="h-4 w-4 text-green-500 mx-auto" />
+                              ) : (
+                                formatValue(row[c.key])
+                              )}
                             </TableCell>
                           ))}
                         </TableRow>
                       )
                     })}
+                    {pageRows.length === 0 && (
+                       <TableRow>
+                         <TableCell colSpan={columns.length} className="h-24 text-center text-muted-foreground">
+                           ไม่พบข้อมูลที่ค้นหา
+                         </TableCell>
+                       </TableRow>
+                    )}
                   </TableBody>
                 </Table>
               </div>
             </div>
 
             {/* footer controls */}
-            <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2 text-sm">
-                <span className="mr-1">Rows per page</span>
-                <Select
-                  value={String(rowsPerPage)}
-                  onValueChange={(v) => setRowsPerPage(Number(v))}
-                >
-                  <SelectTrigger className="h-9 w-[90px]">
-                    <SelectValue />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="10">10</SelectItem>
-                    <SelectItem value="25">25</SelectItem>
-                    <SelectItem value="50">50</SelectItem>
-                    <SelectItem value="100">100</SelectItem>
-                  </SelectContent>
-                </Select>
+            <div className="p-4 border-t bg-slate-50/50 flex flex-wrap items-center justify-between gap-4">
+               <div className="text-xs text-muted-foreground">
+                Showing {total ? start + 1 : 0} – {Math.min(end, total)} of {total.toLocaleString()} items
               </div>
 
-              <div className="flex items-center gap-1 text-sm">
-                <span className="mr-2">
-                  Page {safePage} of {totalPages}
-                </span>
-                <Button variant="outline" size="icon" disabled={safePage === 1} onClick={() => setPage(1)}>
-                  <ChevronsLeft className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" disabled={safePage === 1} onClick={() => setPage((p) => Math.max(1, p - 1))}>
-                  <ChevronLeft className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" disabled={safePage === totalPages} onClick={() => setPage((p) => Math.min(totalPages, p + 1))}>
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="icon" disabled={safePage === totalPages} onClick={() => setPage(totalPages)}>
-                  <ChevronsRight className="h-4 w-4" />
-                </Button>
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 text-sm">
+                  <span className="hidden sm:inline text-muted-foreground">Rows per page</span>
+                  <Select
+                    value={String(rowsPerPage)}
+                    onValueChange={(v) => setRowsPerPage(Number(v))}
+                  >
+                    <SelectTrigger className="h-8 w-[70px]">
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="10">10</SelectItem>
+                      <SelectItem value="25">25</SelectItem>
+                      <SelectItem value="50">50</SelectItem>
+                      <SelectItem value="100">100</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+
+                <div className="flex items-center gap-1">
+                  <Button variant="outline" size="icon" className="h-8 w-8" disabled={safePage === 1} onClick={() => setPage(1)}>
+                    <ChevronsLeft className="h-4 w-4" />
+                  </Button>
+                  <Button variant="outline" size="icon" className="h-8 w-8" disabled={safePage === 1} onClick={() => setPage((p) => Math.max(1, p - 1))}>
+                    <ChevronLeft className="h-4 w-4" />
+                  </Button>
+                  <div className="text-sm font-medium w-[100px] text-center">
+                    Page {safePage} of {totalPages}
+                  </div>
+                  <Button variant="outline" size="icon" className="h-8 w-8" disabled={safePage === totalPages} onClick={() => setPage((p) => Math.min(totalPages, p + 1))}>
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
+                  <Button variant="outline" size="icon" className="h-8 w-8" disabled={safePage === totalPages} onClick={() => setPage(totalPages)}>
+                    <ChevronsRight className="h-4 w-4" />
+                  </Button>
+                </div>
               </div>
             </div>
           </>
