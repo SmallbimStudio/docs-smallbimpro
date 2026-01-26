@@ -304,23 +304,35 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 250,
   },
+   {
+    id: "v200-rebar-spec-sd40-more",
+    title: "Rebar Spec - Add SD40 and More",
+    description:
+      "เพิ่มสเปคเหล็ก SD40 และสเปคอื่นๆ เพื่อรองรับการทำงานให้ครอบคลุมมากขึ้น",
+    status: "done",
+    tags: ["Rebar Spec", "Improvement"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 260,
+  },
+  {
+    id: "v200-database-concrete-multiple-strength",
+    title: "Database - Concrete Multiple Strengths",
+    description:
+      "ปรับ Database ให้มีรายการคอนกรีตหลายสเตรงมากขึ้น เพื่อรองรับงานที่หลากหลาย",
+    status: "done",
+    tags: ["Database", "Improvement"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 270,
+  },
  
 
   // =====================================================================================
   // IN PROGRESS (v2.0.0)
   // =====================================================================================
   
-  {
-    id: "v200-database-concrete-multiple-strength",
-    title: "Database - Concrete Multiple Strengths",
-    description:
-      "ปรับ Database ให้มีรายการคอนกรีตหลายสเตรงมากขึ้น เพื่อรองรับงานที่หลากหลาย",
-    status: "in_progress",
-    tags: ["Database", "Improvement"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 20,
-  },
+  
   {
     id: "v200-template-concrete-multiple-strength-families",
     title: "Template - Families for Multiple Concrete Strengths",
@@ -330,7 +342,7 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["Template", "Improvement"],
     version: "v2.0.0",
     date: "2026-01-01",
-    order: 30,
+    order: 10,
   },
   {
     id: "v200-template-family-pricing-audit",
@@ -341,19 +353,9 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["Template", "Improvement"],
     version: "v2.0.0",
     date: "2026-01-01",
-    order: 40,
+    order: 20,
   },
-  {
-    id: "v200-rebar-spec-sd40-more",
-    title: "Rebar Spec - Add SD40 and More",
-    description:
-      "เพิ่มสเปคเหล็ก SD40 และสเปคอื่นๆ เพื่อรองรับการทำงานให้ครอบคลุมมากขึ้น",
-    status: "in_progress",
-    tags: ["Rebar Spec", "Improvement"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 50,
-  },
+ 
 
  
 
@@ -362,7 +364,7 @@ export const ROADMAP: RoadmapItem[] = [
   // =====================================================================================
   
   {
-    id: "v200-boq-document-presentation-format-logo",
+    id: "v201-boq-document-presentation-format-logo",
     title: "BOQ Document Presentation - Format & Logo for PDF",
     description:
       "พัฒนา Format ของ BOQ Document Presentation ให้ตกแต่งได้ และใส่ Logo ในเอกสาร Paper PDF ได้",
@@ -374,7 +376,7 @@ export const ROADMAP: RoadmapItem[] = [
   },
   
   {
-    id: "v200-boq-brick-wall-to-items",
+    id: "v201-boq-brick-wall-to-items",
     title: "BOQ - Convert Brick Wall Area to Brick Items",
     description:
       "เพิ่มคำสั่งพิเศษสำหรับแปลงพื้นที่ผนังก่ออิฐให้กลายเป็นรายการก้อนอิฐและวัสดุในการก่อจริงๆ ใน BOQ",
@@ -385,7 +387,7 @@ export const ROADMAP: RoadmapItem[] = [
     order: 20,
   },
   {
-    id: "v200-boq-paint-area-to-paint-buckets",
+    id: "v201-boq-paint-area-to-paint-buckets",
     title: "BOQ - Convert Paint Area to Paint Buckets",
     description:
       "เพิ่มคำสั่งพิเศษสำหรับแปลงพื้นที่ทาสีให้กลายเป็นรายการถังสี และสามารถเปลี่ยนแปลงรายการทาสีได้ใน BOQ",
@@ -396,7 +398,7 @@ export const ROADMAP: RoadmapItem[] = [
     order: 30,
   },
   {
-    id: "v200-rc-tie-beam-lintel-creator",
+    id: "v201-rc-tie-beam-lintel-creator",
     title: "RC Tie Beam & Lintel Creator",
     description:
       "พัฒนาคำสั่งสร้างเสาเอ็น-ทับหลังคอนกรีตเสริมเหล็กเพื่อช่วยงานโมเดลและงานถอดปริมาณ",
@@ -407,7 +409,7 @@ export const ROADMAP: RoadmapItem[] = [
     order: 40,
   },
   {
-    id: "v200-foundation-rebar-more-pile-types",
+    id: "v201-foundation-rebar-more-pile-types",
     title: "Foundation Rebar - Support More Pile Foundation Types",
     description:
       "ปรับปรุงคำสั่ง Foundation Rebar ให้รองรับฐานรากแบบเสาเข็มหลากหลายรูปแบบมากขึ้น",
@@ -418,7 +420,7 @@ export const ROADMAP: RoadmapItem[] = [
     order: 50,
   },
   {
-    id: "v200-Master-database-to-project-specification-integration",
+    id: "v201-Master-database-to-project-specification-integration",
     title: "Master Database to Project Specification Integration",
     description:
       "เชื่อมต่อ Master Database กับ Project Specification เพื่อให้สามารถใช้ข้อมูลจาก Master Database ได้โดยตรงใน Project Specification และพัฒนาการเชื่อมต่อระหว่างสองระบบนี้ให้มีประสิทธิภาพมากขึ้น",
@@ -427,5 +429,27 @@ export const ROADMAP: RoadmapItem[] = [
     version: "v2..0.1",
     date: "2026-01-01",
     order: 60,
+  },
+  {
+    id:"v210-boq-improve-data-workflow",
+    title: "BOQ - Improve Data Workflow",
+    description:
+      "ปรับปรุงกระบวนการทำงานจัดการข้อมูลใน BOQ เพื่อให้สามารถจัดการข้อมูลได้อย่างมีประสิทธิภาพมากขึ้น ตั้งแต่การนำเข้าข้อมูล การแก้ไขข้อมูล จนถึงการส่งออกข้อมูล",
+    status: "planned",
+    tags: ["BOQ", "Improvement"],
+    version: "v2.1.0",
+    date: "2026-01-01",
+    order: 70,
+  },
+  {
+    id:"v210-door-window-schedule-generator",
+    title: "Door & Window Schedule Generator",
+    description:
+      "พัฒนาคำสั่งสร้างตารางรายละเอียดประตูและหน้าต่าง เพื่อให้สามารถสร้างตารางรายละเอียดได้อย่างรวดเร็วและแม่นยำ",
+    status: "planned",
+    tags: ["Door & Window", "New"],
+    version: "v2.1.0",
+    date: "2026-01-01",
+    order: 80,
   }
 ];
