@@ -326,6 +326,28 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-01-01",
     order: 270,
   },
+   {
+    id: "v200-template-concrete-multiple-strength-families",
+    title: "Template - Families for Multiple Concrete Strengths",
+    description:
+      "ปรับ Template ให้มี Family รองรับคอนกรีตหลายสเตรง เพื่อให้ใช้งานร่วมกับ Database ได้ครบ",
+    status: "done",
+    tags: ["Template", "Improvement"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 280,
+  },
+  {
+    id: "v200-template-family-pricing-audit",
+    title: "Template - Family Pricing Coverage",
+    description:
+      "ตรวจสอบ Family ใน Template ทุกชิ้นให้มีข้อมูลราคาให้ครบมากที่สุด เพื่อพร้อมทำงานและประมาณราคาได้ทันที",
+    status: "done",
+    tags: ["Template", "Improvement"],
+    version: "v2.0.0",
+    date: "2026-01-01",
+    order: 290,
+  },
  
 
   // =====================================================================================
@@ -333,28 +355,7 @@ export const ROADMAP: RoadmapItem[] = [
   // =====================================================================================
   
   
-  {
-    id: "v200-template-concrete-multiple-strength-families",
-    title: "Template - Families for Multiple Concrete Strengths",
-    description:
-      "ปรับ Template ให้มี Family รองรับคอนกรีตหลายสเตรง เพื่อให้ใช้งานร่วมกับ Database ได้ครบ",
-    status: "in_progress",
-    tags: ["Template", "Improvement"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 10,
-  },
-  {
-    id: "v200-template-family-pricing-audit",
-    title: "Template - Family Pricing Coverage",
-    description:
-      "ตรวจสอบ Family ใน Template ทุกชิ้นให้มีข้อมูลราคาให้ครบมากที่สุด เพื่อพร้อมทำงานและประมาณราคาได้ทันที",
-    status: "in_progress",
-    tags: ["Template", "Improvement"],
-    version: "v2.0.0",
-    date: "2026-01-01",
-    order: 20,
-  },
+ 
  
 
  
@@ -451,5 +452,60 @@ export const ROADMAP: RoadmapItem[] = [
     version: "v2.1.0",
     date: "2026-01-01",
     order: 80,
+  },
+  {
+    id:"v210-conduit-modeler-automatic-routing",
+    title: "Conduit Modeler - Automatic Routing-Beta",
+    description:
+      "พัฒนาคำสั่งสร้างท่อไฟฟ้าอัตโนมัติ เพื่อให้สามารถสร้างท่อไฟฟ้าได้อย่างรวดเร็วและแม่นยำ",
+    status: "planned",
+    tags: ["Conduit Modeler", "New"],
+    version: "v2.1.0",
+    date: "2026-01-01",
+    order: 90,
+  },
+  {
+    id:"v210-mechanical-duct-modeler-automatic-routing",
+    title: "Mechanical Duct Modeler - Automatic Routing-Beta",
+    description:
+      "พัฒนาคำสั่งสร้างท่ออากาศอัตโนมัติ เพื่อให้สามารถสร้างท่ออากาศได้อย่างรวดเร็วและแม่นยำ",
+    status: "planned",
+    tags: ["Mechanical Duct Modeler", "New"],
+    version: "v2.1.0",
+    date: "2026-01-01",
+    order: 100,
+  },
+  {
+    id:"v210-pipe-modeler-automatic-routing",
+    title: "Pipe Modeler - Automatic Routing-Beta",
+    description:
+      "พัฒนาคำสั่งสร้างท่อประปาอัตโนมัติ เพื่อให้สามารถสร้างท่อประปาได้อย่างรวดเร็วและแม่นยำ",
+    status: "planned",
+    tags: ["Pipe Modeler", "New"],
+    version: "v2.1.0",
+    date: "2026-01-01",
+    order: 110,
+  },
+  {
+    id:"v210-Electrical-Circuit-Designer",
+    title: "Electrical Circuit Designer",
+    description:
+      "พัฒนาคำสั่งออกแบบวงจรไฟฟ้า เพื่อให้สามารถออกแบบวงจรไฟฟ้าได้อย่างรวดเร็วและแม่นยำ",
+    status: "planned",
+    tags: ["Electrical Circuit Designer", "New"],
+    version: "v2.1.0",
+    date: "2026-01-01",
+    order: 120,
+  },
+  {
+    id:"v210-All-Disciplines-Schedule-for-BOQ-Integration",
+    title: "All Disciplines Schedule for BOQ Integration",
+    description:
+      "สร้างและเตรียมพร้อมตารางรายละเอียดสำหรับทุกหมวดงาน เพื่อให้สามารถตรวจสอบรายการปริมาณและรายละเอียดได้อย่างรวดเร็วและแม่นยำ",
+    status: "planned",
+    tags: ["All Disciplines Schedule", "BOQ Integration"],
+    version: "v2.1.0",
+    date: "2026-01-01",
+    order: 130,
   }
 ];
