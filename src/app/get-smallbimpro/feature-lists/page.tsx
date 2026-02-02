@@ -16,7 +16,7 @@ export default function FeatureListsPage() {
       icon: <FileSpreadsheet className="w-10 h-10 text-primary" />,
       title: "BOQ Tools",
       desc: "เครื่องมือสำหรับคำนวณ BOQ, Export ปริมาณ และ Mapping ราคากลาง",
-      count: "3 Tools",
+      count: "4 Tools",
       tools: [
         {
           icon: "/images/commands/BOQ.png",
@@ -28,7 +28,6 @@ export default function FeatureListsPage() {
           icon: "/images/commands/SelectToBOQ.png",
           name: "Select to BOQ",
           desc: "เลือกโมเดลเพื่อสร้างรายการประมาณราคาแบบรวดเร็ว พร้อมใช้ในงานเขียนแบบได้ทันที",
-          isNew: true
         },
         {
           icon: "/images/commands/ModelDataManagement.png",
@@ -36,10 +35,10 @@ export default function FeatureListsPage() {
           desc: "จัดการข้อมูลโมเดลและพารามิเตอร์ต่างๆ"
         },
         {
-          icon: "/images/commands/ModelHighlighter.png",
-          name: "Model Highlighter",
-          desc: "เครื่องมือตรวจสอบคุณภาพโมเดลแบบจำลองสีสัน เพื่อความถูกต้องของโมเดล",
-          isComingSoon: true
+          icon: "/images/commands/ProjectSpec.png",
+          name: "Project Specification",
+          desc: "เครื่องมือจัดการสเปควัสดุและรายละเอียดโครงการ",
+          isNew: true
         },
 
       ]
@@ -49,18 +48,18 @@ export default function FeatureListsPage() {
       icon: <Wrench className="w-10 h-10 text-primary" />,
       title: "Modeling Tools",
       desc: "เครื่องมือสำหรับช่วยในการสร้างและจัดการโมเดลได้เร็วขึ้น",
-      count: "8 Tools",
+      count: "17 Tools",
       tools: [
+        {
+          icon: "/images/commands/LandRescaler.png",
+          name: "Land Rescaler",
+          desc: "ปรับขนาดโฉนดที่ดินอัตโนมัติ",
+          isNew: true
+        },
         {
           icon: "/images/commands/GridLayout.png",
           name: "Grid Layout",
           desc: "สร้าง Grid Line อัตโนมัติ",
-          isRecommended: true
-        },
-        {
-          icon: "/images/commands/FoundationSupportCreator.png",
-          name: "Foundation Support",
-          desc: "สร้างโมเดลวัสดุรองก้นฐานอัตโนมัติ",
           isRecommended: true
         },
         {
@@ -69,19 +68,9 @@ export default function FeatureListsPage() {
           desc: "สร้างโมเดลเสา บน Grid Line อัตโนมัติ",
         },
         {
-          icon: "/images/commands/ColumnTag.png",
-          name: "Tag All Columns",
-          desc: "สร้าง Tag เสาอัตโนมัติ"
-        },
-        {
-          icon: "/images/commands/DimSelected.png",
-          name: "Column Dim - Selected",
-          desc: "สร้าง Dimension บอกขนาดเสาที่เลือกอัตโนมัติ"
-        },
-        {
-          icon: "/images/commands/DimAll.png",
-          name: "Column Dim - All",
-          desc: "สร้าง Dimension บอกขนาดเสาทั้งหมด อัตโนมัติ"
+          icon: "/images/commands/FoundationSupportCreator.png",
+          name: "Foundation Support",
+          desc: "สร้างโมเดลวัสดุรองก้นฐานอัตโนมัติ",
         },
         {
           icon: "/images/commands/RebarVisibility_On.png",
@@ -91,38 +80,75 @@ export default function FeatureListsPage() {
         {
           icon: "/images/commands/FoundationRebarCreator.png",
           name: "Foundation Rebar",
-          desc: "สร้างโมเดลเหล็กเสริมฐานรากแบบสี่เหลี่ยมอัตโนมัติ"
+          desc: "สร้างโมเดลเหล็กเสริมฐานรากแบบสี่เหลี่ยมอัตโนมัติ",
+          isNew: true
+        },
+        {
+          icon: "/images/commands/ColumnFootingRebarCreator.png",
+          name: "Column Footing Rebar",
+          desc: "สร้างโมเดลเหล็กเสริมเสาตอม่ออัตโนมัติ",
+          isNew: true
         },
         {
           icon: "/images/commands/ColumnRebarCreator.png",
           name: "Column Rebar",
           desc: "สร้างโมเดลเหล็กเสริมเสาอัตโนมัติ",
-          isComingSoon: true
+          isNew: true
         },
         {
-          icon: "/images/commands/Column_Lintel.png",
-          name: "Column Lintel",
-          desc: "สร้างโมเดลเสาเอ็น-คานทับหลังอัตโนมัติ",
-          isComingSoon: true
+          icon: "/images/commands/BeamRebarCreator.png",
+          name: "Beam Rebar",
+          desc: "สร้างโมเดลเหล็กเสริมคานอัตโนมัติ",
+          isNew: true
         },
         {
-          icon: "/images/commands/BrickWall.png",
-          name: "Brick Wall",
-          desc: "สร้างโมเดลผนังอิฐอัตโนมัติ",
-          isComingSoon: true
+          icon: "/images/commands/FloorRebarCreator.png",
+          name: "Floor Rebar",
+          desc: "สร้างโมเดลเหล็กเสริมพื้นอัตโนมัติ",
+          isNew: true
         },
         {
-          icon: "/images/commands/RoofStructure.png",
-          name: "Roof Structure",
+          icon: "/images/commands/StairRebarCreator.png",
+          name: "Stair Rebar",
+          desc: "สร้างโมเดลเหล็กเสริมบันไดอัตโนมัติ",
+          isNew: true
+        },
+        {
+          icon: "/images/commands/RoofFramingCreator.png",
+          name: "Roof Framing Creator",
           desc: "สร้างโมเดลโครงสร้างหลังคาอัตโนมัติ",
-          isComingSoon: true
+          isNew: true
         },
         {
-          icon: "/images/commands/RoofTiles.png",
-          name: "Roof Tiles",
-          desc: "สร้างโมเดลกระเบื้องหลังคาอัตโนมัติ",
-          isComingSoon: true
+          icon: "/images/commands/FloorTilesGenerator.png",
+          name: "Floor Tiles Generator",
+          desc: "สร้างโมเดลกระเบื้องพื้นอัตโนมัติ",
+          isNew: true
         },
+        {
+          icon: "/images/commands/RoomToLayout.png",
+          name: "Room to Layout",
+          desc: "แปลงข้อมูลห้องให้เป็น Layout บนแปลนอัตโนมัติ",
+          isNew: true
+        },
+        {
+          icon: "/images/commands/RoomToWalls.png",
+          name: "Room to Walls",
+          desc: "แปลงข้อมูลห้องให้เป็น Wall บนแปลนอัตโนมัติ",
+          isNew: true
+        },
+        {
+          icon: "/images/commands/RoomToFloor.png",
+          name: "Room to Floor",
+          desc: "แปลงข้อมูลห้องให้เป็น Floor บนแปลนอัตโนมัติ",
+          isNew: true
+        },
+        {
+          icon: "/images/commands/RoomToCeiling.png",
+          name: "Room to Ceiling",
+          desc: "แปลงข้อมูลห้องให้เป็น Ceiling บนแปลนอัตโนมัติ",
+          isNew: true
+        }, 
 
       ]
     },
@@ -131,7 +157,7 @@ export default function FeatureListsPage() {
       icon: <PenTool className="w-10 h-10 text-primary" />,
       title: "Drawing Tools",
       desc: "เครื่องมือสำหรับช่วยในการเขียนแบบให้เร็วและสวยงามมากขึ้น",
-      count: "30 Tools",
+      count: "39 Tools",
       tools: [
         {
           icon: "/images/commands/FastPlan.png",
@@ -146,22 +172,53 @@ export default function FeatureListsPage() {
           isRecommended: true
         },
         {
-          icon: "/images/commands/GridDimensionEleSec.png",
+          icon: "/images/commands/GridDimension.png",
           name: "Grid Dimension (Elevation/Section)",
           desc: "ใส่ Dimension บน Grid Line ในรูปด้านและรูปตัดอัตโนมัติ",
           isRecommended: true
         },
         {
-          icon: "/images/commands/LevelDimensionEleSec.png",
+          icon: "/images/commands/GridDimension.png",
           name: "Level Dimension (Elevation/Section)",
           desc: "ใส่ Dimension บนเส้น Level ในรูปด้านและรูปตัดอัตโนมัติ",
           isRecommended: true
         },
         {
+          icon: "/images/commands/DimSelected.png",
+          name: "Column Dim - Selected",
+          desc: "สร้าง Dimension บอกขนาดเสาที่เลือกอัตโนมัติ"
+        },
+        {
+          icon: "/images/commands/DimAll.png",
+          name: "Column Dim - All",
+          desc: "สร้าง Dimension บอกขนาดเสาทั้งหมด อัตโนมัติ"
+        },
+        {
+          icon: "/images/commands/DimSelectedFdn.png",
+          name: "Foundation Dim - Selected",
+          desc: "สร้าง Dimension บอกขนาดฐานรากที่เลือกอัตโนมัติ"
+        },
+        {
+          icon: "/images/commands/DimSelectedFdn.png",
+          name: "Foundation Dim - All",
+          desc: "สร้าง Dimension บอกขนาดฐานรากทั้งหมด อัตโนมัติ"
+        },       
+        {
           icon: "/images/commands/SuperTag.png",
           name: "Super Tag (Plan)",
           desc: "สร้าง Element Tags ทุกหมวดหมู่บนแปลนอัตโนมัติ",
           isRecommended: true
+        },
+        {
+          icon: "/images/commands/ColumnTag.png",
+          name: "Tag All Columns",
+          desc: "สร้าง Tag เสาอัตโนมัติ"
+        },
+        {
+          icon: "/images/commands/ColumnFoundationCombinedTag.png",
+          name: "Columns and Foundation Combined Tag",
+          desc: "สร้าง Tag เสาและฐานรากอัตโนมัติ",
+          isNew: true
         },
         {
           icon: "/images/commands/WallTag.png",
@@ -239,6 +296,7 @@ export default function FeatureListsPage() {
           desc: "เปลี่ยน Legend ธรรมดาเป็น 3D View ใน Legend View",
           isRecommended: true
         },
+      
         {
           icon: "/images/commands/legend_plan.png",
           name: "Legend Plan View",
@@ -290,6 +348,24 @@ export default function FeatureListsPage() {
           desc: "สร้างรายการสเปควัสดุอัตโนมัติ จากการเลือกโมเดล",
           isNew: true
         },
+        {
+          icon: "/images/commands/CuttingOptimizer.png",
+          name: "Cutting Optimizer",
+          desc: "คำสั่งคำนวณการตัดเศษวัสดุ ด้วยความยาว",
+          isNew: true
+        },
+        {
+          icon: "/images/commands/SheetCuttingOptimizer.png",
+          name: "Sheet Cutting Optimizer",
+          desc: "คำสั่งคำนวณการตัดเศษวัสดุ ด้วยพื้นที่ กว้างxยาว",
+          isNew: true
+        },
+        {
+          icon: "/images/commands/VGOverride.png",
+          name: "VG Override",
+          desc: "คำสั่งปรับแต่งวัสดุใน View Group แบบง่ายๆ",
+          isNew: true
+        }
       ]
     },
 
@@ -301,7 +377,7 @@ export default function FeatureListsPage() {
       tools: [
         {
           icon: "/images/commands/Template.png",
-          name: "RSB-PROFESSIONAL Template",
+          name: "RSB-PROFESSIONAL Template V4",
           desc: "เทมเพลทสำหรับงานออกแบบ เขียนแบบ และประมาณราคา"
         },
         {
@@ -327,7 +403,7 @@ export default function FeatureListsPage() {
       <section className="text-center space-y-4">
         <h1 className="text-4xl font-bold">ฟีเจอร์หลักของ Small BIM PRO</h1>
         <p className="text-muted-foreground text-lg">
-          คลิกเพื่อดูเครื่องมือการใช้งานทั้งหมดของ Small BIM PRO (Version 1.0.1) for Revit 2024, 2025, 2026
+          คลิกเพื่อดูเครื่องมือการใช้งานทั้งหมดของ Small BIM PRO (Version 2.0.0) for Revit 2024, 2025, 2026
         </p>
       </section>
 
@@ -363,87 +439,76 @@ export default function FeatureListsPage() {
 
       {/* Tools Detail Section */}
       {selectedCategory && (
-        <div
-          key={selectedCategory}
-          className={`max-w-6xl mx-auto px-4 ${selectedCategory ? 'animate-fadeIn' : 'animate-fadeOut'
-            }`}
-        >
-          <h2 className="text-2xl font-semibold mb-8 text-center">
-            {features.find(f => f.title === selectedCategory)?.title} Features
-          </h2>
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-            {features
-              .find(f => f.title === selectedCategory)
-              ?.tools.map((tool) => (
-                <Card
-                  key={tool.name}
-                  className={`group p-4 hover:shadow-lg transition-all duration-300 relative 
-                  ${tool.isRecommended ? 'border-2 border-blue-700/50 hover:border-blue-700' : ''}
-                  ${tool.isComingSoon ? 'border-2 border-gray-300 opacity-60 hover:opacity-80' : 'hover:border-primary/50'}
+      <div
+        key={selectedCategory}
+        className={`max-w-6xl mx-auto px-4 animate-fadeIn`}
+      >
+        <h2 className="text-2xl font-semibold mb-8 text-center">
+          {features.find(f => f.title === selectedCategory)?.title} Features
+        </h2>
+
+        <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+          {features
+            .find(f => f.title === selectedCategory)
+            ?.tools.map((tool) => (
+              <Card
+                key={tool.name}
+                className={`group p-4 hover:shadow-lg transition-all duration-300 relative
+                  ${tool.isRecommended ? 'border-2 border-blue-700/50 hover:border-blue-700' : 'hover:border-primary/50'}
                   ${tool.isNew ? 'border-2 border-orange-500/50 hover:border-orange-500' : ''}
                 `}
-                >
-                  {tool.isRecommended && (
-                    <Badge
-                      className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 
-                        bg-gradient-to-r from-blue-700 to-blue-900 
-                        hover:from-blue-800 hover:to-blue-950 text-white 
-                        shadow-lg px-3 py-1 rounded-full"
-                    >
-                      <CheckCircle2 className="w-3.5 h-3.5 mr-1.5" />
-                      Recommended
-                    </Badge>
-                  )}
-
-                  {tool.isComingSoon && (
-                    <Badge
-                      className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 
-                        bg-gradient-to-r from-gray-500 to-gray-600
-                        hover:from-gray-600 hover:to-gray-700 text-white
-                        shadow-lg px-3 py-1 rounded-full"
-                    >
-                      <Clock className="w-3.5 h-3.5 mr-1.5 animate-pulse" />
-                      Coming Soon
-                    </Badge>
-                  )}
-
-                  {tool.isNew && (
-                    <Badge 
-                      className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 
-                        bg-gradient-to-r from-orange-500 to-orange-600
-                        hover:from-orange-600 hover:to-orange-700 text-white
-                        shadow-lg px-3 py-1 rounded-full"
-                    >
-                      <Sparkles className="w-3.5 h-3.5 mr-1.5" />
-                      New
-                    </Badge>
-                  )}
-
-                  <div className={`flex flex-col items-center text-center space-y-4 pt-2
-                    ${tool.isComingSoon ? 'filter grayscale' : ''}`}
+              >
+                {/* Recommended Badge */}
+                {tool.isRecommended && (
+                  <Badge
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 
+                      bg-gradient-to-r from-blue-700 to-blue-900 
+                      hover:from-blue-800 hover:to-blue-950 text-white 
+                      shadow-lg px-3 py-1 rounded-full"
                   >
-                    <div className="relative w-12 h-12 transform transition-transform duration-300 group-hover:scale-110">
-                      <Image
-                        src={tool.icon}
-                        alt={tool.name}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <h4 className="font-medium text-sm">
-                        {tool.name}
-                      </h4>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        {tool.desc}
-                      </p>
-                    </div>
+                    <CheckCircle2 className="w-3.5 h-3.5 mr-1.5" />
+                    Recommended
+                  </Badge>
+                )}
+
+                {/* New Badge */}
+                {tool.isNew && (
+                  <Badge
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 z-10 
+                      bg-gradient-to-r from-orange-500 to-orange-600
+                      hover:from-orange-600 hover:to-orange-700 text-white
+                      shadow-lg px-3 py-1 rounded-full"
+                  >
+                    <Sparkles className="w-3.5 h-3.5 mr-1.5" />
+                    New
+                  </Badge>
+                )}
+
+                <div className="flex flex-col items-center text-center space-y-4 pt-2">
+                  <div className="relative w-12 h-12 transform transition-transform duration-300 group-hover:scale-110">
+                    <Image
+                      src={tool.icon}
+                      alt={tool.name}
+                      fill
+                      className="object-contain"
+                    />
                   </div>
-                </Card>
-              ))}
-          </div>
+
+                  <div className="space-y-2">
+                    <h4 className="font-medium text-sm">
+                      {tool.name}
+                    </h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {tool.desc}
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            ))}
         </div>
-      )}
+      </div>
+    )}
+
     </div>
   )
 }

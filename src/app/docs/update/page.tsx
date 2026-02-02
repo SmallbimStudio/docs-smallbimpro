@@ -47,15 +47,16 @@ function UpdateBadge({ type }: { type: "new" | "improved" | "fixed" }) {
 }
 
 export default function UpdatePage() {
-  // Config State: Version 1.0.3 เปิดไว้เป็นค่าเริ่มต้น, Version อื่นๆ ปิดไว้
-  const [isVersion103Expanded, setIsVersion103Expanded] = React.useState(true)
+  // Config State: Version 2.0.0 เปิดไว้เป็นค่าเริ่มต้น, Version อื่นๆ ปิดไว้
+  const [isVersion200Expanded, setIsVersion200Expanded] = React.useState(true)
+  const [isVersion103Expanded, setIsVersion103Expanded] = React.useState(false)
   const [isVersion102Expanded, setIsVersion102Expanded] = React.useState(false)
   const [isVersion101Expanded, setIsVersion101Expanded] = React.useState(false)
   const [isVersion100Expanded, setIsVersion100Expanded] = React.useState(false)
 
   return (
     <SidebarInset>
-      <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-10">
+      <div className="mx-auto w-full max-w-6xl px-4 md:px-6 py-8 md:py-10 space-y-6">
 
         {/* Hero Section */}
         <header className="text-center space-y-4">
@@ -76,6 +77,956 @@ export default function UpdatePage() {
         <Separator />
 
         {/* =====================================================================================
+            Version 2.0.0 - Template (Latest)
+           ===================================================================================== */}
+        <section className="space-y-6">
+          <div
+            className="flex items-center justify-between gap-3 flex-wrap cursor-pointer group"
+            onClick={() => setIsVersion200Expanded(!isVersion200Expanded)}
+          >
+            <div className="flex items-center gap-3 flex-wrap">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
+                <Package className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-primary">Version 2.0.0</span>
+              </div>
+              <Badge className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+                Latest
+              </Badge>
+              <span className="text-sm text-muted-foreground flex items-center gap-1">
+                <Calendar className="w-3.5 h-3.5" />
+                {/* TODO: ใส่ระบุวันที่อัพเดตตรงนี้ */}
+                02 February 2026
+              </span>
+            </div>
+
+            <Button variant="ghost" size="sm" className="flex items-center gap-2">
+              {isVersion200Expanded ? (
+                <>
+                  <span className="text-sm">ซ่อน</span>
+                  <ChevronUp className="w-4 h-4" />
+                </>
+              ) : (
+                <>
+                  <span className="text-sm">ดูรายละเอียด</span>
+                  <ChevronDown className="w-4 h-4" />
+                </>
+              )}
+            </Button>
+          </div>
+
+          {isVersion200Expanded && (
+            <div className="space-y-4 animate-in slide-in-from-top-2 duration-300">
+
+              {/* -------------------- NEW FEATURES TEMPLATE -------------------- */}
+              {/* ถ้าไม่มีฟีเจอร์ใหม่ ให้ Comment ส่วนนี้ปิดไว้ได้เลย */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-orange-600" />
+                  <h3 className="text-xl font-bold">New Features</h3>
+                </div>
+                <div className="space-y-3">
+                 
+                  {/* Card Template สำหรับ New Feature */}
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Project Specification (เครื่องมือจัดการสเปคโครงการ)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือที่ช่วยให้ผู้ใช้งานสามารถสร้างและจัดการสเปคโครงการก่อสร้างได้อย่างมีประสิทธิภาพ โดยหลักการนั้นแสนง่ายดาย เพียงแค่ผู้ใช้เลือกหมวดตาม Database ที่มีมากกว่า 2,500 รายการ 
+                        นำมาจัดเรียงไว้เป็น Snapshot ของโครงการ โดยปรับแต่งราคาของโครงการได้อย่างอิสระ จากนั้นก็สามารถ Export ออกมาเป็นเอกสารสเปคโครงการได้ทันที รวมถึงโหลดเข้าไปใช้งานในคำสั่ง BOQ ต่างๆได้อีกด้วย
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Project-spec.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Project Specification Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Roof Framing Creator (เครื่องมือสร้างโมเดลโครงสร้างหลังคาอัตโนมัติ)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถสร้างโมเดลโครงสร้างหลังคาได้อย่างรวดเร็วและแม่นยำ
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Roof-Framing-Creator.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Roof Framing Creator Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Land Rescale (เครื่องมือปรับขนาดโฉนดที่ดินอัตโนมัติ)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถปรับขนาดโฉนดที่ดินได้อย่างรวดเร็วและแม่นยำ ไม่ต้องใส่สูตรคำนวณเองอีกต่อไป
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Land-Rescale.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Land Rescale Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Room to Layouts (เครื่องมือแปลงห้อง ให้เป็นกรอบพื้นที่อัตโนมัติ)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถแปลงห้อง ให้กลายเป็นกรอบพื้นที่ได้อย่างรวดเร็วและแม่นยำ พร้อมตัวหนังสือกำกับขนาดที่ตั้งค่าได้เอง
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Room-to-layouts.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Room to Layouts Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Room to Walls (เครื่องมือแปลงห้อง ให้เป็นโมเดลผนังอัตโนมัติ)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถแปลงห้อง ให้กลายเป็นโมเดลผนังได้อย่างรวดเร็วและแม่นยำ
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Room-to-walls.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Room to Walls Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Room to Floors (เครื่องมือแปลงห้อง ให้เป็นโมเดลพื้นอัตโนมัติ)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถแปลงห้อง ให้กลายเป็นโมเดลพื้นได้อย่างรวดเร็วและแม่นยำ
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Room-to-floors.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Room to Floors Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Room to Ceilings (เครื่องมือแปลงห้อง ให้เป็นโมเดลเพดานอัตโนมัติ)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถแปลงห้อง ให้กลายเป็นโมเดลเพดานได้อย่างรวดเร็วและแม่นยำ
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Room-to-ceilings.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Room to Ceilings Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Foundation Rebar (เครื่องมือสร้าง Structural Rebar พื้นฐานสำหรับฐานรากแผ่)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถสร้าง Structural Rebar พื้นฐานสำหรับโมเดลโครงสร้างฐานรากแบบฐานแผ่อัตโนมัติ
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Foundation-Rebar.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Foundation Rebar Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Column Footing Rebar (เครื่องมือสร้าง Structural Rebar พื้นฐานสำหรับเสาตอม่อ)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถสร้าง Structural Rebar พื้นฐานสำหรับโมเดลโครงสร้างเสาตอม่อแบบอัตโนมัติ
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Column-Footing-Rebar.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Column Footing Rebar Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Column Rebar (เครื่องมือสร้าง Structural Rebar พื้นฐานสำหรับเสา)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถสร้าง Structural Rebar พื้นฐานสำหรับโมเดลโครงสร้างเสาแบบอัตโนมัติ
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Column-Rebar.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Column Rebar Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Beam Rebar (เครื่องมือสร้าง Structural Rebar พื้นฐานสำหรับคาน)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถสร้าง Structural Rebar พื้นฐานสำหรับโมเดลโครงสร้างคานแบบอัตโนมัติ
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Beam-Rebar.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Beam Rebar Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Floor Rebar (เครื่องมือสร้าง Structural Rebar พื้นฐานสำหรับพื้น)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถสร้าง Structural Rebar พื้นฐานสำหรับโมเดลโครงสร้างพื้นแบบอัตโนมัติ
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Floor-Rebar.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Floor Rebar Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Stair Rebar (เครื่องมือสร้าง Structural Rebar พื้นฐานสำหรับบันได)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถสร้าง Structural Rebar พื้นฐานสำหรับโมเดลโครงสร้างบันไดแบบอัตโนมัติ
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Stair-Rebar.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Stair Rebar Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Floor Tiles Generator (เครื่องมือสร้าง Floor Tiles สำหรับพื้นแบบอัตโนมัติ)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถจำลองการปูกระเบื้อง พร้อมสร้าง Floor Tiles Model ลงไปยังโมเดลได้จริงๆอย่างรวดเร็ว
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Floor-Tiles-Generator.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Floor Tiles Generator Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Cutting Optimizer (เครื่องมือคิดเศษการตัดวัตถุ แบบความยาวอัตโนมัติ)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถตรวจสอบความยาวโมเดลวัตถุต่างๆ ที่ต้องการตัดเป็นชิ้นส่วนย่อยๆ 
+                        พร้อมทั้งคำนวณเศษเหลือจากการตัด เพื่อนำไปใช้ในการวางแผนการสั่งซื้อวัตถุดิบได้อย่างมีประสิทธิภาพ
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Cutting-Optimizer.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Cutting Optimizer Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Sheet Cutting Optimizer (เครื่องมือคิดเศษการตัดวัตถุ แบบพื้นที่อัตโนมัติ)
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือตัวช่วยที่ช่วยให้ผู้ใช้งานสามารถตรวจสอบพื้นที่ของวัตถุต่างๆ ที่ต้องการตัดเป็นชิ้นส่วนย่อยๆ 
+                        พร้อมทั้งคำนวณเศษเหลือจากการตัด เพื่อนำไปใช้ในการวางแผนการสั่งซื้อวัตถุดิบได้อย่างมีประสิทธิภาพ
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Sheet-Cutting-Optimizer.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Sheet Cutting Optimizer Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                      
+
+                  
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* -------------------- IMPROVEMENTS TEMPLATE -------------------- */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-blue-600" />
+                  <h3 className="text-xl font-bold">Improvements</h3>
+                </div>
+                <div className="space-y-3">
+                  
+                  {/* Card Template สำหรับ Improvement */}
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            BOQ - Welcome Screen (หน้าต่างต้อนรับผู้ใช้งาน เพื่อเลือกหมวดในการถอดปริมาณ)
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            ปรับปรุงหน้าต่างต้นรับผู้ใช้งาน ให้สามารถเลือกหมวดหมู่การถอดปริมาณได้ง่ายขึ้น พร้อมแสดงตัวอย่างรูปภาพประกอบ เพื่อให้โฟกัสไปที่หมวดที่ต้องการถอดปริมาณและคำนวณราคาได้อย่างรวดเร็ว
+                          </p>
+                          <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <div className="space-y-4">
+                          <img
+                            src="/images/docs/latest-update/Version 2.0.0/Welcome-Screen.png"
+                            alt="Welcome Screen Tool Preview"
+                            className="w-full h-auto"
+                          />
+                          <img
+                            src="/images/docs/latest-update/Version 2.0.0/Welcome-Screen-Category.png"
+                            alt="Welcome Screen Category Preview"
+                            className="w-full h-auto"
+                          />
+                        </div>
+
+                      </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            BOQ - Calculation Rule Information (ปรับปรุงหน้าต่างแสดงข้อมูลหลักการถอดปริมาณเพิ่มเติมแบบ Rule-Based)
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            ปรับปรุงหน้าต่างแสดงข้อมูลหลักการถอดปริมาณเพิ่มเติมแบบ Rule-Based ให้สามารถแสดงรายละเอียดที่ชัดเจนและเข้าใจง่ายขึ้น พร้อมกับแสดงรหัสต้นทุนเป้าหมายได้ชัดเจนมากขึ้น
+                          </p>
+                          <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Calculation-Rule-Info.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Calculation Rule Information Preview"
+                          className="w-full h-auto"
+                        />
+                      </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            BOQ - Calculation Rule Information (ปรับปรุงหน้าต่างแสดงข้อมูลหลักการถอดปริมาณเพิ่มเติมแบบ Rule-Based)
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            ปรับปรุงหน้าต่างแสดงข้อมูลหลักการถอดปริมาณเพิ่มเติมแบบ Rule-Based ให้สามารถแสดงรายละเอียดที่ชัดเจนและเข้าใจง่ายขึ้น พร้อมกับแสดงรหัสต้นทุนเป้าหมายได้ชัดเจนมากขึ้น
+                          </p>
+                          <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Calculation-Rule-Info.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Calculation Rule Information Preview"
+                          className="w-full h-auto"
+                        />
+                      </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            BOQ - Rebar Takeoff (ปรับปรุงการถอดปริมาณเหล็กเสริมให้มีความแม่นยำมากขึ้น)
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            จากการถอดปริมาณด้วย kg. ซึ่งเป็นการคำนวณตั้งแต่ต้น จึงอาจมีความคลาดเคลื่อนเมื่อคำนวณน้ำหนักตั้งแต่แรก
+                            ทางเราจึงได้ทำการปรับปรุงหลักการถอดปริมาณเหล็กเสริมใหม่ทั้งหมด
+                            โดยใช้หน่วยเป็นเมตรเป็นหลัก แล้วเพิ่มปุ่มการคำนวณน้ำหนักเหล็กเสริมขึ้นมาใหม่
+                            เพื่อให้การถอดปริมาณมีความแม่นยำมากยิ่งขึ้น สามารถตรวจสอบปริมาณควบคู่กับโมเดลได้แม่นยำมากขึ้น
+                          </p>
+                          <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <div className="space-y-4">
+                          <img
+                            src="/images/docs/latest-update/Version 2.0.0/Rebar-Meter1.png"
+                            alt="Rebar Meter 1 Preview"
+                            className="w-full h-auto"
+                          />
+                          <img
+                            src="/images/docs/latest-update/Version 2.0.0/Rebar-Meter2.png"
+                            alt="Rebar Meter 2 Preview"
+                            className="w-full h-auto"
+                          />
+                          <img
+                            src="/images/docs/latest-update/Version 2.0.0/Rebar-Meter3.png"
+                            alt="Rebar Meter 3 Preview"
+                            className="w-full h-auto"
+                          />
+                        </div>
+
+                      </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            BOQ - New Suggestion Lists (เพิ่มรายการแนะนำใหม่ในการถอดปริมาณ)
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            ปรับปรุงเพิ่มรายการแนะนำใหม่ในการถอดปริมาณ เช่น หมวดงานทั่วไป งานสำรวจผัง งานวางผัง อื่นๆ เป็นต้น
+                          </p>
+                          <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Suggestion.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Suggestion Lists Preview"
+                          className="w-full h-auto"
+                        />
+                      </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            BOQ - Factor F (ปรับปรุงและเพิ่มเติมสูตรการคำนวณ Factor F ใหม่)
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            ปรับปรุงสูตรการคำนวณ Factor F ใหม่ เพื่อให้สามารถคำนวณได้ถูกต้องและแม่นยำมากขึ้น ตามมาตรฐานงานรัฐและเอกชน
+                          </p>
+                          <div className="space-y-4">
+                          <img
+                            src="/images/docs/latest-update/Version 2.0.0/Factor-F1.png"
+                            alt="Factor F 1 Preview"
+                            className="w-full h-auto"
+                          />
+                          <img
+                            src="/images/docs/latest-update/Version 2.0.0/Factor-F2.png"
+                            alt="Factor F 2 Preview"
+                            className="w-full h-auto"
+                          />
+                          <img
+                            src="/images/docs/latest-update/Version 2.0.0/Factor-F3.png"
+                            alt="Factor F 3 Preview"
+                            className="w-full h-auto"
+                          />
+                        </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            BOQ - New Building Area (เพิ่มช่องกรอกข้อมูลพื้นที่อาคารใหม่)
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            ปรับปรุงเพิ่มช่องกรอกข้อมูลพื้นที่อาคารใหม่ เพื่อให้สามารถระบุพื้นที่อาคารได้อย่างแม่นยำ
+                          </p>
+                          <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Building-Area.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Building Area Preview"
+                          className="w-full h-auto"
+                        />
+                      </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            BOQ - New Summary Page (เพิ่มและปรับปรุงหน้าสรุปผลการถอดปริมาณ)
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            ปรับปรุงเพิ่มหน้าสรุปผลการถอดปริมาณใหม่ เพื่อให้สามารถแสดงผลสรุปได้อย่างชัดเจนและแม่นยำ
+                          </p>
+                          <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Summary-Page.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Summary Page Preview"
+                          className="w-full h-auto"
+                        />
+                      </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อการปรับปรุงตรงนี้ */}
+                            Model Data Management to Dockable Pane (ปรับปรุงรูปแบบคำสั่งจัดการข้อมูลโมเดล ให้มาอยู่ในรูปแบบ Dockable Pane)
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียดการปรับปรุงตรงนี้ */}
+                            ปรับปรุงรูปแบบคำสั่งจัดการข้อมูลโมเดล ให้มาอยู่ในรูปแบบ Dockable Pane เพื่อให้ผู้ใช้งานสามารถเข้าถึงคำสั่งต่างๆ ได้ง่ายและรวดเร็วมากยิ่งขึ้น ตลอดระยะเวลาการทำงาน
+                          </p>
+                          <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.0/Dockable-Pane.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Dockable Pane Preview"
+                          className="w-full h-auto"
+                        />
+                      </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            Rebar Spec - Add SD40 and More
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            เพิ่มสเปคเหล็ก SD40 และสเปคอื่นๆ เพื่อรองรับการทำงานให้ครอบคลุมมากขึ้น
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            Database - Concrete Multiple Strengths
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            ปรับ Database ให้มีรายการคอนกรีตหลายสเตรงมากขึ้น เพื่อรองรับงานที่หลากหลาย
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            Template - Families for Multiple Concrete Strengths
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            ปรับ Template ให้มี Family รองรับคอนกรีตหลายสเตรง เพื่อให้ใช้งานร่วมกับ Database ได้ครบถ้วนมากขึ้น
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            Template - Family Pricing Coverage
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            ตรวจสอบ Family ใน Template ทุกชิ้นให้มีข้อมูลราคาให้ครบมากที่สุด เพื่อพร้อมทำงานและประมาณราคาได้ทันที
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* -------------------- BUG FIXES TEMPLATE -------------------- */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <Bug className="w-5 h-5 text-green-600" />
+                  <h3 className="text-xl font-bold">Bug Fixes</h3>
+                </div>
+                <div className="space-y-3">
+                  
+                  {/* Card Template สำหรับ Bug Fix */}
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            Model Data Management - Selection
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            แก้ไขการทำงานของ Model Data Management ให้ขั้นตอนการเลือกวัตถุไม่ย่อรายการลงทุกครั้งที่อัปเดตข้อมูล
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            BOQ - Restore Delete Item
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            แก้ปัญหา Bug Export DataGrid ให้ปุ่มลบรายการกลับมาใช้งานได้เหมือนเดิม
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            BOQ - Load Online Database Window Fit Screen
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            แก้ไขขนาดหน้าจอเริ่มต้นของหน้าต่าง Load Online Database ไม่ให้ล้นจอ โดยเปลี่ยนขนาด min-height ใหม่
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            BOQ - Mechanical Equipment Category
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            ปรับปรุงหน่วยเรียกของ Mechanical Equipment ให้แสดงผลอย่างถูกต้องในคำสั่ง BOQ
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            Roomtag Elevation/Section - Bug Fix
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            แก้บัคในคำสั่ง Roomtag Elevation/Section ให้ทำงานได้ถูกต้องและเสถียรขึ้น
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+
+
+                </div>
+              </div>
+
+            </div>
+          )}
+        </section>
+
+        <Separator className="my-3" />
+
+        {/* =====================================================================================
             Version 1.0.3 - Template (Latest)
            ===================================================================================== */}
         <section className="space-y-6">
@@ -88,9 +1039,6 @@ export default function UpdatePage() {
                 <Package className="w-4 h-4 text-primary" />
                 <span className="font-semibold text-primary">Version 1.0.3</span>
               </div>
-              <Badge className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
-                Latest
-              </Badge>
               <span className="text-sm text-muted-foreground flex items-center gap-1">
                 <Calendar className="w-3.5 h-3.5" />
                 {/* TODO: ใส่ระบุวันที่อัพเดตตรงนี้ */}
@@ -126,7 +1074,7 @@ export default function UpdatePage() {
                 <div className="space-y-3">
                   {/* Card Template สำหรับ New Feature */}
                   <Card className="rounded-2xl border-orange-500/20">
-                    <CardHeader className="pb-3">
+                    <CardHeader className="pb-0.5">
                       <div className="flex items-start justify-between">
                         <CardTitle className="text-base font-semibold">
                           Foundation Dimension Tool - Selected and All in View (เครื่องมือวัดขนาดฐานรากอัตโนมัติ)
@@ -144,7 +1092,7 @@ export default function UpdatePage() {
                      
                       <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
                         <img 
-                          src="/images/docs/latest-update/Foundation-dimension.png" // เปลี่ยน path รูปภาพตรงนี้
+                          src="/images/docs/latest-update/Version 1.0.3/Foundation-dimension.png" // เปลี่ยน path รูปภาพตรงนี้
                           alt="Foundation Dimension Tool Preview"
                           className="w-full h-auto" 
                         />
@@ -155,7 +1103,7 @@ export default function UpdatePage() {
 
                   {/* Card Template สำหรับ New Feature */}
                   <Card className="rounded-2xl border-orange-500/20">
-                    <CardHeader className="pb-3">
+                    <CardHeader className="pb-0.5">
                       <div className="flex items-start justify-between">
                         <CardTitle className="text-base font-semibold">
                           {/* ใส่ชื่อฟีเจอร์ใหม่ตรงนี้ */}
@@ -173,7 +1121,7 @@ export default function UpdatePage() {
 
                       <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
                         <img 
-                          src="/images/docs/latest-update/Foundation-column-combined-tag.png" // เปลี่ยน path รูปภาพตรงนี้
+                          src="/images/docs/latest-update/Version 1.0.3/Foundation-column-combined-tag.png" // เปลี่ยน path รูปภาพตรงนี้
                           alt="Foundation and Column Combined Tag Preview"
                           className="w-full h-auto" 
                         />
@@ -183,7 +1131,7 @@ export default function UpdatePage() {
 
                   {/* Card Template สำหรับ New Feature */}
                   <Card className="rounded-2xl border-orange-500/20">
-                    <CardHeader className="pb-3">
+                    <CardHeader className="pb-0.5">
                       <div className="flex items-start justify-between">
                         <CardTitle className="text-base font-semibold">
                           {/* ใส่ชื่อฟีเจอร์ใหม่ตรงนี้ */}
@@ -200,7 +1148,7 @@ export default function UpdatePage() {
                       </p>
                       <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
                         <img 
-                          src="/images/docs/latest-update/VG-Override.png" // เปลี่ยน path รูปภาพตรงนี้
+                          src="/images/docs/latest-update/Version 1.0.3/VG-Override.png" // เปลี่ยน path รูปภาพตรงนี้
                           alt="VG Override Tool Preview"
                           className="w-full h-auto"
                         />
@@ -235,7 +1183,7 @@ export default function UpdatePage() {
                           </p>
                           <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
                         <img 
-                          src="/images/docs/latest-update/Time-estimate.png" // เปลี่ยน path รูปภาพตรงนี้
+                          src="/images/docs/latest-update/Version 1.0.3/Time-estimate.png" // เปลี่ยน path รูปภาพตรงนี้
                           alt="Time Estimate Tool Preview"
                           className="w-full h-auto"
                         />
@@ -262,7 +1210,7 @@ export default function UpdatePage() {
                           </p>
                           <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
                         <img 
-                          src="/images/docs/latest-update/Auto-suggest.png" // เปลี่ยน path รูปภาพตรงนี้
+                          src="/images/docs/latest-update/Version 1.0.3/Auto-suggest.png" // เปลี่ยน path รูปภาพตรงนี้
                           alt="Auto Suggest Tool Preview"
                           className="w-full h-auto"
                         />
@@ -328,7 +1276,7 @@ export default function UpdatePage() {
                           </p>
                           <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
                         <img 
-                          src="/images/docs/latest-update/Select-to-boq-improve.png" // เปลี่ยน path รูปภาพตรงนี้
+                          src="/images/docs/latest-update/Version 1.0.3/Select-to-boq-improve.png" // เปลี่ยน path รูปภาพตรงนี้
                           alt="Select to BOQ Improved Preview"
                           className="w-full h-auto"
                         />
@@ -467,7 +1415,7 @@ export default function UpdatePage() {
           )}
         </section>
 
-        <Separator className="my-12" />
+        <Separator className="my-3" />
 
         {/* =====================================================================================
             Version 1.0.2 - History (Collapsed)
@@ -667,7 +1615,7 @@ export default function UpdatePage() {
           )}
         </section>
 
-        <Separator className="my-12" />
+        <Separator className="my-3" />
 
         {/* =====================================================================================
             Version 1.0.1 - History (Collapsed)
@@ -714,7 +1662,7 @@ export default function UpdatePage() {
 
                 <div className="grid gap-4 md:grid-cols-2">
                   <Card className="rounded-2xl border-orange-500/20">
-                    <CardHeader className="pb-3">
+                    <CardHeader className="pb-0.5">
                       <div className="flex items-start justify-between">
                         <CardTitle className="text-base font-semibold">Select to BOQ</CardTitle>
                         <UpdateBadge type="new" />
@@ -728,7 +1676,7 @@ export default function UpdatePage() {
                   </Card>
 
                   <Card className="rounded-2xl border-orange-500/20">
-                    <CardHeader className="pb-3">
+                    <CardHeader className="pb-0.5">
                       <div className="flex items-start justify-between">
                         <CardTitle className="text-base font-semibold">Specification Lists</CardTitle>
                         <UpdateBadge type="new" />
@@ -829,7 +1777,7 @@ export default function UpdatePage() {
         </section>
 
 
-        <Separator className="my-12" />
+        <Separator className="my-3" />
 
         {/* =====================================================================================
             Version 1.0.0 - History (Collapsed)
@@ -951,7 +1899,7 @@ export default function UpdatePage() {
           )}
         </section>
 
-        <Separator className="my-12" />
+        <Separator className="my-3" />
 
 
         {/* Footer Note */}

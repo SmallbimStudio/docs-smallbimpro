@@ -109,7 +109,7 @@ export default function RoadmapPage() {
         <main className="space-y-6">
             <header className="text-center space-y-4 py-10">
                 <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">
-                    Roadmap (Small BIM PRO V2.0.0)
+                    Roadmap (Small BIM PRO V2.1.0)
                 </h1>
 
                 <p className="text-base md:text-lg text-muted-foreground">

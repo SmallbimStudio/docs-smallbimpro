@@ -187,7 +187,7 @@ export default function BuyPage() {
           
             <CardContent className="flex flex-col justify-center items-center text-center flex-1 space-y-4 text-sm">
               <p>
-                พิเศษช่วงเปิดตัว <br />
+                พิเศษวันสุดท้าย <br />
                 <span className="text-3xl font-bold text-primary animate-pulse">
                   7,500 บาท
                 </span>

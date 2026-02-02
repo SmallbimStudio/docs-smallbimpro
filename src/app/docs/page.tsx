@@ -59,7 +59,7 @@ export default function SalePage() {
 
               {/* Badge */}
               <Badge className="px-4 py-1 animate-fade-in" variant="secondary">
-                <span className="animate-pulse">Updated</span> Small BIM PRO v1.0.3 New Commands and Bug Fixed
+                <span className="animate-pulse">Updated</span> Small BIM PRO v2.0.0 New Commands and Bug Fixed
               </Badge>
             </div>
 
@@ -92,7 +92,7 @@ export default function SalePage() {
               </Button>
               <Button asChild size="lg" variant="outline" className="px-8">
                 <Link href="/get-smallbimpro/buy" className="relative z-10">
-                  สั่งซื้อ Early Bird -40%
+                  สั่งซื้อ Early Bird -40% วันสุดท้าย
                 </Link>
               </Button>
             </div>
@@ -197,7 +197,7 @@ export default function SalePage() {
                 เครื่องมือสำหรับคำนวณ BOQ, Export ปริมาณ และ Mapping ราคากลาง
               </p>
               <CardContent className="mt-auto pt-4 flex items-center gap-2">
-                <span className="text-primary font-medium">3 Tools</span>
+                <span className="text-primary font-medium">4 Tools</span>
               </CardContent>
             </Card>
 
@@ -213,7 +213,7 @@ export default function SalePage() {
                 เครื่องมือสำหรับช่วยในการสร้างและจัดการโมเดลได้เร็วขึ้น
               </p>
               <CardContent className="mt-auto pt-4 flex items-center gap-2">
-                <span className="text-primary font-medium">8 Tools</span>
+                <span className="text-primary font-medium">17 Tools</span>
               </CardContent>
             </Card>
 
@@ -229,7 +229,7 @@ export default function SalePage() {
                 เครื่องมือสำหรับช่วยในการเขียนแบบให้เร็วและสวยงามมากขึ้น
               </p>
               <CardContent className="mt-auto pt-4 flex items-center gap-2">
-                <span className="text-primary font-medium">30 Tools</span>
+                <span className="text-primary font-medium">39 Tools</span>
               </CardContent>
             </Card>
 
@@ -349,7 +349,7 @@ export default function SalePage() {
           {/* Heading */}
           <div className="mx-auto max-w-3xl text-center space-y-3">
             <Badge className="px-3 py-1 text-sm">Early Bird -40%</Badge>
-            <h2 className="text-4xl font-bold tracking-tight">ราคาพิเศษช่วงเปิดตัว</h2>
+            <h2 className="text-4xl font-bold tracking-tight">ราคาพิเศษช่วงเปิดตัว วันสุดท้าย</h2>
             <p className="text-muted-foreground">
               รีบคว้าโอกาสในช่วง Early Bird ก่อนกลับสู่ราคาเต็ม{" "}
               <span className="line-through text-red-500">12,500 บาท</span>
