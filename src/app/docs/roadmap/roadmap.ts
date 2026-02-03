@@ -104,7 +104,17 @@ export const ROADMAP: RoadmapItem[] = [
   // =====================================================================================
   // PLANNED (v2.1.0)
   // =====================================================================================
-  
+  {
+    id: "v201-Stair-Rebar-All-New",
+    title: "Stair Rebar - All New",
+    description:
+      "ปรับปรุงคำสั่ง Stair Rebar ใหม่ทั้งหมด เลื่อนการเปิดตัว Beta ออกไป เพื่อพัฒนาคำสั่งให้สมบูรณ์แบบยิ่งขึ้น",
+    status: "planned",
+    tags: ["Stair Rebar", "New"],
+    version: "v2.0.1",
+    date: "2026-02-03",
+    order: 10,
+  },
   {
     id: "v210-boq-document-presentation-format-logo",
     title: "BOQ Document Presentation - Format & Logo for PDF",
