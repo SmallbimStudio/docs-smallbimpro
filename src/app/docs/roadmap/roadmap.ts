@@ -23,7 +23,83 @@ export const ROADMAP: RoadmapItem[] = [
   // =====================================================================================
   // IN PROGRESS (v2.1.0)
   // =====================================================================================
-   
+  {
+    id: "v201-Beam-Rebar-Big-Fix",
+    title: "Beam Rebar Revit 2025,2026 - Big Fix",
+    description:
+      "แก้ไขข้อผิดพลาดหนักๆ ในคำสั่ง Beam Rebar ที่ไม่สามารถเข้าใช้งานคำสั่งได้ และปิดหน้าต่างไม้ได้",
+    status: "in_progress",
+    tags: ["Beam Rebar", "Bug Fix"],
+    version: "v2.0.1",
+    date: "2026-02-03",
+    order: 10,
+  },
+  {
+    id: "v201-Foundation-Rebar-All-New",
+    title: "Foundation Rebar - All New",
+    description:
+      "ปรับปรุงคำสั่ง Foundation Rebar ใหม่ทั้งหมด ทั้งในส่วนของ UI และ Logic การทำงาน เพื่อให้ใช้งานได้ง่ายและมีประสิทธิภาพมากขึ้น",
+    status: "in_progress",
+    tags: ["Foundation Rebar", "New"],
+    version: "v2.0.1",
+    date: "2026-02-03",
+    order: 20,
+  },
+  {
+    id: "v201-Column-Footing-Rebar-All-New",
+    title: "Column Footing Rebar - All New",
+    description:
+      "ปรับปรุงคำสั่ง Column Footing Rebar ใหม่ทั้งหมด ทั้งในส่วนของ UI และ Logic การทำงาน เพื่อให้ใช้งานได้ง่ายและมีประสิทธิภาพมากขึ้น",
+    status: "in_progress",
+    tags: ["Column Footing Rebar", "New"],
+    version: "v2.0.1",
+    date: "2026-02-03",
+    order: 30,
+  },
+  {
+    id: "v201-Column-Rebar-All-New",
+    title: "Column Rebar - All New",
+    description:
+      "ปรับปรุงคำสั่ง Column Rebar ใหม่ทั้งหมด ทั้งในส่วนของ UI และ Logic การทำงาน เพื่อให้ใช้งานได้ง่ายและมีประสิทธิภาพมากขึ้น",
+    status: "in_progress",
+    tags: ["Column Rebar", "New"],
+    version: "v2.0.1",
+    date: "2026-02-03",
+    order: 40,
+  },
+  {
+    id: "v201-Beam-Rebar-All-New",
+    title: "Beam Rebar - All New",
+    description:
+      "ปรับปรุงคำสั่ง Beam Rebar ใหม่ทั้งหมด ทั้งในส่วนของ UI และ Logic การทำงาน เพื่อให้ใช้งานได้ง่ายและมีประสิทธิภาพมากขึ้น",
+    status: "in_progress",
+    tags: ["Beam Rebar", "New"],
+    version: "v2.0.1",
+    date: "2026-02-03",
+    order: 50,
+  },
+  {
+    id: "v201-Floor-Rebar-All-New",
+    title: "Floor Rebar - All New",
+    description:
+      "ปรับปรุงคำสั่ง Floor Rebar ใหม่ทั้งหมด ทั้งในส่วนของ UI และ Logic การทำงาน เพื่อให้ใช้งานได้ง่ายและมีประสิทธิภาพมากขึ้น",
+    status: "in_progress",
+    tags: ["Floor Rebar", "New"],
+    version: "v2.0.1",
+    date: "2026-02-03",
+    order: 60,
+  },
+  {
+    id: "v201-BOQ-Delete-Item-Improvement",
+    title: "BOQ - Delete Item Improvement",
+    description:
+      "ปรับปรุงคำสั่งลบรายการใน BOQ เพื่อให้สามารถลบรายการได้อย่างมีประสิทธิภาพมากขึ้น และลดความเสี่ยงในการลบข้อมูลที่ไม่ต้องการ",
+    status: "in_progress",
+    tags: ["BOQ", "Improvement"],
+    version: "v2.0.1",
+    date: "2026-02-03",
+    order: 70,
+  },
 
   // =====================================================================================
   // PLANNED (v2.1.0)
