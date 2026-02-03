@@ -36,7 +36,7 @@ export default function BuyPage() {
   const [time, setTime] = useState(""); // ⏰ เก็บค่าเวลา
   const [preview, setPreview] = useState<string | null>(null);
 
-  const AMOUNT = 7500;
+  const AMOUNT = 12500;
 
   async function generateQR() {
     const payload = generatePayload("0622644878", { amount: AMOUNT });
@@ -124,7 +124,7 @@ export default function BuyPage() {
       {/* Big Banner */}
       <div className="relative w-full h-[400px] md:h-[600px] rounded-2xl overflow-hidden border border-gray-300 shadow-lg">
         <Image
-          src="/images/promote/earlybird-40.png"
+          src="/images/promote/full-license-price.png"
           alt="Small BIM PRO Cover"
           fill
           className="object-cover"
@@ -144,7 +144,7 @@ export default function BuyPage() {
             เวอร์ชันเต็มพร้อมฟีเจอร์ครบถ้วน
           </Link>{" "}
           <span className="text-green-600 font-bold">
-            ลด Early Bird 40% เหลือเพียง {AMOUNT.toLocaleString()} บาท
+            ราคาต่อ 1 License อัพเดทฟรีตลอดชีพ
           </span>
         </p>
       </CardHeader>
@@ -176,24 +176,20 @@ export default function BuyPage() {
 
           {/* Early Bird Card */}
           <Card className="flex flex-col justify-between relative transform hover:scale-[1.02] transition-all duration-300 border-2 border-primary shadow-[0_0_15px_rgba(0,0,0,0.1)] hover:shadow-[0_0_30px_rgba(0,120,255,0.2)]">
-            {/* Ribbon */}
-            <div className="absolute -top-4 -right-4 bg-primary text-white px-4 py-2 rounded-full font-bold shadow-lg">
-              -40%
-            </div>
-            
+            {/* Ribbon */}           
             <CardHeader>
-              <CardTitle className="text-center">Early Bird</CardTitle>
+              <CardTitle className="text-center">สั่งซื้อ License</CardTitle>
             </CardHeader>
           
             <CardContent className="flex flex-col justify-center items-center text-center flex-1 space-y-4 text-sm">
               <p>
-                พิเศษวันสุดท้าย <br />
+                ราคาเต็ม <br />
                 <span className="text-3xl font-bold text-primary animate-pulse">
-                  7,500 บาท
+                  12,500 บาท
                 </span>
               </p>
               <p className="text-xs text-muted-foreground">
-                จากราคาปกติ <span className="line-through">12,500 บาท</span>
+                ใช้งานได้ 1 เครื่อง ต่อ 1 License
               </p>
               <Button asChild className="w-full relative overflow-hidden group">
                 <Dialog>
@@ -264,7 +260,7 @@ export default function BuyPage() {
       {/* Footer */}
       <div className="px-6 pb-6">
         <p className="text-xs text-gray-500 italic text-center">
-          *สามารถทดลองใช้งานได้ฟรีนานถึง 7 วัน และได้รับสิทธิพิเศษช่วงเปิดตัวกับราคา Early Bird เพียง 7,500 บาทเท่านั้น (ตั้งแต่วันนี้ ถึง 31 ธันวาคม 2568)*
+          *สามารถทดลองใช้งานได้ฟรีนานถึง 7 วัน ติดปัญหาการใช้งาน ติดต่อทีมงานได้ที่ smallbim.studio@gmail.com*
         </p>
       </div>
     </Card>

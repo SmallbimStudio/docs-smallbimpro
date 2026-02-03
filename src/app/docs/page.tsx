@@ -92,7 +92,7 @@ export default function SalePage() {
               </Button>
               <Button asChild size="lg" variant="outline" className="px-8">
                 <Link href="/get-smallbimpro/buy" className="relative z-10">
-                  สั่งซื้อ Early Bird -40% วันสุดท้าย
+                  สั่งซื้อ License แบบถาวร
                 </Link>
               </Button>
             </div>
@@ -348,11 +348,10 @@ export default function SalePage() {
         <section id="pricing" className="space-y-12 py-20 bg-muted/20 rounded-2xl">
           {/* Heading */}
           <div className="mx-auto max-w-3xl text-center space-y-3">
-            <Badge className="px-3 py-1 text-sm">Early Bird -40%</Badge>
-            <h2 className="text-4xl font-bold tracking-tight">ราคาพิเศษช่วงเปิดตัว วันสุดท้าย</h2>
+            <Badge className="px-3 py-1 text-sm">Lifetime License</Badge>
+            <h2 className="text-4xl font-bold tracking-tight">สามารถอัพเดตได้ฟรีตลอดชีพ</h2>
             <p className="text-muted-foreground">
-              รีบคว้าโอกาสในช่วง Early Bird ก่อนกลับสู่ราคาเต็ม{" "}
-              <span className="line-through text-red-500">12,500 บาท</span>
+              ทดลองใช้งานได้ฟรี 7 วัน หรือสั่งซื้อ License จริงแบบถาวร{" "}
             </p>
           </div>
 
@@ -384,15 +383,15 @@ export default function SalePage() {
             {/* Lifetime License */}
             <div className="relative p-8 rounded-2xl border-2 border-primary bg-card shadow-lg hover:shadow-xl transition-all">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <Badge className="bg-primary text-white">Best Value</Badge>
+                <Badge className="bg-primary text-white">Full License</Badge>
               </div>
               <h3 className="text-lg font-semibold">License ถาวร</h3>
               <div className="mt-4">
-                <span className="text-4xl font-bold">7,500</span>
+                <span className="text-4xl font-bold">12,500</span>
                 <span className="text-muted-foreground"> / ตลอดชีพ</span>
               </div>
               <p className="text-sm text-muted-foreground mt-1">
-                จากราคาเต็ม <span className="line-through text-red-500">12,500 บาท</span>
+                สามารถใช้งานได้ 1 เครื่อง ต่อ 1 License
               </p>
               <ul className="mt-6 space-y-3 text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
