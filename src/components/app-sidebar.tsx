@@ -69,7 +69,7 @@ export const NAV: NavCategory[] = [
     title: "Get Small BIM PRO",
     url: "#",
     items: [
-      { title: "Buy Now (Early Bird 40%)", href: "/get-smallbimpro/buy" },
+      { title: "Buy Now (Full License)", href: "/get-smallbimpro/buy" },
       { title: "Register for Trial (7 วัน)", href: "/get-smallbimpro/trial" },   
       { title: "Feature Lists", href: "/get-smallbimpro/feature-lists" },   
 
