@@ -134,7 +134,7 @@ export default function VideoTutorialPage() {
             <iframe
               className="w-full h-full"
               src="https://www.youtube.com/embed/N00H53kM_VQ?si=v_Ge_Zp_h65Icd6j"
-              title="Download and Installation Small BIM PRO"
+              title="Small BIM PRO Tutorial - Part 1"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
@@ -148,7 +148,35 @@ export default function VideoTutorialPage() {
             <iframe
               className="w-full h-full"
               src="https://www.youtube.com/embed/diezd3nSM9M?si=-cEdSyoTN3N6GOHn"
-              title="Download and Installation Small BIM PRO"
+              title="Small BIM PRO Tutorial - Part 2"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
+
+        {/* ===== VIDEO ===== */}
+        <section className="text-center space-y-6">
+          <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/eIWzxmFjarM?si=yhEOjAk-FhWzQFu9"
+              title="Small BIM PRO Tutorial - Part 3"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
+
+        {/* ===== VIDEO ===== */}
+        <section className="text-center space-y-6">
+          <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/X0YLdOu4IUU?si=a3AnsSIP5BYWvfxW"
+              title="Small BIM PRO Tutorial - Part 4"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen

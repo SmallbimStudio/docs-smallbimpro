@@ -30,7 +30,7 @@ function extractArray(json: unknown): Row[] {
 }
 
 export default function RevenueCard({
-  dataUrl = "https://smallbimstudio.github.io/RSB_BOQ_Database/RSB_database_2025.json",
+  dataUrl = "https://smallbimstudio.github.io/RSB_BOQ_Database/RSB_database_2026.json",
   title = "Total Records",
 }: {
   dataUrl?: string

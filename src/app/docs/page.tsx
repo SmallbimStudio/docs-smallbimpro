@@ -59,7 +59,7 @@ export default function SalePage() {
 
               {/* Badge */}
               <Badge className="px-4 py-1 animate-fade-in" variant="secondary">
-                <span className="animate-pulse">Updated</span> Small BIM PRO v2.0.0 New Commands and Bug Fixed
+                <span className="animate-pulse">Updated</span> Small BIM PRO v2.0.1 New Conduit Generator Command and Bug Fixed
               </Badge>
             </div>
 
@@ -213,7 +213,7 @@ export default function SalePage() {
                 เครื่องมือสำหรับช่วยในการสร้างและจัดการโมเดลได้เร็วขึ้น
               </p>
               <CardContent className="mt-auto pt-4 flex items-center gap-2">
-                <span className="text-primary font-medium">17 Tools</span>
+                <span className="text-primary font-medium">18 Tools</span>
               </CardContent>
             </Card>
 

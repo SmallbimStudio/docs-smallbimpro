@@ -47,8 +47,9 @@ function UpdateBadge({ type }: { type: "new" | "improved" | "fixed" }) {
 }
 
 export default function UpdatePage() {
-  // Config State: Version 2.0.0 เปิดไว้เป็นค่าเริ่มต้น, Version อื่นๆ ปิดไว้
-  const [isVersion200Expanded, setIsVersion200Expanded] = React.useState(true)
+  // Config State: Version 2.0.1 เปิดไว้เป็นค่าเริ่มต้น, Version อื่นๆ ปิดไว้
+  const [isVersion201Expanded, setIsVersion201Expanded] = React.useState(true)
+  const [isVersion200Expanded, setIsVersion200Expanded] = React.useState(false)
   const [isVersion103Expanded, setIsVersion103Expanded] = React.useState(false)
   const [isVersion102Expanded, setIsVersion102Expanded] = React.useState(false)
   const [isVersion101Expanded, setIsVersion101Expanded] = React.useState(false)
@@ -77,6 +78,213 @@ export default function UpdatePage() {
         <Separator />
 
         {/* =====================================================================================
+            Version 2.0.1 - Template (Latest)
+           ===================================================================================== */}
+        <section className="space-y-6">
+          <div
+            className="flex items-center justify-between gap-3 flex-wrap cursor-pointer group"
+            onClick={() => setIsVersion201Expanded(!isVersion201Expanded)}
+          >
+            <div className="flex items-center gap-3 flex-wrap">
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
+                <Package className="w-4 h-4 text-primary" />
+                <span className="font-semibold text-primary">Version 2.0.1</span>
+              </div>
+              <Badge className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+                Latest
+              </Badge>
+              <Badge className="bg-yellow-500 text-white">
+                MEP
+              </Badge>
+              <span className="text-sm text-muted-foreground flex items-center gap-1">
+                <Calendar className="w-3.5 h-3.5" />
+                06 February 2026
+              </span>
+            </div>
+
+            <Button variant="ghost" size="sm" className="flex items-center gap-2">
+              {isVersion201Expanded ? (
+                <>
+                  <span className="text-sm">ซ่อน</span>
+                  <ChevronUp className="w-4 h-4" />
+                </>
+              ) : (
+                <>
+                  <span className="text-sm">ดูรายละเอียด</span>
+                  <ChevronDown className="w-4 h-4" />
+                </>
+              )}
+            </Button>
+          </div>
+
+          {isVersion201Expanded && (
+            <div className="space-y-4 animate-in slide-in-from-top-2 duration-300">
+
+              {/* -------------------- NEW FEATURES TEMPLATE -------------------- */}
+              {/* ถ้าไม่มีฟีเจอร์ใหม่ ให้ Comment ส่วนนี้ปิดไว้ได้เลย */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-5 h-5 text-orange-600" />
+                  <h3 className="text-xl font-bold">New Features</h3>
+                </div>
+                <div className="space-y-3">
+                 
+                  {/* Card Template สำหรับ New Feature */}
+                  <Card className="rounded-2xl border-orange-500/20">
+                    <CardHeader className="pb-0.5">
+                      <div className="flex items-start justify-between">
+                        <CardTitle className="text-base font-semibold">
+                          Conduit Generator (เครื่องมือสร้างท่อร้อยสายไฟอัตโนมัติ)
+                          <Badge className="ml-2 bg-yellow-500 text-white">
+                          MEP
+                          </Badge>
+                        </CardTitle>
+                        <UpdateBadge type="new" />
+                        
+                      </div>
+                    </CardHeader>
+                    
+                    <CardContent>
+                      <p className="mb-4 text-sm text-muted-foreground">
+                        {/* รายละเอียดฟีเจอร์ */}
+                        เป็นเครื่องมือที่ช่วยให้ผู้ใช้งานสามารถสร้างท่อร้อยสายไฟ (Conduit) อัตโนมัติในโมเดล Revit ได้อย่างรวดเร็วและแม่นยำ 
+                        โดยผู้ใช้สามารถตั้งค่าและเลือกโมเดลดวงโคมกี่ดวงก็ได้ในหนึ่งวงจร และเลือกโมเดลปิดท้ายด้วยสวิตซ์ไฟ ก็สามารถสร้างท่อ Conduit พร้อม Conduit Fitting ที่ตั้งค่าไว้ได้ทันที ช่วยประหยัดเวลาในการออกแบบระบบไฟฟ้าในโครงการก่อสร้าง
+                      </p>
+                     
+                      <div className="overflow-hidden rounded-lg border bg-muted shadow-sm">
+                        <img 
+                          src="/images/docs/latest-update/Version 2.0.1/Conduit_Generator_Preview.png" // เปลี่ยน path รูปภาพตรงนี้
+                          alt="Conduit Generator Tool Preview"
+                          className="w-full h-auto" 
+                        />
+                      </div>
+                      
+                    </CardContent>
+                  </Card>
+
+                  </div>
+              </div>
+
+              <Separator />
+
+              {/* -------------------- IMPROVEMENTS TEMPLATE -------------------- */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <TrendingUp className="w-5 h-5 text-blue-600" />
+                  <h3 className="text-xl font-bold">Improvements</h3>
+                </div>
+                <div className="space-y-3">
+                  
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            Rebar Modeling - All Command Improvement (ปรับปรุง Logic การทำงานคำสั่ง Rebar ใหม่ทั้งหมด ทุกคำสั่งในการสร้างโมเดลเหล็กเสริม)
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            อัพเดตครั้งนี้ เราได้ทำการยกเครื่องหลักการสร้างโมเดลเหล็กเสริมใหม่ทั้งหมดในทุกคำสั่ง (Foundation Rebar, Column Footing Rebar, Column Rebar, Beam Rebar, Floor Rebar)
+                            เพื่อให้การสร้างโมเดลเหล็กเสริมมีความแม่นยำและมีประสิทธิภาพมากยิ่งขึ้น รวมถึงแก้ไขข้อผิดพลาดต่างๆที่เกิดขึ้นในเวอร์ชันก่อนหน้า (คงเหลือ Stair Rebar ที่กำลังอยู่ในช่วงการพัฒนา)
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-blue-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="improved" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            Foundation Rebar Creator - Pile Cap Footing (ปรับปรุง Logic การสร้างโมเดลเหล็กเสริม ให้รองรับฐานรากแบบมีเสาเข็ม)
+                          </p>
+                          <p className="mb-4 text-sm text-muted-foreground">
+                            เพิ่มเติมความสามารถให้กับคำสั่ง Foundation Rebar Creator โดยปรับปรุงหลักการสร้างโมเดลเหล็กเสริมให้รองรับฐานรากแบบมีเสาเข็ม (Pile Cap Footing) ได้อย่างถูกต้องและแม่นยำมากยิ่งขึ้น
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                </div>
+              </div>
+
+              <Separator />
+
+              {/* -------------------- BUG FIXES TEMPLATE -------------------- */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2">
+                  <Bug className="w-5 h-5 text-green-600" />
+                  <h3 className="text-xl font-bold">Bug Fixes</h3>
+                </div>
+                <div className="space-y-3">
+                  
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            BOQ - Delete Row Improvement (แก้ไขปัญหาปุ่มลบแถวรายการในตาราง BOQ)
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            แก้ไขการทำงานของ BOQ ให้สามารถลบแถวรายการได้อย่างถูกต้อง ไม่เกิดปัญหาการลบข้อมูลผิดพลาด และแสดงผลลัพธ์ราคาที่ถูกต้องเสมอ
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            BOQ - Update Improvement (แก้ไขปัญหาปุ่มอัพเดตรายการในตาราง BOQ)
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            แก้ไขการทำงานของ BOQ ให้สามารถอัพเดตแถวรายการได้อย่างถูกต้อง แสดงผลลัพธ์ราคาที่ถูกต้องเสมอ
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="rounded-2xl border-green-500/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start gap-3">
+                        <UpdateBadge type="fixed" />
+                        <div className="space-y-1">
+                          <p className="font-medium">
+                            {/* ใส่หัวข้อ Bug ที่แก้ตรงนี้ */}
+                            Land Rescaler - Textbox Error (แก้ไขการกรอกเลขให้รองรับจุดทศนิยม)
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {/* ใส่รายละเอียด Bug ที่แก้ตรงนี้ */}
+                            แก้ไขการทำงานของ Land Rescaler ให้สามารถกรอกเลขทศนิยมได้อย่างถูกต้อง ไม่เกิดปัญหาการกรอกข้อมูลผิดพลาด
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                </div>
+              </div>
+
+            </div>
+          )}
+        </section>
+
+        <Separator className="my-3" />
+
+        {/* =====================================================================================
             Version 2.0.0 - Template (Latest)
            ===================================================================================== */}
         <section className="space-y-6">
@@ -85,13 +293,11 @@ export default function UpdatePage() {
             onClick={() => setIsVersion200Expanded(!isVersion200Expanded)}
           >
             <div className="flex items-center gap-3 flex-wrap">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
-                <Package className="w-4 h-4 text-primary" />
-                <span className="font-semibold text-primary">Version 2.0.0</span>
+              {/* เปลี่ยน Style ให้เป็นแบบ History (สีเทา) ไม่ใช่สี Primary */}
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted border group-hover:border-primary/30 transition-colors">
+                <Package className="w-4 h-4 text-muted-foreground" />
+                <span className="font-semibold text-muted-foreground">Version 2.0.0</span>
               </div>
-              <Badge className="bg-gradient-to-r from-orange-500 to-orange-600 text-white">
-                Latest
-              </Badge>
               <span className="text-sm text-muted-foreground flex items-center gap-1">
                 <Calendar className="w-3.5 h-3.5" />
                 {/* TODO: ใส่ระบุวันที่อัพเดตตรงนี้ */}
@@ -114,7 +320,7 @@ export default function UpdatePage() {
             </Button>
           </div>
 
-          {isVersion200Expanded && (
+          {isVersion200Expanded && (  
             <div className="space-y-4 animate-in slide-in-from-top-2 duration-300">
 
               {/* -------------------- NEW FEATURES TEMPLATE -------------------- */}
@@ -1015,11 +1221,8 @@ export default function UpdatePage() {
                     </CardContent>
                   </Card>
 
-
-
                 </div>
               </div>
-
             </div>
           )}
         </section>
@@ -1035,9 +1238,10 @@ export default function UpdatePage() {
             onClick={() => setIsVersion103Expanded(!isVersion103Expanded)}
           >
             <div className="flex items-center gap-3 flex-wrap">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 border border-primary/20">
-                <Package className="w-4 h-4 text-primary" />
-                <span className="font-semibold text-primary">Version 1.0.3</span>
+              {/* เปลี่ยน Style ให้เป็นแบบ History (สีเทา) ไม่ใช่สี Primary */}
+              <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-muted border group-hover:border-primary/30 transition-colors">
+                <Package className="w-4 h-4 text-muted-foreground" />
+                <span className="font-semibold text-muted-foreground">Version 1.0.3</span>
               </div>
               <span className="text-sm text-muted-foreground flex items-center gap-1">
                 <Calendar className="w-3.5 h-3.5" />

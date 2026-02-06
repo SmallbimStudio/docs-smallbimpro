@@ -10,7 +10,7 @@ export type RoadmapItem = {
   // optional metadata
   tags?: string[];
   date?: string;     // "2026-01-01"
-  version?: string;  // "v2.0.0"
+  version?: string;  // "v2.0.1"
   order: number;     // ใช้จัดลำดับ (เลขน้อยอยู่บน)
 };
 
@@ -23,82 +23,16 @@ export const ROADMAP: RoadmapItem[] = [
   // =====================================================================================
   // IN PROGRESS (v2.1.0)
   // =====================================================================================
-  {
-    id: "v201-Beam-Rebar-Big-Fix",
-    title: "Beam Rebar Revit 2025,2026 - Big Fix",
+   {
+    id:"v202-pipe-modeler-automatic-routing",
+    title: "Pipe Modeler - Automatic Routing-Beta",
     description:
-      "แก้ไขข้อผิดพลาดหนักๆ ในคำสั่ง Beam Rebar ที่ไม่สามารถเข้าใช้งานคำสั่งได้ และปิดหน้าต่างไม้ได้",
+      "พัฒนาคำสั่งสร้างท่อประปาอัตโนมัติ เพื่อให้สามารถสร้างท่อประปาได้อย่างรวดเร็วและแม่นยำ",
     status: "in_progress",
-    tags: ["Beam Rebar", "Bug Fix"],
-    version: "v2.0.1",
-    date: "2026-02-03",
+    tags: ["Pipe Modeler", "New"],
+    version: "v2.0.2",
+    date: "2026-02-06",
     order: 10,
-  },
-  {
-    id: "v201-Foundation-Rebar-All-New",
-    title: "Foundation Rebar - All New",
-    description:
-      "ปรับปรุงคำสั่ง Foundation Rebar ใหม่ทั้งหมด ทั้งในส่วนของ UI และ Logic การทำงาน เพื่อให้ใช้งานได้ง่ายและมีประสิทธิภาพมากขึ้น",
-    status: "in_progress",
-    tags: ["Foundation Rebar", "New"],
-    version: "v2.0.1",
-    date: "2026-02-03",
-    order: 20,
-  },
-  {
-    id: "v201-Column-Footing-Rebar-All-New",
-    title: "Column Footing Rebar - All New",
-    description:
-      "ปรับปรุงคำสั่ง Column Footing Rebar ใหม่ทั้งหมด ทั้งในส่วนของ UI และ Logic การทำงาน เพื่อให้ใช้งานได้ง่ายและมีประสิทธิภาพมากขึ้น",
-    status: "in_progress",
-    tags: ["Column Footing Rebar", "New"],
-    version: "v2.0.1",
-    date: "2026-02-03",
-    order: 30,
-  },
-  {
-    id: "v201-Column-Rebar-All-New",
-    title: "Column Rebar - All New",
-    description:
-      "ปรับปรุงคำสั่ง Column Rebar ใหม่ทั้งหมด ทั้งในส่วนของ UI และ Logic การทำงาน เพื่อให้ใช้งานได้ง่ายและมีประสิทธิภาพมากขึ้น",
-    status: "in_progress",
-    tags: ["Column Rebar", "New"],
-    version: "v2.0.1",
-    date: "2026-02-03",
-    order: 40,
-  },
-  {
-    id: "v201-Beam-Rebar-All-New",
-    title: "Beam Rebar - All New",
-    description:
-      "ปรับปรุงคำสั่ง Beam Rebar ใหม่ทั้งหมด ทั้งในส่วนของ UI และ Logic การทำงาน เพื่อให้ใช้งานได้ง่ายและมีประสิทธิภาพมากขึ้น",
-    status: "in_progress",
-    tags: ["Beam Rebar", "New"],
-    version: "v2.0.1",
-    date: "2026-02-03",
-    order: 50,
-  },
-  {
-    id: "v201-Floor-Rebar-All-New",
-    title: "Floor Rebar - All New",
-    description:
-      "ปรับปรุงคำสั่ง Floor Rebar ใหม่ทั้งหมด ทั้งในส่วนของ UI และ Logic การทำงาน เพื่อให้ใช้งานได้ง่ายและมีประสิทธิภาพมากขึ้น",
-    status: "in_progress",
-    tags: ["Floor Rebar", "New"],
-    version: "v2.0.1",
-    date: "2026-02-03",
-    order: 60,
-  },
-  {
-    id: "v201-BOQ-Delete-Item-Improvement",
-    title: "BOQ - Delete Item Improvement",
-    description:
-      "ปรับปรุงคำสั่งลบรายการใน BOQ เพื่อให้สามารถลบรายการได้อย่างมีประสิทธิภาพมากขึ้น และลดความเสี่ยงในการลบข้อมูลที่ไม่ต้องการ",
-    status: "in_progress",
-    tags: ["BOQ", "Improvement"],
-    version: "v2.0.1",
-    date: "2026-02-03",
-    order: 70,
   },
 
   // =====================================================================================
@@ -111,7 +45,7 @@ export const ROADMAP: RoadmapItem[] = [
       "ปรับปรุงคำสั่ง Stair Rebar ใหม่ทั้งหมด เลื่อนการเปิดตัว Beta ออกไป เพื่อพัฒนาคำสั่งให้สมบูรณ์แบบยิ่งขึ้น",
     status: "planned",
     tags: ["Stair Rebar", "New"],
-    version: "v2.0.1",
+    version: "v2.1.0",
     date: "2026-02-03",
     order: 10,
   },
@@ -161,17 +95,6 @@ export const ROADMAP: RoadmapItem[] = [
     order: 40,
   },
   {
-    id: "v210-foundation-rebar-more-pile-types",
-    title: "Foundation Rebar - Support More Pile Foundation Types",
-    description:
-      "ปรับปรุงคำสั่ง Foundation Rebar ให้รองรับฐานรากแบบเสาเข็มหลากหลายรูปแบบมากขึ้น",
-    status: "planned",
-    tags: ["Foundation Rebar", "Improvement"],
-    version: "v2.1.0",
-    date: "2026-01-01",
-    order: 50,
-  },
-  {
     id: "v210-Master-database-to-project-specification-integration",
     title: "Master Database to Project Specification Integration",
     description:
@@ -180,7 +103,7 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["Master Database", "Project Specification", "Integration"],
     version: "v2.1.0",
     date: "2026-01-01",
-    order: 60,
+    order: 50,
   },
   {
     id:"v210-boq-improve-data-workflow",
@@ -191,7 +114,7 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["BOQ", "Improvement"],
     version: "v2.1.0",
     date: "2026-01-01",
-    order: 70,
+    order: 60,
   },
   {
     id:"v210-door-window-schedule-generator",
@@ -202,18 +125,7 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["Door & Window", "New"],
     version: "v2.1.0",
     date: "2026-01-01",
-    order: 80,
-  },
-  {
-    id:"v210-conduit-modeler-automatic-routing",
-    title: "Conduit Modeler - Automatic Routing-Beta",
-    description:
-      "พัฒนาคำสั่งสร้างท่อไฟฟ้าอัตโนมัติ เพื่อให้สามารถสร้างท่อไฟฟ้าได้อย่างรวดเร็วและแม่นยำ",
-    status: "planned",
-    tags: ["Conduit Modeler", "New"],
-    version: "v2.1.0",
-    date: "2026-01-01",
-    order: 90,
+    order: 70,
   },
   {
     id:"v210-mechanical-duct-modeler-automatic-routing",
@@ -224,19 +136,9 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["Mechanical Duct Modeler", "New"],
     version: "v2.1.0",
     date: "2026-01-01",
-    order: 100,
+    order: 80,
   },
-  {
-    id:"v210-pipe-modeler-automatic-routing",
-    title: "Pipe Modeler - Automatic Routing-Beta",
-    description:
-      "พัฒนาคำสั่งสร้างท่อประปาอัตโนมัติ เพื่อให้สามารถสร้างท่อประปาได้อย่างรวดเร็วและแม่นยำ",
-    status: "planned",
-    tags: ["Pipe Modeler", "New"],
-    version: "v2.1.0",
-    date: "2026-01-01",
-    order: 110,
-  },
+ 
   {
     id:"v210-Electrical-Circuit-Designer",
     title: "Electrical Circuit Designer",
@@ -246,7 +148,7 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["Electrical Circuit Designer", "New"],
     version: "v2.1.0",
     date: "2026-01-01",
-    order: 120,
+    order: 100,
   },
   {
     id:"v210-All-Disciplines-Schedule-for-BOQ-Integration",
@@ -257,7 +159,7 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["All Disciplines Schedule", "BOQ Integration"],
     version: "v2.1.0",
     date: "2026-01-01",
-    order: 130,
+    order: 110,
   },
   {
     id:"v300-BIM-AI-Visualization-Assistant",
@@ -268,6 +170,6 @@ export const ROADMAP: RoadmapItem[] = [
     tags: ["BIM AI", "Visualization Assistant"],
     version: "v3.0.0",
     date: "2026-01-01",
-    order: 140,
+    order: 120,
   }
 ];

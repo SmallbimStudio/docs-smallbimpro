@@ -48,7 +48,7 @@ export default function FeatureListsPage() {
       icon: <Wrench className="w-10 h-10 text-primary" />,
       title: "Modeling Tools",
       desc: "เครื่องมือสำหรับช่วยในการสร้างและจัดการโมเดลได้เร็วขึ้น",
-      count: "17 Tools",
+      count: "18 Tools",
       tools: [
         {
           icon: "/images/commands/LandRescaler.png",
@@ -147,6 +147,12 @@ export default function FeatureListsPage() {
           icon: "/images/commands/RoomToCeiling.png",
           name: "Room to Ceiling",
           desc: "แปลงข้อมูลห้องให้เป็น Ceiling บนแปลนอัตโนมัติ",
+          isNew: true
+        }, 
+        {
+          icon: "/images/commands/ConduitCalculator.png",
+          name: "Conduit Calculator",
+          desc: "สร้างโมเดลท่อร้อยสายไฟฟ้าอัตโนมัติ",
           isNew: true
         }, 
 
@@ -403,7 +409,7 @@ export default function FeatureListsPage() {
       <section className="text-center space-y-4">
         <h1 className="text-4xl font-bold">ฟีเจอร์หลักของ Small BIM PRO</h1>
         <p className="text-muted-foreground text-lg">
-          คลิกเพื่อดูเครื่องมือการใช้งานทั้งหมดของ Small BIM PRO (Version 2.0.0) for Revit 2024, 2025, 2026
+          คลิกเพื่อดูเครื่องมือการใช้งานทั้งหมดของ Small BIM PRO (Version 2.0.1) for Revit 2024, 2025, 2026
         </p>
       </section>
 

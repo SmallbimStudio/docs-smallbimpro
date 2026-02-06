@@ -109,11 +109,6 @@ const CATEGORIES: GuideCategory[] = [
     title: "Other Guides (คู่มืออื่น ๆ )",
     items: [
       {
-        title: "Cost Code Guide (ตัวอย่างการกำหนดรหัสต้นทุน)",
-        href: "/docs/cost-code-guide/a-structural",
-        image: "/images/guides/Guide-Cost-Code.png"
-      },
-      {
         title: "Online BOQ Transfer (การใช้งาน BOQ ออนไลน์)",
         href: "/docs/online-boq",
         image: "/images/guides/Guide-Online-BOQ.png"

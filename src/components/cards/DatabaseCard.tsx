@@ -20,7 +20,7 @@ import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight, SlidersHorizont
 
 // ที่อยู่ JSON
 const DATA_URL =
-  "https://smallbimstudio.github.io/RSB_BOQ_Database/RSB_database_2025.json"
+  "https://smallbimstudio.github.io/RSB_BOQ_Database/RSB_database_2026.json"
 
 type Row = Record<string, unknown>
 type Group = "ALL" | "A" | "B" | "C" | "D" | "E" | "F"

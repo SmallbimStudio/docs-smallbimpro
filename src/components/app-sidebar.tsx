@@ -150,20 +150,6 @@ export const NAV: NavCategory[] = [
     ],
   },
 
-
-  {
-    title: "Cost Code Guide",
-    url: "#",
-    items: [
-      { title: "A-Structural", href: "/docs/cost-code-guide/a-structural" },
-      { title: "B-Architectural", href: "/docs/cost-code-guide/b-architectural" },
-      { title: "C-Electrical", href: "" },
-      { title: "D-Sanitary", href: "" },
-      { title: "E-Air Conditioning System", href: "" },
-      { title: "F-General", href: "" },
-    ],
-  },
-
   {
     title: "Small BIM PRO - Service",
     url: "#",
@@ -251,7 +237,7 @@ export function AppSidebar(props: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar {...props}>
       <SidebarHeader>
-        <VersionSwitcher versions={["2.0.0"]} defaultVersion={"2.0.0"} />
+        <VersionSwitcher versions={["2.0.1"]} defaultVersion={"2.0.1"} />
         <div className="px-4 py-2">
           <SearchInput />
         </div>
