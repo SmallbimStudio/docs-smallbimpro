@@ -1,4 +1,3 @@
-// src/app/docs/modeling-tools/foundation-rebar/page.tsx
 "use client"
 
 import * as React from "react"
@@ -14,7 +13,7 @@ function ImageBlock({ label, caption }: { label: string; caption?: string }) {
   )
 }
 
-export default function FoundationRebarPage() {
+export default function FloorTilesGeneratorPage() {
   return (
 
     <SidebarInset>
@@ -22,10 +21,10 @@ export default function FoundationRebarPage() {
         {/* Headline */}
         <header className="space-y-3">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
-            Foundation Rebar — User Guide
+            Floor Tiles Generator — User Guide
           </h1>
           <p className="text-base text-muted-foreground">
-            คู่มือการใช้งานคำสั่ง Foundation Rebar คำสั่งสำหรับสร้างโมเดลเหล็กเสริมฐานรากอย่างรวดเร็ว
+            คู่มือการใช้งานคำสั่ง Floor Tiles Generator คำสั่งสำหรับสร้างโมเดลกระเบื้องพื้นอย่างรวดเร็ว
           </p>
         </header>
         <Separator />
@@ -35,7 +34,7 @@ export default function FoundationRebarPage() {
           <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
             <iframe
               className="w-full h-full"
-              src="https://www.youtube.com/embed/g9XG6INd6dI?si=XhoZXug7gUWxbhBL"
+              src="https://www.youtube.com/embed/no7pF9Wb_zM?si=y4QVgVUGChpyMGjG"
               title="Download and Installation Small BIM PRO"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
