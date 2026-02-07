@@ -106,6 +106,7 @@ export const NAV: NavCategory[] = [
       { title: "BOQ", href: "/docs/boq-tools/boq" },
       { title: "Select to BOQ", href: "/docs/boq-tools/select-to-boq" },
       { title: "Model Data Management", href: "/docs/boq-tools/model-data-management" },
+      { title: "Project Specification", href: "/docs/boq-tools/project-specification" },
     ],
   },
 
@@ -139,13 +140,16 @@ export const NAV: NavCategory[] = [
       { title: "Grid Dimension (Plan)", href: "/docs/drawing-tools/grid-dimension-plan" },
       { title: "Grid Dimension (Elevation/Section)", href: "/docs/drawing-tools/grid-dimension-elevation-section" },
       { title: "Level Dimension (Elevation/Section)", href: "/docs/drawing-tools/level-dimension-elevation-section" },
-      { title: "Tag All Columns", href: "/docs/modeling-tools/tag-all-columns" },
-      { title: "Column Dimensions", href: "/docs/modeling-tools/column-dimensions" },  
+      { title: "Column Dimensions", href: "/docs/drawing-tools/column-dimensions" },
+      { title: "Foundation Dimensions", href: "/docs/drawing-tools/foundation-dimensions" },
+      { title: "Structural Tags", href: "/docs/drawing-tools/structural-tags" },
       { title: "Element Tags (Plan)", href: "/docs/drawing-tools/element-tags-plan" },
-      { title: "Element Tags (Elevation/Section)", href: "/docs/drawing-tools/element-tags-elevation-section" },
+      { title: "Element Tags (Elevation/Section)", href: "/docs/drawing-tools/element-tags-elevation-section" },   
       { title: "Legend Component Views", href: "/docs/drawing-tools/legend-component-view" },
       { title: "Specification Lists", href: "/docs/drawing-tools/specification-lists" },
-      
+      { title: "Cutting Optimizer", href: "/docs/drawing-tools/cutting-optimizer" },
+      { title: "Sheet Cutting Optimizer", href: "/docs/drawing-tools/sheet-cutting-optimizer" },
+      { title: "VG Override", href: "/docs/drawing-tools/vg-override" },
     ],
   },
 
