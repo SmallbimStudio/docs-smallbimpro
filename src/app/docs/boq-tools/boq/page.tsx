@@ -96,6 +96,20 @@ export default function BoqCommandGuidePage() {
           <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
             <iframe
               className="w-full h-full"
+              src="https://www.youtube.com/embed/C3qMpjYY54s?si=bt0r9ro5lGN3UIK0"
+              title="Download and Installation Small BIM PRO"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
+
+        {/* ===== VIDEO ===== */}
+        <section className="text-center space-y-6">
+          <div className="max-w-8xl mx-auto rounded-xl overflow-hidden shadow-lg aspect-video">
+            <iframe
+              className="w-full h-full"
               src="https://www.youtube.com/embed/2g3m-TkSWWk"
               title="Download and Installation Small BIM PRO"
               frameBorder="0"
