@@ -34,6 +34,28 @@ export const ROADMAP: RoadmapItem[] = [
     date: "2026-02-06",
     order: 10,
   },
+  {
+    id:"v202-boq-export-to-pdf-without-data-structure",
+    title: "BOQ - Export to PDF without Data Structure",
+    description:
+      "ตรวจสอบการใช้งานคำสั่ง Export BOQ ไปยัง PDF โดยไม่ต้องมีโครงสร้างข้อมูลที่ซับซ้อน ตอนนี้เจอปัญหาบางอย่างที่ต้องแก้ไข คือต้องใช้งาน Load Data Structure ก่อนถึงจะ Export ได้",
+    status: "in_progress",
+    tags: ["BOQ", "Export"],
+    version: "v2.0.2",
+    date: "2026-02-06",
+    order: 20,
+  },
+  {
+    id:"v202-foundation-rebar-improvement",
+    title: "Foundation Rebar - Improvement",
+    description:
+      "ตรวจสอบและปรับปรุงคำสั่ง Foundation Rebar เพื่อให้สามารถสร้างเส้นเหล็กในพื้นฐานได้อย่างแม่นยำและรวดเร็ว ตอนนี้เจอปัญหาบางอย่างที่ต้องแก้ไข",
+    status: "in_progress",
+    tags: ["Foundation Rebar", "Improvement"],
+    version: "v2.0.2",
+    date: "2026-02-06",
+    order: 30,
+  },
 
   // =====================================================================================
   // PLANNED (v2.1.0)
